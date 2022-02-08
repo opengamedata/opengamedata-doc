@@ -25,7 +25,7 @@ In order to add a new game to the feature extraction tool, complete the followin
 
 ## Steps to add the Game
 
-### 1. First, we must define some things about the data we are extracting.
+### 1. First, we must define some things about the data we are extracting
 
 We do this in a JSON file, under the **games/<GAME_ID>** folder.
 The name of the JSON file should be the same as the game ID used in the database, by convention in all-caps.  
@@ -130,7 +130,7 @@ A sample `_loadFeature` is shown below:
         return ret_val
 ```
 
-### 3. Next, we need to ensure ExportManager knows what the possible games are.
+### 3. Next, we need to ensure ExportManager knows what the possible games are
 
 ExportManager is the class responsible for, well, managing exports.
 This is where we will register the existence of our new game's feature extractor.
@@ -141,6 +141,6 @@ Go to the `_prepareExtractor` function in ExportManager.py, and add a case to th
         game_extractor = WaveExtractor
 ```
 
-### 4. Lastly, you need to ensure you've implemented all of your game Feature classes.
+### 4. Lastly, you need to ensure you've implemented all of your game Feature classes
 
 For this, see Adding_a_Feature.md.
