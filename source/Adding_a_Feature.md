@@ -1,4 +1,5 @@
 # Adding a Feature
+
 In order to add a new feature for a game, you must complete the following steps:
 
 1. **Code a feature extractor**
@@ -70,6 +71,7 @@ Open up the `<GameName>Extractor.py` file, and look for the `_loadFeature` funct
     The final step is to adjust the configuration for the game, so that the system will include the Feature when performing data exports.
     Here, you will need to open `<ogd-core-root>/games/<GAME_NAME>/<GAME_NAME>.json`.
     This file will have the following layout:
+
     ```json
     {
         "level_range": { 
