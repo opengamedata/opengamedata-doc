@@ -1,26 +1,31 @@
-# Adding a new game data exporter/extractor:
+# Adding a Game
+
+## Terminology
 
 First, a bit of terminology:
-- **feature**:
+
+- **feature**:  
     Some piece of *data*, useful for analysis, that we can observe from gameplay event logs, **and/or** the code that extracts the observation from event logs.
     For example, a feature could be as simple as a boolean representing "player started level 1."
     On the other hand, a feature could be very complex, such as a string encoding the entire sequence of a gameplay session.
     In OpenGameData, we write implementations of an abstract `Feature` class, where each implementation calculates one feature given event logs as input.  
     Features may be calculated at varying levels, described in the following definitions:
-- **per-session feature**: 
+- **per-session feature**:  
     A feature that records data across an entire gameplay session.
 - **per-custom-count feature**:
     A feature that records data about something that may have multiple instances over a gameplay session.
-    This could include levels (i.e. a feature may be "clicks in the level", and there are 20 levels), survey prompts, in-game quizzes, etc.
-- **per-level feature**:
+    This could include levels (i.e. a feature may be "clicks in the level", and there are 20 levels), survey prompts, in-game quizzes, etc.  
+- **per-level feature**:  
     A per-custom-count feature that records data specifically about each level in a game.
-    This is a sort of "informal" feature in OpenGameData - there are special features available to make Feature development easier for games that include a notion of "level," but these features are optional. 
-- **population feature**:
-    A feature that records data across many sessions of gameplay.
+    This is a sort of "informal" feature in OpenGameData - there are special features available to make Feature development easier for games that include a notion of "level," but these features are optional.  
+- **population feature**:  
+    A feature that records data across many sessions of gameplay.  
 
 In order to add a new game to the feature extraction tool, complete the following steps:
 
-## 1. First, we must define some things about the data we are extracting.
+## Steps to add the Game
+
+### 1. First, we must define some things about the data we are extracting.
 
 We do this in a JSON file, under the **games/<GAME_ID>** folder.
 The name of the JSON file should be the same as the game ID used in the database, by convention in all-caps.  
@@ -32,15 +37,15 @@ A JSON schema file has three elements:
     This element should be a dictionary mapping names of events to sub-dictionaries defining the data in the events.
 
 - `features`:
-    A description of what features OGD should produce, given the events described above.
-    This element should in turn contain two sub-elements:
-    <!-- - `per_level`: This sub-element should be a dictionary mapping the names of per-level features to descriptions of how the features are calculated/used. -->
-    - `aggregate`: This sub-element should be a dictionary mapping the names of features aggregated over a whole session to descriptions of how the features are calculated/used.
-    <!-- - `per_game`: This sub-element should be a dictionary mapping the names of per-game features to descriptions of how the features are calculated/used. -->
-    - `per_custom_count`: This sub-element should be a dictionary mapping the names of features which are repeated for some specific number of times to a subdictionary. This, again, has three elements:
-        - `count`: The number of times the feature is repeated
-        - `prefix`: A prefix to use to distinguish repeats of the feature in the output file
-        - `desc`: A description of how the feature is calculated
+  A description of what features OGD should produce, given the events described above.
+  This element should in turn contain two sub-elements:
+  <!-- - `per_level`: This sub-element should be a dictionary mapping the names of per-level features to descriptions of how the features are calculated/used. -->
+  - `aggregate`: This sub-element should be a dictionary mapping the names of features aggregated over a whole session to descriptions of how the features are calculated/used.
+  <!-- - `per_game`: This sub-element should be a dictionary mapping the names of per-game features to descriptions of how the features are calculated/used. -->
+  - `per_custom_count`: This sub-element should be a dictionary mapping the names of features which are repeated for some specific number of times to a subdictionary. This, again, has three elements:
+    - `count`: The number of times the feature is repeated
+    - `prefix`: A prefix to use to distinguish repeats of the feature in the output file
+    - `desc`: A description of how the feature is calculated
 
 - `level_range` (optional):
     You may optionally add the `level_range` element to your JSON schema, which must be a sub-dictionary with `min` and `max` as its elements.
@@ -86,7 +91,7 @@ Below is a sample of JSON schema formatting:
 }
 ```
 
-## 2. Next, we need to create the feature extractor.
+### 2. Next, we need to create the feature extractor
 
 This will be a Python class inheriting from the `Extractor` base class.
 By convention, the class should use the database app_id as a prefix for the class name, but use CamelCase (even if the app_id is not formatted as such).  
@@ -125,7 +130,7 @@ A sample `_loadFeature` is shown below:
         return ret_val
 ```
 
-## 3. Next, we need to ensure ExportManager knows what the possible games are.
+### 3. Next, we need to ensure ExportManager knows what the possible games are.
 
 ExportManager is the class responsible for, well, managing exports.
 This is where we will register the existence of our new game's feature extractor.
@@ -136,5 +141,6 @@ Go to the `_prepareExtractor` function in ExportManager.py, and add a case to th
         game_extractor = WaveExtractor
 ```
 
-## 4. Lastly, you need to ensure you've implemented all of your game Feature classes.
+### 4. Lastly, you need to ensure you've implemented all of your game Feature classes.
+
 For this, see Adding_a_Feature.md.

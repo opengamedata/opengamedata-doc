@@ -1,3 +1,4 @@
+# Adding a Feature
 In order to add a new feature for a game, you must complete the following steps:
 
 1. **Code a feature extractor**

@@ -10,7 +10,14 @@ Welcome to OpenGameData's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   Adding_a_Database.md
+   Adding_a_Game.md
+   Adding_a_Feature.md
+   Adding_a_Realtime_Model.md
+   Architecture.md
+   extractors
+   extractors.legacy
+   managers
 
 Indices and tables
 ==================

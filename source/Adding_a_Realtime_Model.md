@@ -1,4 +1,4 @@
-## Adding a new realtime model for the dashboard project:
+# Adding a Realtime model
 
 First, a bit of terminology:
 - **event**: A record of some game event, stored as a single row in the database.
