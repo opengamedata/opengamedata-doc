@@ -15,7 +15,7 @@ Submodules
 extractors.FeatureRegistry module
 ---------------------------------
 
-.. automodule:: extractors.FeatureRegistry
+.. autoclass:: extractors.FeatureRegistry
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ extractors.FeatureRegistry module
 extractors.FeatureLoader module
 -------------------------------
 
-.. automodule:: extractors.FeatureLoader
+.. autoclass:: extractors.FeatureLoader
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ extractors.FeatureLoader module
 extractors.Extractor module
 ---------------------------
 
-.. automodule:: extractors.Extractor
+.. autoclass:: extractors.Extractor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ extractors.Extractor module
 extractors.SessionExtractor module
 ----------------------------------
 
-.. automodule:: extractors.SessionExtractor
+.. autoclass:: extractors.SessionExtractor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -47,7 +47,7 @@ extractors.SessionExtractor module
 extractors.PlayerExtractor module
 ---------------------------------
 
-.. automodule:: extractors.PlayerExtractor
+.. autoclass:: extractors.PlayerExtractor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -55,7 +55,7 @@ extractors.PlayerExtractor module
 extractors.PopulationExtractor module
 -------------------------------------
 
-.. automodule:: extractors.PopulationExtractor
+.. autoclass:: extractors.PopulationExtractor
    :members:
    :undoc-members:
    :show-inheritance:

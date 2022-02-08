@@ -7,7 +7,7 @@ Submodules
 extractors.legacy.LegacyFeature module
 --------------------------------------
 
-.. automodule:: extractors.legacy.LegacyFeature
+.. autoclass:: extractors.legacy.LegacyFeature
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ extractors.legacy.LegacyFeature module
 extractors.legacy.LegacyLoader module
 -------------------------------------
 
-.. automodule:: extractors.legacy.LegacyLoader
+.. autoclass:: extractors.legacy.LegacyLoader
    :members:
    :undoc-members:
    :show-inheritance:

@@ -15,9 +15,7 @@ Welcome to OpenGameData's documentation!
    Adding_a_Feature.md
    Adding_a_Realtime_Model.md
    Architecture.md
-   extractors
-   extractors.legacy
-   managers
+   modules
 
 Indices and tables
 ==================
