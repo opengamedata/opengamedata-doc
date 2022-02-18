@@ -30,22 +30,21 @@ Do not change the parameters of the other functions, as they are implementing ab
 Next, you need to ensure your new feature is included when the top-level Extractor class imports the `extractors` folder.
 Open the `<ogd-core-root>/games/<GAME_NAME>/extractors/__init__.py` file, which should look something like this:
 
-    ```python
-    __all__ = [
-        "AverageLevelTime",
-        "LevelCompletionTime",
-        "SessionDuration",
-        "SessionID",
-    ]
+```python
+__all__ = [
+    "AverageLevelTime",
+    "LevelCompletionTime",
+    "SessionDuration",
+    "SessionID",
+]
 
-    from . import AverageLevelTime
-    from . import LevelCompletionTime
-    from . import SessionDuration
-    from . import SessionID
+from . import AverageLevelTime
+from . import LevelCompletionTime
+from . import SessionDuration
+from . import SessionID
+```
 
-    ```
-
-    Add the name of your feature class to the `__all__` list, and add the `import` for your feature class in the list of imports below.
+Add the name of your feature class to the `__all__` list, and add the `import` for your feature class in the list of imports below.
 
 ## **Register feature in the top-level Extractor**
 
@@ -54,22 +53,21 @@ This will be done in the `<ogd-core-root>/games/<GAME_NAME>/<GameName>Extractor.
 (as an aside, note that the convention is to name the `<GAME_NAME>` folder with ALL CAPS, while the naming convention for Extractor classes is to use PascalCase).
 Open up the `<GameName>Extractor.py` file, and look for the `_loadFeature` function, whose body should look something like this:
 
-    ```python
-    def _loadFeature(self, feature_type:str, name:str, feature_args:Dict[str,Any], count_index:Union[int,None] = None) -> Feature:
-        ret_val : Feature
-        if feature_type == "AverageLevelTime":
-            ret_val = AverageLevelTime.AverageLevelTime(name, feature_args["description"])
-        elif feature_type == "LevelCompletionTime":
-            ret_val = LevelCompletionTime.LevelCompletionTime(name, feature_args["description"], count_index)
-        elif feature_type == "SessionDuration":
-            ret_val = SessionDuration.SessionDuration(name, feature_args["description"])
-        elif feature_type == "SessionID":
-            ret_val = SessionID.SessionID(name, feature_args["description"], self._session_id)
-        else:
-            raise NotImplementedError(f"'{feature_type}' is not a valid feature for Aqualab.")
-        return ret_val
-
-    ```
+```python
+def _loadFeature(self, feature_type:str, name:str, feature_args:Dict[str,Any], count_index:Union[int,None] = None) -> Feature:
+    ret_val : Feature
+    if feature_type == "AverageLevelTime":
+        ret_val = AverageLevelTime.AverageLevelTime(name, feature_args["description"])
+    elif feature_type == "LevelCompletionTime":
+        ret_val = LevelCompletionTime.LevelCompletionTime(name, feature_args["description"], count_index)
+    elif feature_type == "SessionDuration":
+        ret_val = SessionDuration.SessionDuration(name, feature_args["description"])
+    elif feature_type == "SessionID":
+        ret_val = SessionID.SessionID(name, feature_args["description"], self._session_id)
+    else:
+        raise NotImplementedError(f"'{feature_type}' is not a valid feature for Aqualab.")
+    return ret_val
+```
 
     Add a case for your new Feature class, checking if `feature_type` matches the name of your Feature class (more specifically, you're checking if it matches the name you give your feature in the configuration file in step 4, but using the name of the Feature class is a *strongly recommended* convention).
     Within this case, set the `ret_val` to a new instance of your Feature, passing in whatever parameters you added to your `__init__` function.
@@ -144,11 +142,11 @@ If desired, you can add extra elements to the sub-dictionary for use as paramete
 For example, if you would like to parameterize a feature to use either the mean or median as a measure of center, you could add the following to your `aggregate` dictionary:
 
 ```json
-  "TypicalLevelTime" : {
-      "enabled" : true,
-      "center" : "median",
-      "description" : "Calculates either the player's average or median level time, depending on the parameter"
-  }
+"TypicalLevelTime" : {
+    "enabled" : true,
+    "center" : "median",
+    "description" : "Calculates either the player's average or median level time, depending on the parameter"
+}
 ```
 
 You would then have access to the parameter in step 3 (adding the feature to `_loadFeature`) as an element of `feature_args`.
