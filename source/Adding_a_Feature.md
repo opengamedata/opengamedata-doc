@@ -69,9 +69,9 @@ def _loadFeature(self, feature_type:str, name:str, feature_args:Dict[str,Any], c
     return ret_val
 ```
 
-    Add a case for your new Feature class, checking if `feature_type` matches the name of your Feature class (more specifically, you're checking if it matches the name you give your feature in the configuration file in step 4, but using the name of the Feature class is a *strongly recommended* convention).
-    Within this case, set the `ret_val` to a new instance of your Feature, passing in whatever parameters you added to your `__init__` function.
-    Note that any parameters you add to `__init__` must be for data the top-level Extractor class can access and pass to the constructor.
+Add a case for your new Feature class, checking if `feature_type` matches the name of your Feature class (more specifically, you're checking if it matches the name you give your feature in the configuration file in step 4, but using the name of the Feature class is a *strongly recommended* convention).
+Within this case, set the `ret_val` to a new instance of your Feature, passing in whatever parameters you added to your `__init__` function.
+Note that any parameters you add to `__init__` must be for data the top-level Extractor class can access and pass to the constructor.
 
 ## **Add feature configuration to the game's schema**
 
