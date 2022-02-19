@@ -21,8 +21,8 @@ The name of the JSON file should be the same as the game ID used in the database
 A JSON schema file has three elements:
 
 - `events`:
-    A description of the event-specific data encoded in each database row.
-    This element should be a dictionary mapping names of events to sub-dictionaries defining the data in the events.
+  A description of the event-specific data encoded in each database row.
+  This element should be a dictionary mapping names of events to sub-dictionaries defining the data in the events.
 
 - `features`:
   A description of what features OGD should produce, given the events described above.
@@ -36,8 +36,8 @@ A JSON schema file has three elements:
     - `desc`: A description of how the feature is calculated
 
 - `level_range` (optional):
-    You may optionally add the `level_range` element to your JSON schema, which must be a sub-dictionary with `min` and `max` as its elements.
-    If you do so, you can then use `level_range` as the `count` for a per-count feature (more information in the "Adding a Feature" doc).
+  You may optionally add the `level_range` element to your JSON schema, which must be a sub-dictionary with `min` and `max` as its elements.
+  If you do so, you can then use `level_range` as the `count` for a per-count feature (more information in the "Adding a Feature" doc).
 
 Below is a sample of JSON schema formatting:
 
