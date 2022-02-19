@@ -1,4 +1,5 @@
 # Glossary
+
 This page contains some important terminology for OpenGameData.
 Refer here if you are uncertain what a particular term means.
 
@@ -11,6 +12,7 @@ Refer here if you are uncertain what a particular term means.
     The code that extracts a "feature" from event logs.  
 
 Features may be calculated at varying levels of analysis, described in the following definitions:
+
 - **per-session feature**:  
     A feature that is calculated for an entire gameplay session.
 - **per-custom-count feature**:  
