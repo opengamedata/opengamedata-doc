@@ -4,6 +4,9 @@
 
 First, a list of terminology you should be familiar with (see Glossary page if you're unfamiliar with any of these):
 
+- **Event**
+- **Feature**
+
 ## Steps to add the Game
 
 In order to add a new game to the feature extraction tool, complete the following steps:
