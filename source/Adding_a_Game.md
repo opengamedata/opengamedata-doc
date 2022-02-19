@@ -134,4 +134,28 @@ Go to the `_prepareExtractor()` function in ExportManager.py, and add a case to 
 ### 4. Implement Features
 
 Lastly, you need to implement all of your game Feature classes.  
-To do this, see the "**Adding a Feature**" page.
+Each of your Feature subclasses should go in the **games/<GAME_ID>/extractors** folder.
+For more details on how to write your features, see the "**Adding a Feature**" page.
+
+### 5. Set up Game Package
+
+In order to ensure all of your Features get imported in the correct places, we want to treat your game's folder as a Python package/module.
+To do this, you should create an `__init__.py` file inside the **games/<GAME_ID>/extractors** folder.  
+Inside this file, you should create a list named `__all__`, and put the names of all your Feature subclasses as strings in the list.
+Then, write individual import statments for each Feature subclass.
+
+An example is shown below:
+
+```python
+__all__ = [
+    "AverageLevelTime",
+    "LevelCompletionTime",
+    "SessionDuration",
+    "SessionID",
+]
+
+from . import AverageLevelTime
+from . import LevelCompletionTime
+from . import SessionDuration
+from . import SessionID
+```
