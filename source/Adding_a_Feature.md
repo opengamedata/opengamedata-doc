@@ -6,16 +6,22 @@ In order to add a new feature for a game, you must complete the following steps:
 
 In this step, you need to write the individual feature extractor.
 This should be a python file, placed in the `<ogd-core-root>/games/<GAME_NAME>/extractors` folder, which inherits from the Feature class.
-At minimum, you must create an `__init__(...)` function, and implement the `GetEventTypes(self)`, `CalculateFinalValues(self)`, and `_extractFromEvent(self, event)` functions.  
+At minimum, you must create an `__init__(...)` function, and implement the functions listed below.  
 You are free to add whatever `__init__` parameters you like, but you should at minimum include parameters to map to `name`, `description`, and `count_index` when calling the superclass constructor.
 Do not change the parameters of the other functions, as they are implementing abstract functions of the base class.  
 
-- `GetEventTypes(self) -> List[str]` should simply return a list of the names of the events your Feature would like to analyze.  
+- `__init__(self, name:str, description:str, count_index:int, ...)`  
+  At minimum, `__init__` should pass the `name`, `description`, and `count_index` parameters along to the superclass constructor.  
+  You can add whatever additional parameters you like, if you need your Feature to have additional data at start time.
+- `GetEventTypes(self) -> List[str]`  
+  This should simply return a list of the names of the events your Feature would like to analyze.  
   *For example*, a feature to calculate the time spent on a level should request the game's "start level" and "end level" events.  
-- `_extractFromEvent(self, event:Event)` will run once on each occurrence of an event whose type is requested in `GetEventTypes`.
+- `_extractFromEvent(self, event:Event)`  
+  This will run once on each occurrence of an event whose type is requested in `GetEventTypes`.
   This function is where you will tabulate whatever data you need from individual events.  
   *For example*, a feature to calculate the number of times a player clicked a button would create a "count" variable in its `__init__` function, and increment that variable here.
-- `GetFeatureValues(self) -> List[Any]` should return a list containing whatever the "metric" or *value* of the Feature is, given whatever events have been seen so far.  
+- `GetFeatureValues(self) -> List[Any]`  
+  This should return a list containing whatever the "metric" or *value* of the Feature is, given whatever events have been seen so far.  
   *For example*, a feature to calculate the average number of moves a player made per level would:  
   1. add up all moves (as recorded with `_extractFromEvent`)  
   2. count the number of levels started (as recorded with `_extractFromEvent`)  
@@ -23,7 +29,7 @@ Do not change the parameters of the other functions, as they are implementing ab
   4. return a list containing the calculated average.  
 
   For a basic feature, there should only be one object in the returned list, although that one object could contain many elements.
-  For cases where you place multiple objects into the returned list, see the "**Subfeatures**" section under "**Optional Feature features**."  
+  For cases where you place multiple objects into the returned list, see the "**Subfeatures**" section under "**Optional features for your Features**."  
 
 ## **Add feature to extractors package**
 
@@ -171,7 +177,7 @@ When browsing columns in a spreadsheet of Feature values, it becomes much easier
 
 As with "aggregate" features, "per-count" features can have additional elements in their sub-dictionaries, which can then be accessed for use as parameters in the `feature_args` variable in `_loadFeature`.
 
-## Optional Feature features
+## Optional features for your Features
 
 The preceding sections discussed the minimum requirements for creating a Feature subclass.
 However, there are additional features (lower-case 'f', meaning *features* as in "things a system can do") available to you when programming your Feature:  
