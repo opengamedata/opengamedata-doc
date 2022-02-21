@@ -12,11 +12,12 @@ Welcome to OpenGameData's documentation!
 
    Installation.md
    Getting_Started.md
+   Architecture.md
    Adding_a_Database.md
    Adding_a_Game.md
    Adding_a_Feature.md
    Adding_a_Realtime_Model.md
-   Architecture.md
+   Glossary.md
    modules
 
 Indices and tables
