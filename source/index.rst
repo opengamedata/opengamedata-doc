@@ -10,6 +10,8 @@ OpenGameData documentation
    :maxdepth: 2
    :caption: Contents:
 
+   Installation.md
+   Getting_Started.md
    Architecture.md
    Adding_a_Database.md
    Adding_a_Game.md
