@@ -20,10 +20,10 @@ managers.ExportManager module
    :undoc-members:
    :show-inheritance:
 
-managers.ExtractorManager module
+managers.FeatureManager module
 --------------------------------
 
-.. automodule:: managers.ExtractorManager
+.. automodule:: managers.FeatureManager
    :members:
    :undoc-members:
    :show-inheritance:
