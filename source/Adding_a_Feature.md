@@ -5,7 +5,7 @@ In order to add a new feature for a game, you must complete the following steps:
 ## **Code a feature extractor**
 
 In this step, you need to write the individual feature extractor.
-This should be a python file, placed in the `<ogd-core-root>/games/<GAME_NAME>/extractors` folder, which inherits from the Feature class.
+This should be a python file, placed in the `<ogd-core-root>/games/<GAME_NAME>/features` folder, which inherits from the Feature class.
 At minimum, you must create an `__init__(...)` function, and implement the functions listed below.  
 You are free to add whatever `__init__` parameters you like, but you should at minimum include parameters to map to `name`, `description`, and `count_index` when calling the superclass constructor.
 Do not change the parameters of the other functions, as they are implementing abstract functions of the base class.  
