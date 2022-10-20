@@ -31,10 +31,10 @@ Do not change the parameters of the other functions, as they are implementing ab
   For a basic feature, there should only be one object in the returned list, although that one object could contain many elements.
   For cases where you place multiple objects into the returned list, see the "**Subfeatures**" section under "**Optional features for your Features**."  
 
-## **Add feature to extractors package**
+## **Add feature to features package**
 
-Next, you need to ensure your new feature is included when the top-level Extractor class imports the `extractors` folder.
-Open the `<ogd-core-root>/games/<GAME_NAME>/extractors/__init__.py` file, which should look something like this:
+Next, you need to ensure your new feature is included when the game's Loader class imports the `features` folder.
+Open the `<ogd-core-root>/games/<GAME_NAME>/features/__init__.py` file, which should look something like this:
 
 ```python
 __all__ = [
@@ -52,12 +52,12 @@ from . import SessionID
 
 Add the name of your feature class to the `__all__` list, and add the `import` for your feature class in the list of imports below.
 
-## **Register feature in the top-level Extractor**
+## **Register feature in the game's Loader**
 
 Now, we must ensure your game's Extractor class knows how to load actual instances of your Feature.
-This will be done in the `<ogd-core-root>/games/<GAME_NAME>/<GameName>Extractor.py` file
+This will be done in the `<ogd-core-root>/games/<GAME_NAME>/<GameName>Loader.py` file
 (as an aside, note that the convention is to name the `<GAME_NAME>` folder with ALL CAPS, while the naming convention for Extractor classes is to use PascalCase).
-Open up the `<GameName>Extractor.py` file, and look for the `_loadFeature` function, whose body should look something like this:
+Open up the `<GameName>Loader.py` file, and look for the `_loadFeature` function, whose body should look something like this:
 
 ```python
 def _loadFeature(self, feature_type:str, name:str, feature_args:Dict[str,Any], count_index:Union[int,None] = None) -> Feature:
@@ -138,11 +138,11 @@ There are two fundamental kinds of features:
 
 - "aggregate" features, which will have one instance per gameplay session (e.g. the overall duration of a session).
 These are also called "session" features.  
-- "per-count" features, which will have a defined number of instances for each session (e.g. the time spent individually on each level, or responses to each of four pre-game survey questions).
+- "per-count" features, which will have a custom number of instances for each session (e.g. the time spent individually on each level, or responses to each of four pre-game survey questions).
 
 If your Feature is meant to function as an "aggregate" feature, you will add it to the `aggregate` dictionary.
 Each item maps the name of the Feature to a sub-dictionary.
-We **strongly** recommend using the name of your `Feature` subclass (as created in step 1) as the name here, although technically you may use any name you want.  
+Generally, we recommend using the name of your `Feature` subclass (as created in step 1) as the name here, although technically you may use any name you want.  
 The sub-dictionary for your Feature needs two elements: "enabled" and "description," where "enabled" is a boolean telling the system whether to use this Feature, and "description" is a human-readable description of what the Feature calculates.
 If desired, you can add extra elements to the sub-dictionary for use as parameters of your Feature.
 For example, if you would like to parameterize a feature to use either the mean or median as a measure of center, you could add the following to your `aggregate` dictionary:
