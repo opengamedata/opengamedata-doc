@@ -14,10 +14,7 @@ OpenGameData documentation
    howto/Installation.md
    Coding_Conventions.md
    Architecture.md
-   howto/Adding_a_Database.md
-   howto/Adding_a_Game.md
-   howto/Adding_a_Feature.md
-   howto/Adding_a_Realtime_Model.md
+   howto/howto.rst
    Glossary.md
    modules
 
