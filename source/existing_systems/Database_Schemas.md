@@ -53,7 +53,7 @@ The Logger database (named `logger` in MySQL, no upper-case letters) contains a 
 It has the following schema:
 
 | Column Name           | Column Type     | Nullable |
-| ------------------ | ------------------ | -------- |
+| --------------------- | ------------------ | -------- |
 | id                    | int(32)         | NO       |
 | app_id                | varchar(32)     | NO       |
 | app_id_fast           | enum('UNDEFINED','WAVES','CRYSTAL','JOWILDER','LAKELAND')      | NO   |
