@@ -13,8 +13,9 @@ OpenGameData documentation
    Getting_Started.md
    howto/Installation.md
    Coding_Conventions.md
-   Architecture.md
+   Code_Organization.md
    howto/howto.rst
+   existing_systems/existing_systems.rst
    Glossary.md
    modules
 
