@@ -122,7 +122,7 @@ Within this case, set the `ret_val` to a new instance of your Feature, passing i
 Note that any parameters you add to `__init__` must:
 
 - Take arguments available to the Loader class, such as `id` in the `SessionID` case for the example above, or
-- Take arguments from the schema_args, which are defined in the config in 
+- Take arguments from the schema_args, which are defined in the config item in `<GAME_NAME>.json` (see step 4).
 
 ## **4. Add feature configuration to the game's schema**
 
