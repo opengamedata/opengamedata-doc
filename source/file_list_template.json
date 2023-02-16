@@ -1,0 +1,83 @@
+{
+  "CONFIG": {
+    "files_base": {
+      "type": "str",
+      "description": "NEW: A base URL up to the folder containing the data files. This can be concatenated with the paths for individual data files below to obtain a full URL.",
+      "example": "https://fieldday-web.ad.education.wisc.edu/opengamedata/"
+    },
+    "templates_base": {
+      "type": "str",
+      "description": "NEW: A base URL up to the folder containing data file templates. This can be concatenated with the paths for individual templates to obtain a full URL.",
+      "example": "https://github.com/opengamedata/opengamedata-templates/"
+    }
+  },
+  "GAME_NAME": {
+    "GAME_NAME_YYYYMMDD_to_YYYYMMDD": {
+      "start_date": {
+        "type": "str",
+        "description": "A human-readable (US) date string for the start of the file range, in MM/DD/YYYY format.",
+        "example": "01/01/2023"
+      },
+      "end_date": {
+        "type": "str",
+        "description": "A human-readable (US) date string for the end of the file range, in MM/DD/YYYY format.",
+        "example": "01/31/2023"
+      },
+      "date_modified": {
+        "type": "str",
+        "description": "A human-readable (US) date string for the last time the data in this set was modified, in MM/DD/YYYY format. This may change if old data is re-exported with new feature extractors, for example.",
+        "example": "02/02/2023"
+      },
+      "ogd_revision": {
+        "type": "str",
+        "description": "The Git short hash for the commit version of opengamedata-core that produced the data set.",
+        "example": "abcdef1"
+      },
+      "sessions": {
+        "type": "int",
+        "description": "The number of sessions included in this dataset",
+        "example": "02/02/2023"
+      },
+      "events_file": {
+        "type": "str | null",
+        "description": "A path to the zip file containing the *event* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include an event file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_events.zip"
+      },
+      "sessions_file": {
+        "type": "str | null",
+        "description": "A path to the zip file containing the *session* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include a session file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_session-features.zip"
+      },
+      "players_file": {
+        "type": "str | null",
+        "description": "A path to the zip file containing the *player* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include a player file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_player-features.zip"
+      },
+      "population_file": {
+        "type": "str | null",
+        "description": "A path to the zip file containing the *population* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include a population file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_population-features.zip"
+      },
+      "raw_file": {
+        "type": "str | null",
+        "description": "Legacy element that may appear in some older index items. We no longer produce 'raw' files, and this element can be ignored",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_raw.zip"
+      },
+      "sessions_template": {
+        "type": "str | null",
+        "description": "NEW: A path to the ipynb file template for the *session* data file. It can be concatenated with CONFIG.templates_base to obtain a full URL. Null if this dataset does not include as session file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_session-features.zip"
+      },
+      "players_template": {
+        "type": "str | null",
+        "description": "NEW: A path to the ipynb file template for the *player* data file. It can be concatenated with CONFIG.templates_base to obtain a full URL. Null if this dataset does not include as player file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_player-features.zip"
+      },
+      "population_template": {
+        "type": "str | null",
+        "description": "NEW: A path to the ipynb file template for the *population* data file. It can be concatenated with CONFIG.templates_base to obtain a full URL. Null if this dataset does not include as population file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_population-features.zip"
+      }
+    }
+  }
+}
