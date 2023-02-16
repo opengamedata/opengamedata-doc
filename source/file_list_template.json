@@ -66,17 +66,17 @@
       "sessions_template": {
         "type": "str | null",
         "description": "NEW: A path to the ipynb file template for the *session* data file. It can be concatenated with CONFIG.templates_base to obtain a full URL. Null if this dataset does not include as session file.",
-        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_session-features.zip"
+        "example": "templates/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_session-features.ipynb"
       },
       "players_template": {
         "type": "str | null",
         "description": "NEW: A path to the ipynb file template for the *player* data file. It can be concatenated with CONFIG.templates_base to obtain a full URL. Null if this dataset does not include as player file.",
-        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_player-features.zip"
+        "example": "templates/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_player-features.ipynb"
       },
       "population_template": {
         "type": "str | null",
         "description": "NEW: A path to the ipynb file template for the *population* data file. It can be concatenated with CONFIG.templates_base to obtain a full URL. Null if this dataset does not include as population file.",
-        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_population-features.zip"
+        "example": "templates/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_population-features.ipynb"
       }
     }
   }
