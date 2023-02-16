@@ -36,7 +36,7 @@
       "sessions": {
         "type": "int",
         "description": "The number of sessions included in this dataset",
-        "example": "02/02/2023"
+        "example": "123"
       },
       "events_file": {
         "type": "str | null",
