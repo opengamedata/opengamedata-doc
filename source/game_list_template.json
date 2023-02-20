@@ -1,0 +1,89 @@
+{
+    "GAME_NAME": {
+        "game_name": {
+            "type": "str",
+            "description": "A human-readable string, intended for display (as opposed to the object key GAME_NAME, which is not ideal for display).",
+            "example": "Jo Wilder and the Capitol Case"
+        },
+        "game_description": {
+            "type": "str",
+            "description": "A string giving a general description of the game",
+            "example": "This award-winning game turns kids into history detectives! In this point-and-click adventure, players use the methods of real historians to uncover the story behind each mystery artifact."
+        },
+        "target_audience": {
+            "type": "str",
+            "description": "The intended audience/grade levels for players of the game",
+            "example": "Grades 3-5"
+        },
+        "subject": {
+            "type": "str",
+            "description": "The name of the subject matter for the game.",
+            "example": "History"
+        },
+        "developers": [
+            {
+                "name": {
+                    "type": "str",
+                    "description": "A human-readable name for the developer, or development partner",
+                    "example": "PBS Wisconsin"
+                },
+                "link": {
+                    "type": "str",
+                    "description": "A link to the developer or development partner's website",
+                    "example": "https://pbswisconsineducation.org/"
+                }
+            }
+        ],
+        "play_link": {
+            "type": "str",
+            "description": "A URL to the game's 'play' page",
+            "example": "https://pbswisconsineducation.org/jowilder/play-the-game/"
+        },
+        "source_link": {
+            "type": "str | null",
+            "description": "A URL game source code. null if the developer(s) did not make source code available",
+            "example": "https://github.com/fielddaylab/jo_wilder"
+        },
+        "thumbnail_path" : {
+            "type": "str",
+            "description": "A relative path pointing to the thumbnail for the game.",
+            "example": "./assets/jowilder-thumb.jpg"
+        },
+        "event_readme_link": {
+            "type": "str",
+            "description": "A URL to a readme describing the game's event logging data.",
+            "example": "https://github.com/fielddaylab/jo_wilder/blob/master/README.md"
+        },
+        "feature_readme_link": {
+            "type": "str",
+            "description": "A URL to a readme describing the feature data included in the game's session, player, and population data files.",
+            "example": "https://opengamedata.fielddaylab.wisc.edu/data/JOWILDER/readme.md"
+        },
+        "studies": [
+            {
+                "name": {
+                    "type": "str",
+                    "description": "A human-readable name for the study",
+                    "example": "Exploring players' experience of humor and snark in a grade 3-6 history practices game"
+                },
+                "authors" : [
+                    {
+                        "type": "str",
+                        "description": "The author's name",
+                        "example": "David J. Gagnon"
+                    }
+                ],
+                "abstract": {
+                    "type": "str | null",
+                    "description": "The abstract of the paper based on the study. null if no abstract is available.",
+                    "example": "In this paper we use an existing history learning game with an active audience as a research platform for exploring how humor and 'snarkiness' in the dialog script affect students' progression and attitudes about the game. We conducted a 2x2 randomized experiment with 11,804 anonymous 3rd-6th grade students. Using one-way ANOVA and Kruskall-Wallis tests, we find that changes to the script produced measurable results in the self-reported perceived humor of the game and the likeability of the player character. Different scripts did not produce significant differences in player completion of the game, or how much of the game was played. Perceived humor and enjoyment of the game and its main character contributed significantly to progress in the game, as did self-perceived reading skill."
+                },
+                "link": {
+                    "type": "str",
+                    "description": "A link to the ArXiv or other page for the study",
+                    "example": "https://arxiv.org/abs/2210.09906"
+                }
+            }
+        ]
+    }
+}
