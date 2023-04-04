@@ -1,4 +1,4 @@
-# OpenGameData Architecture
+# OpenGameData Code Organization
 
 **This document gives a general overview of the various pieces of code in the opengamedata project.**  
 
@@ -38,5 +38,3 @@ The **evaluator** code is somewhat wrapped up in the code for a real-time dashbo
 3. The clearest example for using models is in getPredictionsBySessID within RTServer.py. This uses a model file that adds an extra level to the JSON, separating models by the game level for which they are intended.
 
 In the future, the intent is to have a separate module for model evaluation, which would allow us to do things like run models on test data, and export results for evaluation of model effectiveness, or creation of model benchmarks.
-
-

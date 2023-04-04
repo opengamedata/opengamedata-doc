@@ -10,13 +10,12 @@ OpenGameData documentation
    :maxdepth: 2
    :caption: Contents:
 
-   Installation.md
    Getting_Started.md
-   Architecture.md
-   Adding_a_Database.md
-   Adding_a_Game.md
-   Adding_a_Feature.md
-   Adding_a_Realtime_Model.md
+   howto/Installation.md
+   Coding_Conventions.md
+   Code_Organization.md
+   howto/howto.rst
+   existing_systems/existing_systems.rst
    Glossary.md
    modules
 
