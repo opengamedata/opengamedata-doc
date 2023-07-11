@@ -3,7 +3,7 @@ Walkthroughs
 
 .. toctree::
    :maxdepth: 2
-   :caption: Walkthroughs:
+   :caption: Feature Engineering:
 
    Adding_a_Database.md
    Adding_a_Game.md

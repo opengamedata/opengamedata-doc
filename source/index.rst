@@ -11,13 +11,13 @@ OpenGameData documentation
    :caption: Contents:
 
    Getting_Started.md
-   howto/Installation.md
+   installation.md
    Coding_Conventions.md
    Code_Organization.md
-   howto/howto.rst
-   existing_systems/existing_systems.rst
+   feature_engineers/index.rst
+   developers/index.rst
    Glossary.md
-   modules
+   reference/modules.rst
 
 Indices and tables
 ==================
