@@ -50,9 +50,9 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
     'opengamedata-core/config',
+    'opengamedata-core/coding',
     'opengamedata-core/data',
-    'opengamedata-core/doc',
-    'opengamedata-core/extractors/ClassroomDetector.py'
+    'opengamedata-core/tests'
 ]
 
 
