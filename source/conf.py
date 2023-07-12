@@ -12,7 +12,8 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../opengamedata-core'))
+from pathlib import Path
+sys.path.insert(0, str(Path('../../opengamedata-core').resolve()))
 
 
 # -- Project information -----------------------------------------------------
