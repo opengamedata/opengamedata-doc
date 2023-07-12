@@ -3,7 +3,7 @@ For Feature Engineers
 
 .. toctree::
    :maxdepth: 2
-   .. :caption: 
+   :caption: Feature Engineering
 
    Adding_a_Database.md
    Adding_a_Game.md
