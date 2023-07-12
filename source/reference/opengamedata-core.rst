@@ -7,7 +7,6 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   opengamedata-core.config
    opengamedata-core.extractors
    opengamedata-core.games
    opengamedata-core.interfaces
@@ -15,7 +14,6 @@ Subpackages
    opengamedata-core.ogd_requests
    opengamedata-core.processors
    opengamedata-core.schemas
-   opengamedata-core.tests
 
 Submodules
 ----------
