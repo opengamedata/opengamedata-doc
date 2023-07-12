@@ -135,11 +135,11 @@ This file will have the following layout:
 ```json
 {
     "level_range": { 
-        ...
+        "..." : "..."
     },
 
     "events": {
-        ...
+        "..." : "..."
     },
 
     "features": {
@@ -172,10 +172,10 @@ This file will have the following layout:
     },
 
     "db_columns": {
-        ...
+        "..." : "..."
     },
     "config": {
-        ...
+        "..." : "..."
     },
 }
 
