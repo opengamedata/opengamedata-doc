@@ -4,7 +4,7 @@ opengamedata\-core.games package
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.games
+.. automodule:: games
    :members:
    :undoc-members:
    :show-inheritance:

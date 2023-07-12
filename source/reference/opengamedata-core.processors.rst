@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.processors.ClassroomDetector module
 ------------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.ClassroomDetector
+.. automodule:: processors.ClassroomDetector
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.processors.ClassroomDetector module
 opengamedata\-core.processors.DetectorProcessor module
 ------------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.DetectorProcessor
+.. automodule:: processors.DetectorProcessor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.processors.DetectorProcessor module
 opengamedata\-core.processors.EventProcessor module
 ---------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.EventProcessor
+.. automodule:: processors.EventProcessor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.processors.EventProcessor module
 opengamedata\-core.processors.ExtractorProcessor module
 -------------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.ExtractorProcessor
+.. automodule:: processors.ExtractorProcessor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ opengamedata\-core.processors.ExtractorProcessor module
 opengamedata\-core.processors.FeatureProcessor module
 -----------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.FeatureProcessor
+.. automodule:: processors.FeatureProcessor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -47,7 +47,7 @@ opengamedata\-core.processors.FeatureProcessor module
 opengamedata\-core.processors.PlayerProcessor module
 ----------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.PlayerProcessor
+.. automodule:: processors.PlayerProcessor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -55,7 +55,7 @@ opengamedata\-core.processors.PlayerProcessor module
 opengamedata\-core.processors.PopulationProcessor module
 --------------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.PopulationProcessor
+.. automodule:: processors.PopulationProcessor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -63,7 +63,7 @@ opengamedata\-core.processors.PopulationProcessor module
 opengamedata\-core.processors.Processor module
 ----------------------------------------------
 
-.. automodule:: opengamedata-core.processors.Processor
+.. automodule:: processors.Processor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -71,7 +71,7 @@ opengamedata\-core.processors.Processor module
 opengamedata\-core.processors.SessionProcessor module
 -----------------------------------------------------
 
-.. automodule:: opengamedata-core.processors.SessionProcessor
+.. automodule:: processors.SessionProcessor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -79,7 +79,7 @@ opengamedata\-core.processors.SessionProcessor module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.processors
+.. automodule:: processors
    :members:
    :undoc-members:
    :show-inheritance:

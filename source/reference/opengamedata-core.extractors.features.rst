@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.extractors.features.Feature module
 -----------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.features.Feature
+.. automodule:: extractors.features.Feature
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.extractors.features.Feature module
 opengamedata\-core.extractors.features.PerCountFeature module
 -------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.features.PerCountFeature
+.. automodule:: extractors.features.PerCountFeature
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.extractors.features.PerCountFeature module
 opengamedata\-core.extractors.features.PerLevelFeature module
 -------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.features.PerLevelFeature
+.. automodule:: extractors.features.PerLevelFeature
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.extractors.features.PerLevelFeature module
 opengamedata\-core.extractors.features.PerUserFeature module
 ------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.features.PerUserFeature
+.. automodule:: extractors.features.PerUserFeature
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ opengamedata\-core.extractors.features.PerUserFeature module
 opengamedata\-core.extractors.features.SessionFeature module
 ------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.features.SessionFeature
+.. automodule:: extractors.features.SessionFeature
    :members:
    :undoc-members:
    :show-inheritance:
@@ -47,7 +47,7 @@ opengamedata\-core.extractors.features.SessionFeature module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.extractors.features
+.. automodule:: extractors.features
    :members:
    :undoc-members:
    :show-inheritance:

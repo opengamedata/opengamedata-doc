@@ -20,26 +20,10 @@ Subpackages
 Submodules
 ----------
 
-opengamedata\-core.TestDriver module
-------------------------------------
-
-.. automodule:: opengamedata-core.TestDriver
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-opengamedata\-core.main module
-------------------------------
-
-.. automodule:: opengamedata-core.main
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 opengamedata\-core.utils module
 -------------------------------
 
-.. automodule:: opengamedata-core.utils
+.. automodule:: utils
    :members:
    :undoc-members:
    :show-inheritance:

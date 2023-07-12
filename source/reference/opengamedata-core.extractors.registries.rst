@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.extractors.registries.DetectorRegistry module
 ----------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.registries.DetectorRegistry
+.. automodule:: extractors.registries.DetectorRegistry
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.extractors.registries.DetectorRegistry module
 opengamedata\-core.extractors.registries.ExtractorRegistry module
 -----------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.registries.ExtractorRegistry
+.. automodule:: extractors.registries.ExtractorRegistry
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.extractors.registries.ExtractorRegistry module
 opengamedata\-core.extractors.registries.FeatureRegistry module
 ---------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.registries.FeatureRegistry
+.. automodule:: extractors.registries.FeatureRegistry
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.extractors.registries.FeatureRegistry module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.extractors.registries
+.. automodule:: extractors.registries
    :members:
    :undoc-members:
    :show-inheritance:

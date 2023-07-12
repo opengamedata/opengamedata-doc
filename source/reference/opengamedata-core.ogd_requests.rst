@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.ogd\_requests.Request module
 -----------------------------------------------
 
-.. automodule:: opengamedata-core.ogd_requests.Request
+.. automodule:: ogd_requests.Request
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.ogd\_requests.Request module
 opengamedata\-core.ogd\_requests.RequestResult module
 -----------------------------------------------------
 
-.. automodule:: opengamedata-core.ogd_requests.RequestResult
+.. automodule:: ogd_requests.RequestResult
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.ogd\_requests.RequestResult module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.ogd_requests
+.. automodule:: ogd_requests
    :members:
    :undoc-members:
    :show-inheritance:

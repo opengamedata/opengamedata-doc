@@ -18,7 +18,7 @@ Submodules
 opengamedata\-core.extractors.Extractor module
 ----------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.Extractor
+.. automodule:: extractors.Extractor
    :members:
    :undoc-members:
    :show-inheritance:
@@ -26,7 +26,7 @@ opengamedata\-core.extractors.Extractor module
 opengamedata\-core.extractors.ExtractorLoader module
 ----------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.ExtractorLoader
+.. automodule:: extractors.ExtractorLoader
    :members:
    :undoc-members:
    :show-inheritance:
@@ -34,7 +34,7 @@ opengamedata\-core.extractors.ExtractorLoader module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.extractors
+.. automodule:: extractors
    :members:
    :undoc-members:
    :show-inheritance:

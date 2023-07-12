@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.config.config module
 ---------------------------------------
 
-.. automodule:: opengamedata-core.config.config
+.. automodule:: config.config
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.config.config module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.config
+.. automodule:: config
    :members:
    :undoc-members:
    :show-inheritance:

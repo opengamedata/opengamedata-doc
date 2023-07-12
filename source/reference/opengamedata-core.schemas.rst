@@ -15,7 +15,7 @@ Submodules
 opengamedata\-core.schemas.Event module
 ---------------------------------------
 
-.. automodule:: opengamedata-core.schemas.Event
+.. automodule:: schemas.Event
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.schemas.Event module
 opengamedata\-core.schemas.ExportMode module
 --------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.ExportMode
+.. automodule:: schemas.ExportMode
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.schemas.ExportMode module
 opengamedata\-core.schemas.ExtractionMode module
 ------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.ExtractionMode
+.. automodule:: schemas.ExtractionMode
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ opengamedata\-core.schemas.ExtractionMode module
 opengamedata\-core.schemas.FeatureData module
 ---------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.FeatureData
+.. automodule:: schemas.FeatureData
    :members:
    :undoc-members:
    :show-inheritance:
@@ -47,7 +47,7 @@ opengamedata\-core.schemas.FeatureData module
 opengamedata\-core.schemas.IDMode module
 ----------------------------------------
 
-.. automodule:: opengamedata-core.schemas.IDMode
+.. automodule:: schemas.IDMode
    :members:
    :undoc-members:
    :show-inheritance:
@@ -55,7 +55,7 @@ opengamedata\-core.schemas.IDMode module
 opengamedata\-core.schemas.IterationMode module
 -----------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.IterationMode
+.. automodule:: schemas.IterationMode
    :members:
    :undoc-members:
    :show-inheritance:
@@ -63,7 +63,7 @@ opengamedata\-core.schemas.IterationMode module
 opengamedata\-core.schemas.Schema module
 ----------------------------------------
 
-.. automodule:: opengamedata-core.schemas.Schema
+.. automodule:: schemas.Schema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -71,7 +71,7 @@ opengamedata\-core.schemas.Schema module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.schemas
+.. automodule:: schemas
    :members:
    :undoc-members:
    :show-inheritance:

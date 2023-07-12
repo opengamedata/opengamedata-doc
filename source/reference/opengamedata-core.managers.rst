@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.managers.EventManager module
 -----------------------------------------------
 
-.. automodule:: opengamedata-core.managers.EventManager
+.. automodule:: managers.EventManager
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.managers.EventManager module
 opengamedata\-core.managers.ExportManager module
 ------------------------------------------------
 
-.. automodule:: opengamedata-core.managers.ExportManager
+.. automodule:: managers.ExportManager
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.managers.ExportManager module
 opengamedata\-core.managers.FeatureManager module
 -------------------------------------------------
 
-.. automodule:: opengamedata-core.managers.FeatureManager
+.. automodule:: managers.FeatureManager
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.managers.FeatureManager module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.managers
+.. automodule:: managers
    :members:
    :undoc-members:
    :show-inheritance:

@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.interfaces.BQFirebaseInterface module
 --------------------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.BQFirebaseInterface
+.. automodule:: interfaces.BQFirebaseInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.interfaces.BQFirebaseInterface module
 opengamedata\-core.interfaces.BigQueryCodingInterface module
 ------------------------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.BigQueryCodingInterface
+.. automodule:: interfaces.BigQueryCodingInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.interfaces.BigQueryCodingInterface module
 opengamedata\-core.interfaces.BigQueryInterface module
 ------------------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.BigQueryInterface
+.. automodule:: interfaces.BigQueryInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.interfaces.BigQueryInterface module
 opengamedata\-core.interfaces.CSVInterface module
 -------------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.CSVInterface
+.. automodule:: interfaces.CSVInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ opengamedata\-core.interfaces.CSVInterface module
 opengamedata\-core.interfaces.CodingInterface module
 ----------------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.CodingInterface
+.. automodule:: interfaces.CodingInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -47,7 +47,7 @@ opengamedata\-core.interfaces.CodingInterface module
 opengamedata\-core.interfaces.DataInterface module
 --------------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.DataInterface
+.. automodule:: interfaces.DataInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -55,7 +55,7 @@ opengamedata\-core.interfaces.DataInterface module
 opengamedata\-core.interfaces.Interface module
 ----------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.Interface
+.. automodule:: interfaces.Interface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -63,7 +63,7 @@ opengamedata\-core.interfaces.Interface module
 opengamedata\-core.interfaces.MySQLInterface module
 ---------------------------------------------------
 
-.. automodule:: opengamedata-core.interfaces.MySQLInterface
+.. automodule:: interfaces.MySQLInterface
    :members:
    :undoc-members:
    :show-inheritance:
@@ -71,7 +71,7 @@ opengamedata\-core.interfaces.MySQLInterface module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.interfaces
+.. automodule:: interfaces
    :members:
    :undoc-members:
    :show-inheritance:

@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.schemas.games.AggregateSchema module
 -------------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.games.AggregateSchema
+.. automodule:: schemas.games.AggregateSchema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.schemas.games.AggregateSchema module
 opengamedata\-core.schemas.games.DetectorSchema module
 ------------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.games.DetectorSchema
+.. automodule:: schemas.games.DetectorSchema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.schemas.games.DetectorSchema module
 opengamedata\-core.schemas.games.EventSchema module
 ---------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.games.EventSchema
+.. automodule:: schemas.games.EventSchema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.schemas.games.EventSchema module
 opengamedata\-core.schemas.games.ExtractorSchema module
 -------------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.games.ExtractorSchema
+.. automodule:: schemas.games.ExtractorSchema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -39,7 +39,7 @@ opengamedata\-core.schemas.games.ExtractorSchema module
 opengamedata\-core.schemas.games.FeatureSchema module
 -----------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.games.FeatureSchema
+.. automodule:: schemas.games.FeatureSchema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -47,7 +47,7 @@ opengamedata\-core.schemas.games.FeatureSchema module
 opengamedata\-core.schemas.games.GameSchema module
 --------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.games.GameSchema
+.. automodule:: schemas.games.GameSchema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -55,7 +55,7 @@ opengamedata\-core.schemas.games.GameSchema module
 opengamedata\-core.schemas.games.PerCountSchema module
 ------------------------------------------------------
 
-.. automodule:: opengamedata-core.schemas.games.PerCountSchema
+.. automodule:: schemas.games.PerCountSchema
    :members:
    :undoc-members:
    :show-inheritance:
@@ -63,7 +63,7 @@ opengamedata\-core.schemas.games.PerCountSchema module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.schemas.games
+.. automodule:: schemas.games
    :members:
    :undoc-members:
    :show-inheritance:

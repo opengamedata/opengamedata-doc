@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.extractors.legacy.LegacyDetector module
 ----------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.legacy.LegacyDetector
+.. automodule:: extractors.legacy.LegacyDetector
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.extractors.legacy.LegacyDetector module
 opengamedata\-core.extractors.legacy.LegacyFeature module
 ---------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.legacy.LegacyFeature
+.. automodule:: extractors.legacy.LegacyFeature
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.extractors.legacy.LegacyFeature module
 opengamedata\-core.extractors.legacy.LegacyLoader module
 --------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.legacy.LegacyLoader
+.. automodule:: extractors.legacy.LegacyLoader
    :members:
    :undoc-members:
    :show-inheritance:
@@ -31,7 +31,7 @@ opengamedata\-core.extractors.legacy.LegacyLoader module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.extractors.legacy
+.. automodule:: extractors.legacy
    :members:
    :undoc-members:
    :show-inheritance:

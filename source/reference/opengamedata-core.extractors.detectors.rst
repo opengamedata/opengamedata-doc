@@ -7,7 +7,7 @@ Submodules
 opengamedata\-core.extractors.detectors.Detector module
 -------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.detectors.Detector
+.. automodule:: extractors.detectors.Detector
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ opengamedata\-core.extractors.detectors.Detector module
 opengamedata\-core.extractors.detectors.DetectorEvent module
 ------------------------------------------------------------
 
-.. automodule:: opengamedata-core.extractors.detectors.DetectorEvent
+.. automodule:: extractors.detectors.DetectorEvent
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ opengamedata\-core.extractors.detectors.DetectorEvent module
 Module contents
 ---------------
 
-.. automodule:: opengamedata-core.extractors.detectors
+.. automodule:: extractors.detectors
    :members:
    :undoc-members:
    :show-inheritance:
