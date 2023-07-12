@@ -3,7 +3,7 @@ For Core Developers
 
 .. toctree::
    :maxdepth: 2
-   .. :caption: 
+   :caption: Core Development
 
    Code_Organization.md
    Architecture.md

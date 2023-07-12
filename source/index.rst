@@ -11,7 +11,7 @@ OpenGameData documentation
    :caption: Contents:
 
    Getting_Started.md
-   installation.md
+   Installation.md
    Coding_Conventions.md
    Glossary.md
    feature_engineers/index.rst
