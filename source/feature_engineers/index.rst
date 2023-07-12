@@ -1,9 +1,9 @@
-Walkthroughs
+For Feature Engineers
 ========================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Feature Engineering:
+   .. :caption: 
 
    Adding_a_Database.md
    Adding_a_Game.md

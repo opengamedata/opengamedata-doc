@@ -1,10 +1,6 @@
-For Core Developers
+For Game Studios
 ========================================
 
 .. toctree::
    :maxdepth: 2
    .. :caption: 
-
-   Code_Organization.md
-   Architecture.md
-   Database_Schemas.md
