@@ -35,3 +35,45 @@ To get started, please see the readme guide for the package appropriate for your
 ## Data Storage
 
 Once you have implemented logging in your game, you'll need a database to receive and store the logged events.
+In principle, any table-based database system may be used to record Open Game Data events; in practice, we have ready support for MySQL as a short-term container for new events, and for BigQuery for long-term archival of older events. Logging to another database system may require some additional development effort.
+
+If you wish to utilize our existing logging infrastructure to capture your game events, please [contact us](TODO) to discuss integration with our instance of the OGD logging system.
+
+If you prefer to create your own instance of logging infrastructure, there are two major steps to complete.
+These are:
+
+1. Set up logging to MySQL short-term database
+2. Set up automatic archival to BigQuery.
+
+### Logging to MySQL
+
+This major step can be accomplished by doing the following:
+
+1. Set up a "logging" server with PHP and MySQL:  
+    This server will host the logging service.
+    Please see our [reference platform](../software_platform.md) documentation for recommended software versions.
+2. Create a MySQL database to hold game events:  
+    This database should contain a table for each game, with each table having columns and data types corresponding to the OGD schema
+3. Set up an instance of `opengamedata-logger` package:  
+    This repository contains PHP scripts to receive a request containing event data, and insert the data into a local database.
+    The config file should be set with credentials for writing to the MySQL database.
+    The [readme](https://github.com/opengamedata/opengamedata-logger#readme) may be useful for understanding how `opengamedata-logger` works.  
+4. Direct game logging client to your server:  
+    If you used `opengamedata-unity` or `opengamedata-js-log` for event logging, you can configure the package to make requests through your server's instance of the PHP scripts.
+
+### Archiving to BigQuery
+
+This step can be accomplished by doing the following:
+
+1. Create a Google Cloud project to host game data
+2. Create a BigQuery project:  
+    This project should, in turn, have datasets for each game, and each dataset should have tables with columns and data types corresponding to the MySQL schema.
+3. Use `opengamedata-automation` to automatically archive data from MySQL to BigQuery
+
+## Data Transformations
+
+### Event Detectors
+
+### Feature Extractors
+
+## Monthly Outputs
