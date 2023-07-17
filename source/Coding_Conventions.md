@@ -7,6 +7,10 @@ A few notes:
 - None of these are really *mandatory* in any sense, but they do help keep things consistent and organized.
 - Most of the codebase(s) are written in Python, so most of these conventions are Python-focused.
 
+## Software Platform
+
+We use the software packages and versions listed in our Open Game Data Reference Platform [document](./software_platform.md)
+
 
 ## Casing
 
