@@ -40,7 +40,12 @@
       },
       "events_file": {
         "type": "str | null",
-        "description": "A path to the zip file containing the *event* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include an event file.",
+        "description": "A path to the zip file containing the *all events* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include an 'all events' file.",
+        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_events.zip"
+      },
+      "raw_file": {
+        "type": "str | null",
+        "description": "A path to the zip file containing the *raw events* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include a 'raw events' file.",
         "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_events.zip"
       },
       "sessions_file": {
@@ -58,10 +63,10 @@
         "description": "A path to the zip file containing the *population* data file, beginning with base data folder. It can be concatenated with CONFIG.files_base to obtain a full URL. Null if this dataset does not include a population file.",
         "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_population-features.zip"
       },
-      "raw_file": {
+      "events_template": {
         "type": "str | null",
-        "description": "Legacy element that may appear in some older index items. We no longer produce 'raw' files, and this element can be ignored",
-        "example": "data/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_raw.zip"
+        "description": "NEW: A path to the ipynb file template for the *events* data file. It can be concatenated with CONFIG.templates_base to obtain a full URL. Null if this dataset does not include as session file.",
+        "example": "templates/GAME_NAME/GAME_NAME_YYYYMMDD_to_YYYYMMDD_abcdef1_session-features.ipynb"
       },
       "sessions_template": {
         "type": "str | null",
