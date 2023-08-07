@@ -1,5 +1,5 @@
-name: Docs
-on: [push, pull_request, workflow_dispatch]
+name: Publish Docs to GH Pages
+on: [push, workflow_dispatch]
 permissions:
     contents: write
 jobs:
@@ -13,7 +13,7 @@ jobs:
           pip install sphinx sphinx_rtd_theme
       - name: Sphinx build
         run: |
-          sphinx-build doc build
+          make html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
