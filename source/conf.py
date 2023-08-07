@@ -13,7 +13,8 @@
 import os
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path('../../opengamedata-core').resolve()))
+OGD_CORE_PATH = os.environ.get('OGD_CORE_PATH', '../../opengamedata-core')
+sys.path.insert(0, str(Path(OGD_CORE_PATH).resolve()))
 
 
 # -- Project information -----------------------------------------------------
