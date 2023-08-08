@@ -15,7 +15,7 @@ build:
     # golang: "1.20"
   commands:
     - git clone https://github.com/opengamedata/opengamedata-core.git .
-    - python3.7 -mvirtualenv $READTHEDOCS_VIRTUALENV_PATH
+    - python3.11 -mvirtualenv $READTHEDOCS_VIRTUALENV_PATH
     - python -m pip install --upgrade --no-cache-dir pip setuptools
     - python -m pip install --upgrade --no-cache-dir pillow mock==1.0.1 alabaster>=0.7,<0.8,!=0.7.5 commonmark==0.9.1 recommonmark==0.5.0 sphinx sphinx-rtd-theme readthedocs-sphinx-ext<2.3
     - python -m pip install --exists-action=w --no-cache-dir -r requirements.txt
