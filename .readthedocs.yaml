@@ -15,6 +15,7 @@ build:
     # golang: "1.20"
   jobs:
     post_checkout:
+      - git fetch --unshallow || true
       - git submodule init
       - git submodule update
 
