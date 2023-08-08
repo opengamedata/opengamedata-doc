@@ -13,23 +13,25 @@ build:
     # nodejs: "20"
     # rust: "1.70"
     # golang: "1.20"
-  commands:
-    - git clone https://github.com/opengamedata/opengamedata-core.git .
-    - pwd
-    - ls
-    - python3.11 -mvirtualenv $READTHEDOCS_VIRTUALENV_PATH
-    - python -m pip install --upgrade --no-cache-dir pip setuptools
-    - python -m pip install --upgrade --no-cache-dir pillow mock==1.0.1 alabaster>=0.7,<0.8,!=0.7.5 commonmark==0.9.1 recommonmark==0.5.0 sphinx sphinx-rtd-theme readthedocs-sphinx-ext<2.3
-    - python -m pip install --exists-action=w --no-cache-dir -r requirements.txt
-    - cat source/conf.py
-    - python -m sphinx -T -E -b html -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/html
-    - python -m sphinx -T -E -b readthedocssinglehtmllocalmedia -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/htmlzip
-    - python -m sphinx -T -E -b latex -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/pdf
-    - cat latexmkrc
-    - latexmk -r latexmkrc -pdf -f -dvi- -ps- -jobname=opengamedata-doc -interaction=nonstopmode
-    - python -m sphinx -T -E -b epub -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/epub 
-  # jobs:
-  #   post_checkout:
+  # commands:
+  #   - git clone https://github.com/opengamedata/opengamedata-core.git .
+  #   - pwd
+  #   - ls
+  #   - python3.11 -mvirtualenv $READTHEDOCS_VIRTUALENV_PATH
+  #   - python -m pip install --upgrade --no-cache-dir pip setuptools
+  #   - python -m pip install --upgrade --no-cache-dir pillow mock==1.0.1 alabaster>=0.7,<0.8,!=0.7.5 commonmark==0.9.1 recommonmark==0.5.0 sphinx sphinx-rtd-theme readthedocs-sphinx-ext<2.3
+  #   - python -m pip install --exists-action=w --no-cache-dir -r requirements.txt
+  #   - cat source/conf.py
+  #   - python -m sphinx -T -E -b html -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/html
+  #   - python -m sphinx -T -E -b readthedocssinglehtmllocalmedia -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/htmlzip
+  #   - python -m sphinx -T -E -b latex -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/pdf
+  #   - cat latexmkrc
+  #   - latexmk -r latexmkrc -pdf -f -dvi- -ps- -jobname=opengamedata-doc -interaction=nonstopmode
+  #   - python -m sphinx -T -E -b epub -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/epub 
+  jobs:
+    post_checkout:
+      - pwd
+      - ls
   #     - git fetch --unshallow || true
   #     - git submodule init
   #     - git submodule update
