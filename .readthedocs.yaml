@@ -32,6 +32,7 @@ build:
     post_checkout:
       - pwd
       - ls
+      - ls opengamedata-core
   #     - git fetch --unshallow || true
   #     - git submodule init
   #     - git submodule update
