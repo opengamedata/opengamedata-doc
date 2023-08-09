@@ -39,6 +39,8 @@ extensions = [
     "myst_parser"
 ]
 
+autodoc_mock_imports = ["config"]
+
 source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
