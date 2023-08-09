@@ -30,15 +30,9 @@ build:
   #   - python -m sphinx -T -E -b epub -d _build/doctrees -D language=en . $READTHEDOCS_OUTPUT/epub 
   jobs:
     post_checkout:
-      - pwd
-      - ls
-      - ls opengamedata-core
+  #     - git fetch --unshallow || true
       - git submodule init
       - git submodule update
-      - ls opengamedata-core
-  #     - git fetch --unshallow || true
-  #     - git submodule init
-  #     - git submodule update
 
 # submodules:
 #   recursive: false
