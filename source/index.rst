@@ -18,6 +18,7 @@ OpenGameData documentation
    developers/index.rst
    researchers/index.rst
    studios/index.rst
+   documentation/index.rst
    reference/modules.rst
 
 Indices and tables
