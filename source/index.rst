@@ -14,11 +14,14 @@ OpenGameData documentation
    Installation.md
    Coding_Conventions.md
    Glossary.md
-   feature_engineers/index.rst
-   developers/index.rst
-   researchers/index.rst
+
+   logging/index.rst
+   features/index.rst
+   architecture/index.rst
+   analysis/index.rst
    studios/index.rst
    documentation/index.rst
+
    reference/modules.rst
 
 Indices and tables
