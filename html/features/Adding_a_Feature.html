@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adding a Feature &mdash; OpenGameData 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OpenGameData
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coding_Conventions.html">Coding Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studios/index.html">For Game Studios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">For Games Researchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/modules.html">opengamedata-core</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenGameData</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Adding a Feature</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Adding_a_Feature.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="adding-a-feature">
+<h1>Adding a Feature<a class="headerlink" href="#adding-a-feature" title="Permalink to this heading"></a></h1>
+<p>In order to add a new feature for a game, you must complete the following steps:</p>
+<section id="code-a-feature-extractor">
+<h2><strong>1. Code a feature extractor</strong><a class="headerlink" href="#code-a-feature-extractor" title="Permalink to this heading"></a></h2>
+<p>The first step is to write the individual feature extractor.<br />
+This should be a python file, placed in the <code class="docutils literal notranslate"><span class="pre">&lt;ogd-core-root&gt;/games/&lt;GAME_NAME&gt;/features</span></code> folder, which inherits from the Feature class.</p>
+<section id="required-functions">
+<h3>Required functions<a class="headerlink" href="#required-functions" title="Permalink to this heading"></a></h3>
+<p>At minimum, you must write an <code class="docutils literal notranslate"><span class="pre">__init__(...)</span></code> function, and implement the functions listed below.
+Do not change the parameters of the other functions, as they are implementing abstract functions of the base class.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">params:ExtractorParameters,</span> <span class="pre">...)</span></code><br />
+At minimum, <code class="docutils literal notranslate"><span class="pre">__init__</span></code> should pass the <code class="docutils literal notranslate"><span class="pre">params</span></code> argument along to the superclass constructor.<br />
+You are free to add whatever other <code class="docutils literal notranslate"><span class="pre">__init__</span></code> parameters you like, if you need your Feature to have additional data at start time.
+Just note that these parameters must either be available to (and thus come from) the game’s Loader class, or be specified as additional params in the <strong>Add feature configuration to the game’s schema</strong> section below.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">_getEventDependencies(self)</span> <span class="pre">-&gt;</span> <span class="pre">List[str]</span></code><br />
+This should simply return a list of the names of the events your Feature would like to analyze.<br />
+<em>For example</em>, a feature to calculate the time spent on a level should request the game’s “start level” and “end level” events.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">_getFeatureDependencies(self)</span> <span class="pre">-&gt;</span> <span class="pre">List[str]</span></code><br />
+For second-order features, this function should return a list of the names of the <em>first-order features</em> your Feature would like to analyze.
+First-order features should return an empty list.<br />
+<em>For example</em>, a second-order feature to calculate the time spent on a level across a whole population chould request the “level time” first-order feature from the <code class="docutils literal notranslate"><span class="pre">_getEventDependencies</span></code> example above.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_extractFromEvent(self,</span> <span class="pre">event:Event)</span></code><br />
+This will run once on each occurrence of an event whose type is requested in <code class="docutils literal notranslate"><span class="pre">_getEventDependencies</span></code>.
+This function is where you will tabulate whatever data you need from individual events.<br />
+<em>For example</em>, a feature to calculate the number of times a player clicked a button would create a “count” variable in its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function, and increment that variable here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_extractFromFeatureData(self,</span> <span class="pre">feature:FeatureData)</span></code><br />
+For second-order features, his will run once on each instance of a feature whose type is requested in <code class="docutils literal notranslate"><span class="pre">_getFeatureDependencies</span></code>, for all instances directly “related” to this feature’s instance in the population hierarchy.
+The rules for how instances are “related” are outlined in the <strong>Second-Order Features</strong> section under “<strong>Optional features for your Features</strong>.”<br />
+For a first-order feature, this function should simply <code class="docutils literal notranslate"><span class="pre">return</span></code> without doing anything (in practice, it will never be called).
+<em>For example</em>, a feature to calculate the number of times all player clicked a button across the population would create a “count” variable in its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function, and request the <code class="docutils literal notranslate"><span class="pre">PlayerClickCount</span></code> feature in <code class="docutils literal notranslate"><span class="pre">_getFeatureDependencies</span></code>. It would then increment the count variable by the value from each FeatureData whose <code class="docutils literal notranslate"><span class="pre">ExtractionMode</span></code> is <code class="docutils literal notranslate"><span class="pre">PLAYER</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_getFeatureValues(self)</span> <span class="pre">-&gt;</span> <span class="pre">List[Any]</span></code><br />
+This should return a list containing whatever the “metric” or <em>value</em> of the Feature is, given whatever events have been seen so far.<br />
+<em>For example</em>, a feature to calculate the average number of moves a player made per level would:</p>
+<ol class="arabic simple">
+<li><p>add up all moves (as recorded with <code class="docutils literal notranslate"><span class="pre">_extractFromEvent</span></code>)</p></li>
+<li><p>count the number of levels started (as recorded with <code class="docutils literal notranslate"><span class="pre">_extractFromEvent</span></code>)</p></li>
+<li><p>divide the move count by the number of levels.</p></li>
+<li><p>return a list containing the calculated average.</p></li>
+</ol>
+<p>For a basic feature, there should only be one object in the returned list, although that one object could contain many elements.
+For cases where you place multiple objects into the returned list, see the “<strong>Subfeatures</strong>” section under “<strong>Optional features for your Features</strong>.”</p>
+</li>
+</ul>
+</section>
+<section id="feature-properties">
+<h3>Feature Properties<a class="headerlink" href="#feature-properties" title="Permalink to this heading"></a></h3>
+<p>When writing your <code class="docutils literal notranslate"><span class="pre">Feature</span></code> subclass, there are a few built-in properties that may be useful, especially for writing the <code class="docutils literal notranslate"><span class="pre">_extract...</span></code> function(s).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>
+is the name of the <code class="docutils literal notranslate"><span class="pre">Feature</span></code> instance.
+For “aggregate” features, this is just the name of the config item in the <code class="docutils literal notranslate"><span class="pre">&lt;GAME_NAME&gt;.json</span></code> (see step 4).
+For “per-count” features, this name will include the prefix and number, as well as the config item’s name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Description</span></code>
+is the description configured in the <code class="docutils literal notranslate"><span class="pre">&lt;GAME_NAME&gt;.json</span></code> (see step 4).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ExtractionMode</span></code>
+is the <code class="docutils literal notranslate"><span class="pre">ExtractionMode</span></code> enum value corresponding to the mode in which the <code class="docutils literal notranslate"><span class="pre">Feature</span></code> subclass instance is being run.
+That is, when exporting data for a population, this property value is <code class="docutils literal notranslate"><span class="pre">ExtractionMode.POPULATION</span></code>;
+when exporting data for a player, the property value is <code class="docutils literal notranslate"><span class="pre">ExtractionMode.PLAYER</span></code>;
+and when exporting data for a sessino, the property value is <code class="docutils literal notranslate"><span class="pre">ExtractionMode.Session</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CountIndex</span></code>
+indicates the <code class="docutils literal notranslate"><span class="pre">Feature</span></code> subclass instance’s numbering among all other instances.<br />
+For an “aggregate” feature, this is just 0.<br />
+For a “per-count” feature, each instance is given a number in ascending order.<br />
+<em>For example</em>, in an export of player data, for a game with 3 levels, a per-count feature whose count is the number of levels will be instantiated 3 times for each player.
+Then the first instance will have a <code class="docutils literal notranslate"><span class="pre">CountIndex</span></code> value of 0, and will calculate its value for data in level 0. The second will have a <code class="docutils literal notranslate"><span class="pre">CountIndex</span></code> of 1, calculating data for level 1, and the third will have value of 2, calculating data for level 2.<br />
+Note that, by default, <code class="docutils literal notranslate"><span class="pre">Feature</span></code> subclasses have no way to differentiate what data to consider based on <code class="docutils literal notranslate"><span class="pre">CountIndex</span></code>.
+You will need to check if <code class="docutils literal notranslate"><span class="pre">CountIndex</span></code> matches whatever part of the event data indicates the level/quest/survey/etc. number.
+Alternately, you might find another type to use as your class’ base to handle this automatically, listed in the <strong>Feature sub-types</strong> section later in this document.</p></li>
+</ul>
+</section>
+</section>
+<section id="add-feature-to-features-package">
+<h2><strong>2. Add feature to features package</strong><a class="headerlink" href="#add-feature-to-features-package" title="Permalink to this heading"></a></h2>
+<p>Next, you need to ensure your new feature is included when the game’s Loader class imports the <code class="docutils literal notranslate"><span class="pre">features</span></code> folder.
+Open the <code class="docutils literal notranslate"><span class="pre">&lt;ogd-core-root&gt;/games/&lt;GAME_NAME&gt;/features/__init__.py</span></code> file, which should look something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;AverageLevelTime&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LevelCompletionTime&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SessionDuration&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SessionID&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">AverageLevelTime</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">LevelCompletionTime</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">SessionDuration</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">SessionID</span>
+</pre></div>
+</div>
+<p>Add the name of your feature class to the <code class="docutils literal notranslate"><span class="pre">__all__</span></code> list, and add the <code class="docutils literal notranslate"><span class="pre">import</span></code> for your feature class in the list of imports below.</p>
+</section>
+<section id="register-feature-in-the-game-s-loader">
+<h2><strong>3. Register feature in the game’s Loader</strong><a class="headerlink" href="#register-feature-in-the-game-s-loader" title="Permalink to this heading"></a></h2>
+<p>Now, we must ensure your game’s Loader class knows how to load actual instances of your Feature.
+This will be done in the <code class="docutils literal notranslate"><span class="pre">&lt;ogd-core-root&gt;/games/&lt;GAME_NAME&gt;/&lt;GameName&gt;Loader.py</span></code> file
+(as an aside, note that the convention is to name the <code class="docutils literal notranslate"><span class="pre">&lt;GAME_NAME&gt;</span></code> folder with ALL CAPS, while the naming convention for Extractor classes is to use PascalCase).
+Open up the <code class="docutils literal notranslate"><span class="pre">&lt;GameName&gt;Loader.py</span></code> file, and look for the <code class="docutils literal notranslate"><span class="pre">_loadFeature</span></code> function, whose body should look something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_loadFeature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_type</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">extractor_params</span><span class="p">:</span><span class="n">ExtractorParameters</span><span class="p">,</span> <span class="n">schema_args</span><span class="p">:</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Feature</span><span class="p">:</span>
+    <span class="n">ret_val</span> <span class="p">:</span> <span class="n">Feature</span>
+    <span class="k">if</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;AverageLevelTime&quot;</span><span class="p">:</span>
+        <span class="n">ret_val</span> <span class="o">=</span> <span class="n">AverageLevelTime</span><span class="o">.</span><span class="n">AverageLevelTime</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">extractor_params</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;LevelCompletionTime&quot;</span><span class="p">:</span>
+        <span class="n">ret_val</span> <span class="o">=</span> <span class="n">LevelCompletionTime</span><span class="o">.</span><span class="n">LevelCompletionTime</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">extractor_params</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;LevelIdleTime&quot;</span><span class="p">:</span>
+        <span class="n">ret_val</span> <span class="o">=</span> <span class="n">LevelIdleTime</span><span class="o">.</span><span class="n">LevelIdleTime</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">extractor_params</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">schema_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;IdleThreshold&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;SessionDuration&quot;</span><span class="p">:</span>
+        <span class="n">ret_val</span> <span class="o">=</span> <span class="n">SessionDuration</span><span class="o">.</span><span class="n">SessionDuration</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">extractor_params</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;SessionID&quot;</span><span class="p">:</span>
+        <span class="n">ret_val</span> <span class="o">=</span> <span class="n">SessionID</span><span class="o">.</span><span class="n">SessionID</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">extractor_params</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_session_id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">feature_type</span><span class="si">}</span><span class="s2">&#39; is not a valid feature for Aqualab.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret_val</span>
+</pre></div>
+</div>
+<p>Add a case for your new Feature class, checking if <code class="docutils literal notranslate"><span class="pre">feature_type</span></code> matches the name of your Feature class (more specifically, you’re checking if it matches the <code class="docutils literal notranslate"><span class="pre">type</span></code> you give your feature in the configuration file in step 4, but using the name of the Feature class itself is a <em>strongly</em> recommended convention).
+Within this case, set the <code class="docutils literal notranslate"><span class="pre">ret_val</span></code> to a new instance of your Feature, passing in whatever parameters you added to your <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function.
+Note that any parameters you add to <code class="docutils literal notranslate"><span class="pre">__init__</span></code> must:</p>
+<ul class="simple">
+<li><p>Take arguments available to the Loader class, such as <code class="docutils literal notranslate"><span class="pre">id</span></code> in the <code class="docutils literal notranslate"><span class="pre">SessionID</span></code> case for the example above, or</p></li>
+<li><p>Take arguments from the schema_args, which are defined in the config item in <code class="docutils literal notranslate"><span class="pre">&lt;GAME_NAME&gt;.json</span></code> (see step 4).</p></li>
+</ul>
+</section>
+<section id="add-feature-configuration-to-the-game-s-schema">
+<h2><strong>4. Add feature configuration to the game’s schema</strong><a class="headerlink" href="#add-feature-configuration-to-the-game-s-schema" title="Permalink to this heading"></a></h2>
+<p>All of the coding required was covered in the first three steps.
+You wrote the code to perform extraction, then registered the class in the set of extractors, and added code to create instances of your Feature extractor.
+The final step is to adjust the configuration for the game, so that the system will include the Feature when performing data exports.
+Here, you will need to open <code class="docutils literal notranslate"><span class="pre">&lt;ogd-core-root&gt;/games/&lt;GAME_NAME&gt;/&lt;GAME_NAME&gt;.json</span></code>.
+This file will have the following layout:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;level_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;per_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;LevelCompletionTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="s2">&quot;level_range&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Time taken to complete a given level&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;return_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;timedelta&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;aggregate&quot;</span><span class="p">:{</span>
+<span class="w">            </span><span class="nt">&quot;AverageLevelTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Average time spent per level played&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;return_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;timedelta&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;SessionDuration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Time spent playing in a given session&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;return_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;timedelta&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;SessionID&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;The player&#39;s session ID number for this play session&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;return_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;str&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;db_columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;...&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that the ellipses are stand-ins for the actual content found in the file - those contents are not important for this step.<br />
+You will add a configuration for your feature in the features dictionary.
+There are two fundamental kinds of features:</p>
+<ul class="simple">
+<li><p>“aggregate” features, which will have one instance per gameplay session (e.g. the overall duration of a session).
+These are also called “session” features.</p></li>
+<li><p>“per-count” features, which will have a custom number of instances for each session (e.g. the time spent individually on each level, or responses to each of four pre-game survey questions).</p></li>
+</ul>
+<p>Each item in those dictionaries maps a name for the instance of the <code class="docutils literal notranslate"><span class="pre">Feature</span></code> subclass to a sub-dictionary.
+Generally, we recommend using the name of your <code class="docutils literal notranslate"><span class="pre">Feature</span></code> subclass (as created in step 1) as the name here, although you may use any name you want.<br />
+An example where you may want to change the name would be an <code class="docutils literal notranslate"><span class="pre">IdleTime</span></code> feature that takes a <code class="docutils literal notranslate"><span class="pre">threshold</span></code> parameter.
+You might name the entry <code class="docutils literal notranslate"><span class="pre">IdleTime30</span></code> if you configure the <code class="docutils literal notranslate"><span class="pre">threshold</span></code> value to 30 seconds;
+you could then configure a second instance to have a 60 second <code class="docutils literal notranslate"><span class="pre">threshold</span></code> and name the entry <code class="docutils literal notranslate"><span class="pre">IdleTime60</span></code>.</p>
+<section id="aggregate-features">
+<h3>Aggregate Features<a class="headerlink" href="#aggregate-features" title="Permalink to this heading"></a></h3>
+<p>If your Feature is meant to function as an “aggregate” feature, you will add it to the <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> dictionary.
+The sub-dictionary for your Feature needs four elements: <code class="docutils literal notranslate"><span class="pre">&quot;enabled&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;description&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;return_type&quot;</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;enabled&quot;</span></code> is a boolean telling the system whether to use this Feature for data exports.<br />
+TODO: fill in how to enable only for a specific type of export</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code> is the name of the <code class="docutils literal notranslate"><span class="pre">Feature</span></code> subclass.
+Typically, this will be the same as the name mapped to the sub</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;description&quot;</span></code> is a human-readable description of what the Feature calculates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;return_type&quot;</span></code> is a string indicating the type of data returned by the feature.</p></li>
+</ul>
+<p>If desired, you can add extra elements to the sub-dictionary for use as parameters of your Feature.
+For the <code class="docutils literal notranslate"><span class="pre">IdleTime</span></code> example, you would add the following to your <code class="docutils literal notranslate"><span class="pre">aggregate</span></code> dictionary:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;IdleTime30&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;enabled&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;threshold&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Calculates either the player&#39;s average or median level time, depending on the parameter&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;return_type&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;float&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You will then have access to the parameter in step 3 (adding the feature to <code class="docutils literal notranslate"><span class="pre">_loadFeature</span></code>) as an element of <code class="docutils literal notranslate"><span class="pre">schema_args</span></code>.</p>
+</section>
+<section id="per-count-features">
+<h3>Per-count Features<a class="headerlink" href="#per-count-features" title="Permalink to this heading"></a></h3>
+<p>On the other hand, if your Feature is meant to function as a “per-count” feature, you’ll add it to the <code class="docutils literal notranslate"><span class="pre">per_count</span></code> dictionary.
+The process is similar to adding a feature to <code class="docutils literal notranslate"><span class="pre">aggregate</span></code>, requiring <code class="docutils literal notranslate"><span class="pre">&quot;enabled&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;description&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;return_type&quot;</span></code> as elements.
+In the “per-count” case, you must include <code class="docutils literal notranslate"><span class="pre">&quot;count&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;prefix&quot;</span></code> elements as well.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;count&quot;</span></code>
+is an integer telling the system how many instances of the Feature to create for each gameplay session.<br />
+<em>For example</em>, if your Feature records responses to each of four survey questions in a game, you’ll want to set count to 4.
+Then each session will get four instances of the feature, numbered 0, 1, 2, and 3.<br />
+As a convenience, you may set count to the string <code class="docutils literal notranslate"><span class="pre">&quot;level_range&quot;</span></code>, and the system will use the range of values defined in <code class="docutils literal notranslate"><span class="pre">&quot;level_range&quot;</span></code> within the <code class="docutils literal notranslate"><span class="pre">&lt;GAME_NAME&gt;.json</span></code> file.
+If any other “range” items are defined in the <code class="docutils literal notranslate"><span class="pre">&lt;GAME_NAME&gt;.json</span></code> file, you can use their name in the same way.<br />
+When in doubt, default to using an integer value for the count.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;prefix&quot;</span></code>
+maps to a string, which will be used as a prefix to feature names to help distinguish different classes of per-count feature.<br />
+<em>For example</em>, suppose you have ClickCount as a feature counting number of clicks on each level, and Response as a feature recording survy responses.
+You might choose “level” as a prefix for ClickCount, and “survey” as a prefix for Response.
+Then the final feature names for each of those Feature instances will be:<br />
+<code class="docutils literal notranslate"><span class="pre">level0_ClickCount,</span> <span class="pre">level1_ClickCount,</span> <span class="pre">level2_ClickCount,</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">survey0_Response,</span> <span class="pre">survey1_Response,</span> <span class="pre">...</span></code><br />
+When browsing columns in a spreadsheet of Feature values, it becomes much easier to distinguish which features occur per-level, which occur per-survey-item, etc.</p></li>
+</ul>
+<p>As with “aggregate” features, “per-count” features can have additional elements in their sub-dictionaries, which can then be accessed for use as parameters in the <code class="docutils literal notranslate"><span class="pre">schema_args</span></code> variable in <code class="docutils literal notranslate"><span class="pre">_loadFeature</span></code> (see step 3).</p>
+</section>
+</section>
+<section id="optional-features-for-your-features">
+<h2>Optional features for your Features<a class="headerlink" href="#optional-features-for-your-features" title="Permalink to this heading"></a></h2>
+<p>The preceding sections discussed the minimum requirements for creating a Feature subclass.
+However, there are additional features (lower-case ‘f’, meaning <em>features</em> as in “things a system can do”) available to you when programming your Feature:</p>
+<section id="subfeatures">
+<h3><strong>Subfeatures</strong><a class="headerlink" href="#subfeatures" title="Permalink to this heading"></a></h3>
+<p>A single Feature class can be written as a composite of multiple metrics, with each metric having its own column in the output.
+Each additional metric is considered a “Subfeature” of the Feature subclass.<br />
+<em>for example</em>, a Feature class called <code class="docutils literal notranslate"><span class="pre">LevelComplete</span></code> could calculate:</p>
+<ul class="simple">
+<li><p>a boolean metric, indicating whether a given level was completed</p></li>
+<li><p>a “completion count” metric, indicating the number of times the level was completed</p></li>
+</ul>
+<p>To do this, you will need to carry out the following additional steps when writing your Feature:</p>
+<ol class="arabic simple">
+<li><p>In the “<strong>Code a feature extractor</strong>” step, you must implement another function:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Subfeatures(self)</span> <span class="pre">-&gt;</span> <span class="pre">List[str]</span></code>
+should return a list of names for each subfeature (additional metric) the Feature class provides.<br />
+Your output will contain one column with the “base” Feature value, and one additional column for each “subfeature” value.<br />
+<em>For example</em>: In the <code class="docutils literal notranslate"><span class="pre">LevelComplete</span></code> example, the <code class="docutils literal notranslate"><span class="pre">Subfeatures</span></code> function may return <code class="docutils literal notranslate"><span class="pre">['Count']</span></code>.</p></li>
+</ul>
+<p>Then in the output, there will be one column named “LevelComplete”, and another named “LevelCompleteCount.”</p>
+<ol class="arabic simple" start="2">
+<li><p>In the “<strong>Code a feature extractor</strong>” step,
+you will add an object to the list returned from <code class="docutils literal notranslate"><span class="pre">GetFeatureValues()</span></code> for each subfeature.<br />
+The first item in the list will go in the output column with the “base” Feature name, the next in the list will go in the column with the first “subfeature” name, etc.<br />
+<em>For example</em>, continuing the <code class="docutils literal notranslate"><span class="pre">LevelComplete</span></code> example:</p></li>
+</ol>
+<ul class="simple">
+<li><p>the first object in the list may be the <code class="docutils literal notranslate"><span class="pre">bool</span></code> value indicating whether the given level was completed, and goes to the <code class="docutils literal notranslate"><span class="pre">LevelComplete</span></code> column.</p></li>
+<li><p>the second object may be the “count” value indicating the number of times the level was completed, and goes to the <code class="docutils literal notranslate"><span class="pre">LevelCompleteCount</span></code> column.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>In the “<strong>Add feature configuration to the game’s schema</strong>”, you will add an extra field to the Feature dictionary:</p></li>
+</ol>
+<ul class="simple">
+<li><p>“subfeatures” maps to a sub-dictionary.<br />
+Each element of the sub-dictionary has a key string, which we <strong>strongly</strong> recommend you match with the name(s) given in the corresponding Feature’s  <code class="docutils literal notranslate"><span class="pre">Subfeatures()</span></code> function.</p></li>
+</ul>
+</section>
+<section id="second-order-features">
+<h3><strong>Second-Order Features</strong>*<a class="headerlink" href="#second-order-features" title="Permalink to this heading"></a></h3>
+<p>The rules for how a second-order feature is given values from its requested first-order features:</p>
+<ol class="arabic simple">
+<li><p>if the current instance of the second-order feature implementing this function happens to be owned by a PopulationProcessor, then it will run against all instances of the requested features at the population, player, and session level (since all players and sessions are children of the population).</p></li>
+<li><p>If the current instance is owned by a PlayerProcessor, then it will run against instances of requested features at the population level (the parent of the player), the instances for the given player (i.e. if the Player ID is PlayerA, all instances for PlayerA but not for PlayerB, PlayerC, etc.), and instances for the sessions of the given player (children of the given player).</p></li>
+<li><p>If the current instance is owned by a SessionProcessor, then it will run against instances of requested features at the population level (the grandparent of the session), the instances for the player of the given session (the parent of the session), and instances for the given session.</p></li>
+</ol>
+</section>
+<section id="feature-sub-types">
+<h3><strong>Feature sub-types</strong><a class="headerlink" href="#feature-sub-types" title="Permalink to this heading"></a></h3>
+<p>There are a few “sub-types” of the Feature class, which add provide small additional conveniences. Your Feature subclass can inherit from these types instead of the base <code class="docutils literal notranslate"><span class="pre">Feature</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PerLevelFeature</span></code><br />
+This Feature subclass adds validation to automatically check if the <code class="docutils literal notranslate"><span class="pre">'level'</span></code> element of each incoming Event object matches the current Feature object’s <code class="docutils literal notranslate"><span class="pre">CountIndex</span></code> property, and ignores the Event if it does not.<br />
+This ensures the <code class="docutils literal notranslate"><span class="pre">_extractFromEvent</span></code> function is only run on the instance of a given Feature intended to process data for that level.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Field Day Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

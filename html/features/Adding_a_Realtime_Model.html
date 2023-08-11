@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adding a Realtime model &mdash; OpenGameData 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OpenGameData
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coding_Conventions.html">Coding Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studios/index.html">For Game Studios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">For Games Researchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/modules.html">opengamedata-core</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenGameData</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Adding a Realtime model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/features/Adding_a_Realtime_Model.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="adding-a-realtime-model">
+<h1>Adding a Realtime model<a class="headerlink" href="#adding-a-realtime-model" title="Permalink to this heading"></a></h1>
+<p>First, a bit of terminology:</p>
+<ul class="simple">
+<li><p><strong>event</strong>: A record of some game event, stored as a single row in the database.</p></li>
+<li><p><strong>feature</strong>: Some bit of data considered to be useful for analysis of game play. Usually calculated on a per-session basis from event data.</p></li>
+<li><p><strong>model</strong>: A function of gameplay data that returns a value indicating something about the gameplay session. While the real-time model system is intended for use with machine-learning or statistical models, this definition is broad enough to include very simple calculations. For example, a model which merely returns the value of a single feature is considered valid under this definition.</p></li>
+</ul>
+<p>From a high level, the realtime code maintains a list of valid models for a particular game. The dashboard front-end sends requests with a list of desired models and sessions to evaluate against those models. The realtime code retrieves data from the session(s), evaluates the model(s), and sends back the results. Adding a new model consists of 3 steps:</p>
+<ol class="arabic simple">
+<li><p>Create a class with an <code class="docutils literal notranslate"><span class="pre">Eval(...)</span></code> function (or choose an existing class).</p></li>
+<li><p>Add a call to the class constructor in the <code class="docutils literal notranslate"><span class="pre">ModelManager</span></code> code.</p></li>
+<li><p>Register the model, with desired parameters, in a <code class="docutils literal notranslate"><span class="pre">{app_id}_models.json</span></code> file.</p></li>
+</ol>
+<p>Below, we will cover the steps in detail.</p>
+<ol class="arabic">
+<li><p>The first step towards setting up a new realtime model is to create a subclass of the <code class="docutils literal notranslate"><span class="pre">Model</span></code> class.
+A model stores a list of valid levels (or an empty list, if the model is valid for all levels), as well as an “input type.”<br />
+<em>Note: The need for an input type is an unfortunate result of the fact that some models may use feature data for a session, while others may require access to the raw event data for sequence-based analysis. Separating the input types allows us to automatically parse and send feature data at a single point in the code, rather than requiring each feature-based model to individually include code to run a feature extraction.</em></p>
+<p>The other important feature of a Model is the <code class="docutils literal notranslate"><span class="pre">Eval(...)</span></code> function. This function receives one or more rows of data, with a form depending on the input type, and evaluates the data against the model to return a result.
+In the case of a linear regression model, for example, the <code class="docutils literal notranslate"><span class="pre">Eval(...)</span></code> function will return a linear combination of feature values, with coefficients determined at model training time.</p>
+<p>To simplify the issue of controlling input types, we provide <code class="docutils literal notranslate"><span class="pre">FeatureModel</span></code> and <code class="docutils literal notranslate"><span class="pre">SequenceModel</span></code> subclasses of <code class="docutils literal notranslate"><span class="pre">Model</span></code>. These simply hard-code the input type passed to the super constructor, so further subclasses need not be concerned with managing the input type. Simply choose either <code class="docutils literal notranslate"><span class="pre">FeatureModel</span></code> or <code class="docutils literal notranslate"><span class="pre">SequenceModel</span></code> as the parent of your new model class.<br />
+Do note, however, that <code class="docutils literal notranslate"><span class="pre">FeatureModel</span></code> and <code class="docutils literal notranslate"><span class="pre">SequenceModel</span></code> each implement <code class="docutils literal notranslate"><span class="pre">Eval(...)</span></code> with a call to an abstract function <code class="docutils literal notranslate"><span class="pre">_eval(...)</span></code>. <strong>Thus, you should implement the</strong> <code class="docutils literal notranslate"><span class="pre">_eval(...)</span></code> <strong>function when subclassing from</strong> <code class="docutils literal notranslate"><span class="pre">FeatureModel</span></code> <strong>or</strong> <code class="docutils literal notranslate"><span class="pre">SequenceModel</span></code>.</p>
+<p>While your model may be entirely self-contained within the <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclass, you can also add parameters for the class constructor (the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function, in our case). This allows for easy creation of multiple instances of models of the same type. Consider, for example, the constructor for the <code class="docutils literal notranslate"><span class="pre">LogisticModel</span></code> class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LogisticModel</span><span class="p">(</span><span class="n">FeatureModel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coefficient_map</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">levels</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coeff_map</span> <span class="o">=</span> <span class="n">coefficient_map</span>
+</pre></div>
+</div>
+<p>This class constructor accepts a <code class="docutils literal notranslate"><span class="pre">coefficient_map</span></code> parameter, which maps feature names to coefficient values.<br />
+<em>Note: all <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclass constructors should accept a <code class="docutils literal notranslate"><span class="pre">levels</span></code> parameter, which is passed to the super constructor. It is fine to default to an empty list; this will simply mean the model is interpreted as valid for all levels.</em><br />
+The parameters for a specific model instance are set in the {game_name}_models.json file, discussed in a later step.</p>
+<p>A final note, regarding naming of <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclasses.
+You may choose any name you wish, but we recommend a naming convention of <code class="docutils literal notranslate"><span class="pre">PrefixModel</span></code>, where “Prefix” is a description of the model type being implemented. For examle, <code class="docutils literal notranslate"><span class="pre">LogisticModel</span></code> for a class that implements a logistic regression model, or <code class="docutils literal notranslate"><span class="pre">NeuralModel</span></code> for a neural net implementation.</p>
+</li>
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclass is in place, we need some line of code that calls the subclass constructor to create model instances.<br />
+This is done at a single point, in the <code class="docutils literal notranslate"><span class="pre">ModelManager</span></code> class, within the <code class="docutils literal notranslate"><span class="pre">LoadModel(...)</span></code> function. Here is a sample of the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LoadModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">model_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_models</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">model_info</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;SingleFeature&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">SingleFeatureModel</span><span class="p">(</span><span class="o">**</span><span class="n">model_info</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">model_info</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Logistic&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">LogisticModel</span><span class="p">(</span><span class="o">**</span><span class="n">model_info</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">])</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Whenever you add a new <code class="docutils literal notranslate"><span class="pre">Model</span></code> sublclass, then, you must add a new case to the <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> block. The format should be copied exactly from existing cases, but you must a) replace the string being <strong>compared against</strong> the <code class="docutils literal notranslate"><span class="pre">model_info[&quot;type&quot;]</span></code> with a model name of your choosing, and b) replace the class name in the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement with the name of your new subclass.
+In addition, you must add an import at the top of the <code class="docutils literal notranslate"><span class="pre">ModelManager</span></code> file.</p>
+<p>As with the name for your <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclass, the name here may be anything you choose, provided the choice does not conflict with existing cases.
+However, in keeping with the naming convention recommended in step 1, we recommend using the “Prefix” portion of the class name as the type name here.
+Re-using the <code class="docutils literal notranslate"><span class="pre">NeuralModel</span></code> example from before, we would add the following import, assuming the <code class="docutils literal notranslate"><span class="pre">NeuralModel</span></code> class resides in the <code class="docutils literal notranslate"><span class="pre">models</span></code> folder alongside the existing model classes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">models.NeuralModel</span> <span class="kn">import</span> <span class="n">NeuralModel</span>
+</pre></div>
+</div>
+<p>Further, we would add the following code to <code class="docutils literal notranslate"><span class="pre">LoadModel</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">model_info</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Neural&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">NeuralModel</span><span class="p">(</span><span class="o">**</span><span class="n">model_info</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>The final step in adding a new <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclass is to register a new instance in the <code class="docutils literal notranslate"><span class="pre">{app_id}_models.json</span></code> file. Here, <code class="docutils literal notranslate"><span class="pre">{app_id}</span></code> is an all-caps identifier for the game on whose data the model is based.
+It is the same as the <code class="docutils literal notranslate"><span class="pre">app_id</span></code> column value for the game’s events in the database.
+Within each of these <code class="docutils literal notranslate"><span class="pre">{app_id}_models.json</span></code> files, we have a series of entries corresponding to instances of our <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclasses.
+The JSON key for each entry is the name of the instance, and the value for each entry is a dictionary containing entries for <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;levels&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;params&quot;</span></code>.</p></li>
+</ol>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">&quot;type&quot;</span></code> is whatever string was chosen for the <code class="docutils literal notranslate"><span class="pre">==</span></code> comparison in the <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> block in step two.
+This is what allows the <code class="docutils literal notranslate"><span class="pre">ModelManager</span></code> to determine the correct type of model to instantiate.
+Again, if following our naming convention, this is the prefix portion of the <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclass name.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">&quot;levels&quot;</span></code> entry specifies at which levels of the game the player data may be evaluated. For example, if a model was trained on data from levels 8-10 of a game, you may choose to specify <code class="docutils literal notranslate"><span class="pre">&quot;levels&quot;</span> <span class="pre">:</span> <span class="pre">[8,</span> <span class="pre">9,</span> <span class="pre">10]</span></code> in the JSON file.
+In this case, the system will only evaluate the model if a given player is in one of those three levels.
+If you leave <code class="docutils literal notranslate"><span class="pre">&quot;levels&quot;</span></code> as an empty list, the system will assume the model is valid for <strong>all</strong> levels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;params&quot;</span></code> specifies the arguments to be passed to a <code class="docutils literal notranslate"><span class="pre">Model</span></code> subclass’ <em>unique</em> parameters.
+That is, any parameters additional to the <code class="docutils literal notranslate"><span class="pre">levels</span></code> parameter required by the <code class="docutils literal notranslate"><span class="pre">Model</span></code> base class.
+The <code class="docutils literal notranslate"><span class="pre">&quot;params&quot;</span></code> should be specified as a dictionary of parameter-argument pairs.
+For example, if a model requires parameters <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>, then the <code class="docutils literal notranslate"><span class="pre">&quot;params&quot;</span></code> entry should have the following form:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;params&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.14</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">618</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Here is an example for a full model instance for a linear regression using the <code class="docutils literal notranslate"><span class="pre">sess_count_achievements</span></code> and <code class="docutils literal notranslate"><span class="pre">sess_count_deaths</span></code> features from Lakeland:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;MyLogisticModel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Logistic&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;levels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;coefficient_map&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sess_count_achievements&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;sess_count_deaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;intercept&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.4</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This is all that is required to add new instances of a model.
+Thus, if a type for the model you wish to add already exists, the first two steps of this process may be skipped, and you can simply register a new instance in the JSON file.
+In this way, the system nicely supports code re-use, and makes the addition of new model instances very simple.</p>
+</li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Field Day Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

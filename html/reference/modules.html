@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>opengamedata-core &mdash; OpenGameData 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="opengamedata-core package" href="opengamedata-core.html" />
+    <link rel="prev" title="Documenting OpenGameData" href="../documentation/documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OpenGameData
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coding_Conventions.html">Coding Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studios/index.html">For Game Studios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">For Games Researchers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">opengamedata-core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.html">opengamedata-core package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.extractors.html">opengamedata-core.extractors package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html">opengamedata-core.interfaces package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.managers.html">opengamedata-core.managers package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.ogd_requests.html">opengamedata-core.ogd_requests package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html">opengamedata-core.processors package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html">opengamedata-core.schemas package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenGameData</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">opengamedata-core</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="opengamedata-core">
+<h1>opengamedata-core<a class="headerlink" href="#opengamedata-core" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="opengamedata-core.html">opengamedata-core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.extractors.html">opengamedata-core.extractors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.html#opengamedata-core-extractors-extractor-module">opengamedata-core.extractors.Extractor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.html#opengamedata-core-extractors-extractorloader-module">opengamedata-core.extractors.ExtractorLoader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.games.html">opengamedata-core.games package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.games.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.interfaces.html">opengamedata-core.interfaces package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-bqfirebaseinterface-module">opengamedata-core.interfaces.BQFirebaseInterface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-bigquerycodinginterface-module">opengamedata-core.interfaces.BigQueryCodingInterface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-bigqueryinterface-module">opengamedata-core.interfaces.BigQueryInterface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-csvinterface-module">opengamedata-core.interfaces.CSVInterface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-codinginterface-module">opengamedata-core.interfaces.CodingInterface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-datainterface-module">opengamedata-core.interfaces.DataInterface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-interface-module">opengamedata-core.interfaces.Interface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-mysqlinterface-module">opengamedata-core.interfaces.MySQLInterface module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.interfaces.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.managers.html">opengamedata-core.managers package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.managers.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.managers.html#opengamedata-core-managers-eventmanager-module">opengamedata-core.managers.EventManager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.managers.html#opengamedata-core-managers-exportmanager-module">opengamedata-core.managers.ExportManager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.managers.html#opengamedata-core-managers-featuremanager-module">opengamedata-core.managers.FeatureManager module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.managers.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.ogd_requests.html">opengamedata-core.ogd_requests package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.ogd_requests.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.ogd_requests.html#opengamedata-core-ogd-requests-request-module">opengamedata-core.ogd_requests.Request module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.ogd_requests.html#opengamedata-core-ogd-requests-requestresult-module">opengamedata-core.ogd_requests.RequestResult module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.ogd_requests.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.processors.html">opengamedata-core.processors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-classroomdetector-module">opengamedata-core.processors.ClassroomDetector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-detectorprocessor-module">opengamedata-core.processors.DetectorProcessor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-eventprocessor-module">opengamedata-core.processors.EventProcessor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-extractorprocessor-module">opengamedata-core.processors.ExtractorProcessor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-featureprocessor-module">opengamedata-core.processors.FeatureProcessor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-playerprocessor-module">opengamedata-core.processors.PlayerProcessor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-populationprocessor-module">opengamedata-core.processors.PopulationProcessor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-processor-module">opengamedata-core.processors.Processor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-sessionprocessor-module">opengamedata-core.processors.SessionProcessor module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.processors.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.schemas.html">opengamedata-core.schemas package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-event-module">opengamedata-core.schemas.Event module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-exportmode-module">opengamedata-core.schemas.ExportMode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-extractionmode-module">opengamedata-core.schemas.ExtractionMode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-featuredata-module">opengamedata-core.schemas.FeatureData module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-idmode-module">opengamedata-core.schemas.IDMode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-iterationmode-module">opengamedata-core.schemas.IterationMode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-schema-module">opengamedata-core.schemas.Schema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.html#opengamedata-core-utils-module">opengamedata-core.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opengamedata-core.extractors.html">opengamedata-core.extractors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.extractors.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.extractors.detectors.html">opengamedata-core.extractors.detectors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.detectors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.detectors.html#opengamedata-core-extractors-detectors-detector-module">opengamedata-core.extractors.detectors.Detector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.detectors.html#opengamedata-core-extractors-detectors-detectorevent-module">opengamedata-core.extractors.detectors.DetectorEvent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.detectors.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.extractors.features.html">opengamedata-core.extractors.features package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.features.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.features.html#opengamedata-core-extractors-features-feature-module">opengamedata-core.extractors.features.Feature module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.features.html#opengamedata-core-extractors-features-percountfeature-module">opengamedata-core.extractors.features.PerCountFeature module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.features.html#opengamedata-core-extractors-features-perlevelfeature-module">opengamedata-core.extractors.features.PerLevelFeature module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.features.html#opengamedata-core-extractors-features-peruserfeature-module">opengamedata-core.extractors.features.PerUserFeature module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.features.html#opengamedata-core-extractors-features-sessionfeature-module">opengamedata-core.extractors.features.SessionFeature module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.features.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.extractors.legacy.html">opengamedata-core.extractors.legacy package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.legacy.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.legacy.html#opengamedata-core-extractors-legacy-legacydetector-module">opengamedata-core.extractors.legacy.LegacyDetector module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.legacy.html#opengamedata-core-extractors-legacy-legacyfeature-module">opengamedata-core.extractors.legacy.LegacyFeature module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.legacy.html#opengamedata-core-extractors-legacy-legacyloader-module">opengamedata-core.extractors.legacy.LegacyLoader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.legacy.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.extractors.registries.html">opengamedata-core.extractors.registries package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.registries.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.registries.html#opengamedata-core-extractors-registries-detectorregistry-module">opengamedata-core.extractors.registries.DetectorRegistry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.registries.html#opengamedata-core-extractors-registries-extractorregistry-module">opengamedata-core.extractors.registries.ExtractorRegistry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.registries.html#opengamedata-core-extractors-registries-featureregistry-module">opengamedata-core.extractors.registries.FeatureRegistry module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.extractors.registries.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.extractors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.extractors.html#opengamedata-core-extractors-extractor-module">opengamedata-core.extractors.Extractor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.extractors.html#opengamedata-core-extractors-extractorloader-module">opengamedata-core.extractors.ExtractorLoader module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.extractors.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opengamedata-core.interfaces.html">opengamedata-core.interfaces package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-bqfirebaseinterface-module">opengamedata-core.interfaces.BQFirebaseInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-bigquerycodinginterface-module">opengamedata-core.interfaces.BigQueryCodingInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-bigqueryinterface-module">opengamedata-core.interfaces.BigQueryInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-csvinterface-module">opengamedata-core.interfaces.CSVInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-codinginterface-module">opengamedata-core.interfaces.CodingInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-datainterface-module">opengamedata-core.interfaces.DataInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-interface-module">opengamedata-core.interfaces.Interface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#opengamedata-core-interfaces-mysqlinterface-module">opengamedata-core.interfaces.MySQLInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.interfaces.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opengamedata-core.managers.html">opengamedata-core.managers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.managers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.managers.html#opengamedata-core-managers-eventmanager-module">opengamedata-core.managers.EventManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.managers.html#opengamedata-core-managers-exportmanager-module">opengamedata-core.managers.ExportManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.managers.html#opengamedata-core-managers-featuremanager-module">opengamedata-core.managers.FeatureManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.managers.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opengamedata-core.ogd_requests.html">opengamedata-core.ogd_requests package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.ogd_requests.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.ogd_requests.html#opengamedata-core-ogd-requests-request-module">opengamedata-core.ogd_requests.Request module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.ogd_requests.html#opengamedata-core-ogd-requests-requestresult-module">opengamedata-core.ogd_requests.RequestResult module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.ogd_requests.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opengamedata-core.processors.html">opengamedata-core.processors package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-classroomdetector-module">opengamedata-core.processors.ClassroomDetector module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-detectorprocessor-module">opengamedata-core.processors.DetectorProcessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-eventprocessor-module">opengamedata-core.processors.EventProcessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-extractorprocessor-module">opengamedata-core.processors.ExtractorProcessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-featureprocessor-module">opengamedata-core.processors.FeatureProcessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-playerprocessor-module">opengamedata-core.processors.PlayerProcessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-populationprocessor-module">opengamedata-core.processors.PopulationProcessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-processor-module">opengamedata-core.processors.Processor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#opengamedata-core-processors-sessionprocessor-module">opengamedata-core.processors.SessionProcessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.processors.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="opengamedata-core.schemas.html">opengamedata-core.schemas package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="opengamedata-core.schemas.games.html">opengamedata-core.schemas.games package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#opengamedata-core-schemas-games-aggregateschema-module">opengamedata-core.schemas.games.AggregateSchema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#opengamedata-core-schemas-games-detectorschema-module">opengamedata-core.schemas.games.DetectorSchema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#opengamedata-core-schemas-games-eventschema-module">opengamedata-core.schemas.games.EventSchema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#opengamedata-core-schemas-games-extractorschema-module">opengamedata-core.schemas.games.ExtractorSchema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#opengamedata-core-schemas-games-featureschema-module">opengamedata-core.schemas.games.FeatureSchema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#opengamedata-core-schemas-games-gameschema-module">opengamedata-core.schemas.games.GameSchema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#opengamedata-core-schemas-games-percountschema-module">opengamedata-core.schemas.games.PerCountSchema module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="opengamedata-core.schemas.games.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-event-module">opengamedata-core.schemas.Event module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-exportmode-module">opengamedata-core.schemas.ExportMode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-extractionmode-module">opengamedata-core.schemas.ExtractionMode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-featuredata-module">opengamedata-core.schemas.FeatureData module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-idmode-module">opengamedata-core.schemas.IDMode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-iterationmode-module">opengamedata-core.schemas.IterationMode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#opengamedata-core-schemas-schema-module">opengamedata-core.schemas.Schema module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opengamedata-core.schemas.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../documentation/documentation.html" class="btn btn-neutral float-left" title="Documenting OpenGameData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="opengamedata-core.html" class="btn btn-neutral float-right" title="opengamedata-core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Field Day Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

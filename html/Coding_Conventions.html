@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Conventions &mdash; OpenGameData 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Glossary" href="Glossary.html" />
+    <link rel="prev" title="Installation" href="Installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            OpenGameData
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Coding Conventions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#software-platform">Software Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#casing">Casing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alignment">Alignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quote-characters">Quote Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#type-hinting">Type Hinting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organization-of-functions-in-a-class">Organization of Functions in a Class:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="studios/index.html">For Game Studios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/index.html">For Games Researchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/modules.html">opengamedata-core</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenGameData</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Coding Conventions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Coding_Conventions.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="coding-conventions">
+<h1>Coding Conventions<a class="headerlink" href="#coding-conventions" title="Permalink to this heading"></a></h1>
+<p>A summary of a few conventions used throughout the various OGD codebases:</p>
+<p>A few notes:</p>
+<ul class="simple">
+<li><p>None of these are really <em>mandatory</em> in any sense, but they do help keep things consistent and organized.</p></li>
+<li><p>Most of the codebase(s) are written in Python, so most of these conventions are Python-focused.</p></li>
+</ul>
+<section id="software-platform">
+<h2>Software Platform<a class="headerlink" href="#software-platform" title="Permalink to this heading"></a></h2>
+<p>We use the software packages and versions listed in our Open Game Data Reference Platform <a class="reference internal" href="software_platform.html"><span class="std std-doc">document</span></a></p>
+</section>
+<section id="casing">
+<h2>Casing<a class="headerlink" href="#casing" title="Permalink to this heading"></a></h2>
+<p>We generally use different casing conventions for different parts of the code:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PascalCase</span></code> : Use for classes, properties, and public functions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camelCase</span></code> : Use for local and “private” functions. Prefix private functions with an underscore: <code class="docutils literal notranslate"><span class="pre">_privateFunction</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snake_case</span></code> : Use for variables, including instance variables (e.g. <code class="docutils literal notranslate"><span class="pre">self._var</span></code>). Prefix private and temp variables with an underscore: <code class="docutils literal notranslate"><span class="pre">self._private_var</span></code> or <code class="docutils literal notranslate"><span class="pre">_temp_var</span></code></p></li>
+</ul>
+</section>
+<section id="alignment">
+<h2>Alignment<a class="headerlink" href="#alignment" title="Permalink to this heading"></a></h2>
+</section>
+<section id="quote-characters">
+<h2>Quote Characters<a class="headerlink" href="#quote-characters" title="Permalink to this heading"></a></h2>
+</section>
+<section id="type-hinting">
+<h2>Type Hinting<a class="headerlink" href="#type-hinting" title="Permalink to this heading"></a></h2>
+<p>Python does not have formal type-checking, but provides type “hints” to help a linter pre-check for potential type errors.
+In general, we do our best to add type hints wherever practical and cut down on exceptions.</p>
+<p>The three primary cases for type hints are:</p>
+<ol class="arabic simple">
+<li><p><strong>Variables</strong>:
+When a variable is first used/bound/whatever, we attach a type hint between the variable name and the assignment operator.
+For example:<br />
+<code class="docutils literal notranslate"><span class="pre">some_int_var</span> <span class="pre">:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">5</span></code><br />
+We leave a space before and after the colon.
+For instance variables that are not initialized with a simple assignment (e.g. <code class="docutils literal notranslate"><span class="pre">self.var</span> <span class="pre">:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&quot;foo&quot;</span></code>), simply “declare” the variable, optionally giving it a temporary variable (such as an empty list, for a <code class="docutils literal notranslate"><span class="pre">List</span></code> variable) and initialize later.
+This allows us to keep <code class="docutils literal notranslate"><span class="pre">__init__</span></code> functions relatively well-organized, with a section of one-line declarations/initializations followed by a section of complicated initializations.<br />
+For example:<br />
+<code class="docutils literal notranslate"><span class="pre">self._simple_var</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">:</span> <span class="pre">int</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">0</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">self._complicated_var</span> <span class="pre">:</span> <span class="pre">Dict[str,</span> <span class="pre">List[int]]</span> <span class="pre">=</span> <span class="pre">{}</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">self._another_var</span>&#160;&#160;&#160;&#160; <span class="pre">:</span> <span class="pre">str</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">=</span> <span class="pre">&quot;Some</span> <span class="pre">string&quot;</span></code><br />
+<code class="docutils literal notranslate"> </code><br />
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(20):</span></code><br />
+<code class="docutils literal notranslate">&#160;&#160;&#160; <span class="pre">self._complicated_var[f'Item{i}']</span> <span class="pre">=</span> <span class="pre">[x*i</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">range(3)]</span></code></p></li>
+<li><p><strong>Function parameters</strong>:
+Function parameters are type-hinted with a similar syntax to variables.
+For function params</p></li>
+</ol>
+</section>
+<section id="organization-of-functions-in-a-class">
+<h2>Organization of Functions in a Class:<a class="headerlink" href="#organization-of-functions-in-a-class" title="Permalink to this heading"></a></h2>
+<p>Generally, the functions of a class are organized into sections, with each section marked by a comment.</p>
+<p>The sections go in the following order:</p>
+<ol class="arabic simple">
+<li><p><strong>Define Abstract Functions</strong>: This only applies to abstract base classes. Typicallly abstracts will be private functions, called from a public method that handles cross-cutting concerns (e.g. logging)</p></li>
+<li><p><strong>Implement Built-ins</strong>: At minimum, a constructor; typically includes a <code class="docutils literal notranslate"><span class="pre">to_string</span></code>-style function (e.g. <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and/or <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> in Python) and any operator overloads.</p></li>
+<li><p><strong>Implement Abstract Functions</strong>: Public abstracts should come first (if any, see note for <strong>Define Abstract Functions</strong>), followed by private abstracts.</p></li>
+<li><p><strong>Public Statics</strong>: No notes</p></li>
+<li><p><strong>Public Methods</strong>: No notes</p></li>
+<li><p><strong>Properties</strong>: Getter and setter functions for languages that support them. For OGD, that’s basically just Python.</p></li>
+<li><p><strong>Private Statics</strong>: No notes</p></li>
+<li><p><strong>Private Methods</strong>: Generally reserved for helper functions for public methods.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Glossary.html" class="btn btn-neutral float-right" title="Glossary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Field Day Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

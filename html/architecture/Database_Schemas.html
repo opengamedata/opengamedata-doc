@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database Schemas &mdash; OpenGameData 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OpenGameData
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coding_Conventions.html">Coding Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studios/index.html">For Game Studios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">For Games Researchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/modules.html">opengamedata-core</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenGameData</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Database Schemas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/architecture/Database_Schemas.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="database-schemas">
+<h1>Database Schemas<a class="headerlink" href="#database-schemas" title="Permalink to this heading"></a></h1>
+<p>Below are the table schemas for each of the existing databases.</p>
+<section id="opengamedata">
+<h2><code class="docutils literal notranslate"><span class="pre">OpenGameData</span></code><a class="headerlink" href="#opengamedata" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">OpenGameData</span></code> database (named <code class="docutils literal notranslate"><span class="pre">opengamedata</span></code> in MySQL, no upper-case letters) contains one table for each game; however, the table schema is identical across tables.</p>
+<p>The table names are:</p>
+<ul class="simple">
+<li><p>AQUALAB</p></li>
+<li><p>BACTERIA</p></li>
+<li><p>BALLOON</p></li>
+<li><p>CRYSTAL</p></li>
+<li><p>CYCLE_CARBON</p></li>
+<li><p>CYCLE_NITROGEN</p></li>
+<li><p>CYCLE_WATER</p></li>
+<li><p>EARTHQUAKE</p></li>
+<li><p>ICECUBE</p></li>
+<li><p>JOWILDER</p></li>
+<li><p>LAKELAND</p></li>
+<li><p>MAGNET</p></li>
+<li><p>MASHOPOLIS</p></li>
+<li><p>PENGUINS</p></li>
+<li><p>SHADOWSPECT</p></li>
+<li><p>SHIPWRECKS</p></li>
+<li><p>STEMPORTS</p></li>
+<li><p>WAVES</p></li>
+<li><p>WIND</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column Name</p></th>
+<th class="head"><p>Column Type</p></th>
+<th class="head"><p>Nullable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>int(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>session_id</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>user_id</p></td>
+<td><p>varchar(64)</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>user_data</p></td>
+<td><p>text</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>client_time</p></td>
+<td><p>datetime</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_time_ms</p></td>
+<td><p>smallint(6)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>client_offset</p></td>
+<td><p>time</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>server_time</p></td>
+<td><p>timestamp</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>event_source</p></td>
+<td><p>enum(‘GAME’,’GENERATED’)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>game_state</p></td>
+<td><p>text</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>app_version</p></td>
+<td><p>smallint(6)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>app_branch</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>log_version</p></td>
+<td><p>smallint(6)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>event_sequence_index</p></td>
+<td><p>bigint(64)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>remote_addr</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>http_user_agent</p></td>
+<td><p>text</p></td>
+<td><p>YES</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logger">
+<h2>Logger<a class="headerlink" href="#logger" title="Permalink to this heading"></a></h2>
+<p>The Logger database (named <code class="docutils literal notranslate"><span class="pre">logger</span></code> in MySQL, no upper-case letters) contains a single table named <code class="docutils literal notranslate"><span class="pre">log</span></code>.
+It has the following schema:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column Name</p></th>
+<th class="head"><p>Column Type</p></th>
+<th class="head"><p>Nullable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>int(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>app_id</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>app_id_fast</p></td>
+<td><p>enum(‘UNDEFINED’,’WAVES’,’CRYSTAL’,’JOWILDER’,’LAKELAND’)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>app_version</p></td>
+<td><p>int(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>session_id</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>persistent_session_id</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>player_id</p></td>
+<td><p>varchar(6)</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>level</p></td>
+<td><p>int(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>event</p></td>
+<td><p>enum(‘BEGIN’,’COMPLETE’,’SUCCEED’,’FAIL’,’CUSTOM’,’UNDEFINED’)</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-odd"><td><p>event_custom</p></td>
+<td><p>int(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>event_data_simple</p></td>
+<td><p>int(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>event_data_complex</p></td>
+<td><p>text</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>client_time</p></td>
+<td><p>timestamp</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>client_time_ms</p></td>
+<td><p>int(32)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>server_time</p></td>
+<td><p>timestamp</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>remote_addr</p></td>
+<td><p>varchar(32)</p></td>
+<td><p>YES</p></td>
+</tr>
+<tr class="row-even"><td><p>req_id</p></td>
+<td><p>bigint(64)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-odd"><td><p>session_n</p></td>
+<td><p>bigint(64)</p></td>
+<td><p>NO</p></td>
+</tr>
+<tr class="row-even"><td><p>http_user_agent</p></td>
+<td><p>text</p></td>
+<td><p>YES</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Field Day Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

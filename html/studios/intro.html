@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction for Game Studios &mdash; OpenGameData 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="For Games Researchers" href="../documentation/index.html" />
+    <link rel="prev" title="For Game Studios" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OpenGameData
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coding_Conventions.html">Coding Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glossary.html">Glossary</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">For Game Studios</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction for Game Studios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#game-client-logging">Game Client Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-storage">Data Storage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logging-to-mysql">Logging to MySQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#archiving-to-bigquery">Archiving to BigQuery</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-transformations">Data Transformations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#event-detectors">Event Detectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feature-extractors">Feature Extractors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#monthly-outputs">Monthly Outputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">For Games Researchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/modules.html">opengamedata-core</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenGameData</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">For Game Studios</a></li>
+      <li class="breadcrumb-item active">Introduction for Game Studios</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/studios/intro.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-for-game-studios">
+<h1>Introduction for Game Studios<a class="headerlink" href="#introduction-for-game-studios" title="Permalink to this heading"></a></h1>
+<p>This document outlines the steps necessary to integrate a new game with the Open Game Data infrastructure.</p>
+<p>The OGD pipeline is made up of the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Game Client Logging</strong></p></li>
+<li><p><strong>Data Storage</strong></p></li>
+<li><p><strong>Data Transformations</strong><br />
+a. New Event Detection<br />
+b. Feature Extraction<br />
+c. (<em>future work</em>) Model Training</p></li>
+<li><p><strong>Monthly Outputs</strong></p></li>
+</ol>
+<p>We provide various Open Game Data packages for use in each step of this process; you may freely use these, or substitute your own solution in for a given step.
+If you are only interested in event logging, the data transformations step may be ommitted from your project.</p>
+<section id="game-client-logging">
+<h2>Game Client Logging<a class="headerlink" href="#game-client-logging" title="Permalink to this heading"></a></h2>
+<p>In this step of the pipeline, the game sends out telemetry events to be captured in a database.
+These events should be chosen to allow post-hoc reconstruction of gameplay.
+Please see <a class="reference internal" href="event_design.html"><span class="std std-doc">Event Design</span></a> for more information about choosing which events to log.
+If your game already implements some form of event logging, you may continue to use your existing set of events.</p>
+<p>To maintain consistency of data across games, we use a standardized schema for events.
+If you plan to use the <code class="docutils literal notranslate"><span class="pre">opengamedata-unity</span></code> or <code class="docutils literal notranslate"><span class="pre">opengamedata-js-log</span></code> packages to aid in event logging, this schema will be implicitly enforced; if you use a custom logging solution, we highly recommend following the standardized schema for maximum compatibility.
+Please see <a class="reference internal" href="event_schema.html"><span class="std std-doc">Open Game Data Event Schemas</span></a> for more details.</p>
+<p>Once you have determined a set of events and the data to be logged with them, you will need to implement logging within your game. We recommend using one of the Open Game Data packages to ease this process.
+We currently have packages for Unity and JavaScript game projects.
+To get started, please see the readme guide for the package appropriate for your game:</p>
+<ul class="simple">
+<li><p>For Unity: <code class="docutils literal notranslate"><span class="pre">opengamedata-unity</span></code> user’s <a class="reference external" href="https://github.com/opengamedata/opengamedata-unity#readme">guide</a></p></li>
+<li><p>For JavaScript: <code class="docutils literal notranslate"><span class="pre">opengamedata-js-log</span></code> user’s <a class="reference external" href="https://github.com/opengamedata/opengamedata-js-log#readme">guide</a></p></li>
+</ul>
+</section>
+<section id="data-storage">
+<h2>Data Storage<a class="headerlink" href="#data-storage" title="Permalink to this heading"></a></h2>
+<p>Once you have implemented logging in your game, you’ll need a database to receive and store the logged events.
+In principle, any table-based database system may be used to record Open Game Data events; in practice, we have ready support for MySQL as a short-term container for new events, and for BigQuery for long-term archival of older events. Logging to another database system may require some additional development effort.</p>
+<p>If you wish to utilize our existing logging infrastructure to capture your game events, please <a class="reference internal" href="#TODO"><span class="xref myst">contact us</span></a> to discuss integration with our instance of the OGD logging system.</p>
+<p>If you prefer to create your own instance of logging infrastructure, there are two major steps to complete.
+These are:</p>
+<ol class="arabic simple">
+<li><p>Set up logging to MySQL short-term database</p></li>
+<li><p>Set up automatic archival to BigQuery.</p></li>
+</ol>
+<section id="logging-to-mysql">
+<h3>Logging to MySQL<a class="headerlink" href="#logging-to-mysql" title="Permalink to this heading"></a></h3>
+<p>This major step can be accomplished by doing the following:</p>
+<ol class="arabic simple">
+<li><p>Set up a “logging” server with PHP and MySQL:<br />
+This server will host the logging service.
+Please see our <a class="reference internal" href="../software_platform.html"><span class="std std-doc">reference platform</span></a> documentation for recommended software versions.</p></li>
+<li><p>Create a MySQL database to hold game events:<br />
+This database should contain a table for each game, with each table having columns and data types corresponding to the OGD schema</p></li>
+<li><p>Set up an instance of <code class="docutils literal notranslate"><span class="pre">opengamedata-logger</span></code> package:<br />
+This repository contains PHP scripts to receive a request containing event data, and insert the data into a local database.
+The config file should be set with credentials for writing to the MySQL database.
+The <a class="reference external" href="https://github.com/opengamedata/opengamedata-logger#readme">readme</a> may be useful for understanding how <code class="docutils literal notranslate"><span class="pre">opengamedata-logger</span></code> works.</p></li>
+<li><p>Direct game logging client to your server:<br />
+If you used <code class="docutils literal notranslate"><span class="pre">opengamedata-unity</span></code> or <code class="docutils literal notranslate"><span class="pre">opengamedata-js-log</span></code> for event logging, you can configure the package to make requests through your server’s instance of the PHP scripts.</p></li>
+</ol>
+</section>
+<section id="archiving-to-bigquery">
+<h3>Archiving to BigQuery<a class="headerlink" href="#archiving-to-bigquery" title="Permalink to this heading"></a></h3>
+<p>This step can be accomplished by doing the following:</p>
+<ol class="arabic simple">
+<li><p>Create a Google Cloud project to host game data</p></li>
+<li><p>Create a BigQuery project:<br />
+This project should, in turn, have datasets for each game, and each dataset should have tables with columns and data types corresponding to the MySQL schema.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">opengamedata-automation</span></code> to automatically archive data from MySQL to BigQuery</p></li>
+</ol>
+</section>
+</section>
+<section id="data-transformations">
+<h2>Data Transformations<a class="headerlink" href="#data-transformations" title="Permalink to this heading"></a></h2>
+<section id="event-detectors">
+<h3>Event Detectors<a class="headerlink" href="#event-detectors" title="Permalink to this heading"></a></h3>
+</section>
+<section id="feature-extractors">
+<h3>Feature Extractors<a class="headerlink" href="#feature-extractors" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="monthly-outputs">
+<h2>Monthly Outputs<a class="headerlink" href="#monthly-outputs" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="For Game Studios" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../documentation/index.html" class="btn btn-neutral float-right" title="For Games Researchers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Field Day Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

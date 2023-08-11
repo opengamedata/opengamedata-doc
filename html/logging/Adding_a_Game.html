@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adding a Game &mdash; OpenGameData 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OpenGameData
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coding_Conventions.html">Coding Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../studios/index.html">For Game Studios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">For Games Researchers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/modules.html">opengamedata-core</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OpenGameData</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Adding a Game</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/logging/Adding_a_Game.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="adding-a-game">
+<h1>Adding a Game<a class="headerlink" href="#adding-a-game" title="Permalink to this heading"></a></h1>
+<section id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading"></a></h2>
+<p>First, a list of terminology you should be familiar with (see Glossary page if you’re unfamiliar with any of these):</p>
+<ul class="simple">
+<li><p><strong>Event</strong></p></li>
+<li><p><strong>Feature</strong></p></li>
+</ul>
+</section>
+<section id="steps-to-add-the-game">
+<h2>Steps to add the Game<a class="headerlink" href="#steps-to-add-the-game" title="Permalink to this heading"></a></h2>
+<p>In order to add a new game to the feature extraction tool, complete the following steps:</p>
+<section id="create-json-file">
+<h3>1. Create JSON file<a class="headerlink" href="#create-json-file" title="Permalink to this heading"></a></h3>
+<p>First, we must define some things about the data we are extracting.
+We do this in a JSON file, under the <strong>games/&lt;GAME_ID&gt;</strong> folder.
+The name of the JSON file should be the same as the game ID used in the database, by convention in all-caps.<br />
+<em>For example</em>: For the “Wave” game, the database uses an app_id of <code class="docutils literal notranslate"><span class="pre">WAVES</span></code>, so we name the JSON schema file as <strong>games/WAVES/WAVES.json</strong></p>
+<p>A JSON schema file has three elements:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">events</span></code>:
+A description of the event-specific data encoded in each database row.
+This element should be a dictionary mapping names of events to sub-dictionaries defining the data in the events.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">features</span></code>:
+A description of what features OGD should produce, given the events described above.
+This element should in turn contain two sub-elements:</p>
+<!-- - `per_level`: This sub-element should be a dictionary mapping the names of per-level features to descriptions of how the features are calculated/used. -->
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">aggregate</span></code>: This sub-element should be a dictionary mapping the names of features aggregated over a whole session to descriptions of how the features are calculated/used.</p></li>
+</ul>
+<!-- - `per_game`: This sub-element should be a dictionary mapping the names of per-game features to descriptions of how the features are calculated/used. -->
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">per_custom_count</span></code>: This sub-element should be a dictionary mapping the names of features which are repeated for some specific number of times to a subdictionary. This, again, has three elements:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">count</span></code>: The number of times the feature is repeated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code>: A prefix to use to distinguish repeats of the feature in the output file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">desc</span></code>: A description of how the feature is calculated</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">level_range</span></code> (optional):
+You may optionally add the <code class="docutils literal notranslate"><span class="pre">level_range</span></code> element to your JSON schema, which must be a sub-dictionary with <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> as its elements.
+If you do so, you can then use <code class="docutils literal notranslate"><span class="pre">level_range</span></code> as the <code class="docutils literal notranslate"><span class="pre">count</span></code> for a per-count feature (more information in the “Adding a Feature” doc).</p></li>
+</ul>
+<p>Below is a sample of JSON schema formatting:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ARROW_MOVE_RELEASE&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;event_custom&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;begin_val&quot;</span><span class="p">:</span><span class="s2">&quot;float&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;end_val&quot;</span><span class="p">:</span><span class="s2">&quot;float&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;per_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;totalArrowMoves&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="s2">&quot;level_range&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lvl&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arrow moves across a given level [count of &#39;ARROW_MOVE_RELEASE&#39; events]&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;questionAnswered&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;count&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;prefix&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;QA&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The answer the user gave to a given question (or -1 if unanswered)&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;aggregate&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;AverageArrowMoves&quot;</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;totalArrowMoves averaged over all levels&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;level_range&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;min&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="mi">34</span><span class="w"> </span><span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="create-the-feature-extractor-class">
+<h3>2. Create the feature Extractor class<a class="headerlink" href="#create-the-feature-extractor-class" title="Permalink to this heading"></a></h3>
+<p>This will be a Python class inheriting from the <code class="docutils literal notranslate"><span class="pre">Extractor</span></code> base class.
+By convention, the class should use the database app_id as a prefix for the class name, but use CamelCase (even if the app_id is not formatted as such).<br />
+<em>For example</em>: For the “Wave” game, we would name the extractor <code class="docutils literal notranslate"><span class="pre">WaveExtractor</span></code> (as opposed to <code class="docutils literal notranslate"><span class="pre">app_id</span> <span class="pre">+</span> <span class="pre">&quot;Extractor</span></code> =&gt; <code class="docutils literal notranslate"><span class="pre">WAVEExtractor</span></code>).</p>
+<p>You should put your <code class="docutils literal notranslate"><span class="pre">Extractor</span></code> subclass in the <strong>games/&lt;GAME_ID&gt;</strong> folder alongside the schema.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Extractor</span></code> subclass <em>must</em> implement the following functions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">session_id,</span> <span class="pre">game_schema)</span></code>: At minimum, this function should call the super constructor.
+<code class="docutils literal notranslate"><span class="pre">session_id</span></code> has the id of the session from which we are extracting data, and <code class="docutils literal notranslate"><span class="pre">game_schema</span></code> contains the data from the schema we defined in step 1.
+If your Extractor base class needs to keep track of any extra data from the schema to pass to its individual Features, you should store that data into an instance variable here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_loadFeature(self,</span> <span class="pre">feature_type,</span> <span class="pre">name,</span> <span class="pre">feature_args,</span> <span class="pre">count_index)</span></code>:
+This function is responsible for creating instances of the individual features for the game.
+The system will automatically figure out which instances, and how many of each, should be created based on the schema in step 1.
+However, we still need some code to call the constructors for these Features.
+The <code class="docutils literal notranslate"><span class="pre">_loadFeature</span></code> function will effectively be one giant <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> block, with one case for each type of Feature created for the game.<br />
+The <code class="docutils literal notranslate"><span class="pre">feature_type</span></code> parameter contains the “key” for a given feature in the schema.
+The <code class="docutils literal notranslate"><span class="pre">name</span></code> will be the <code class="docutils literal notranslate"><span class="pre">feature_type</span></code> with any prefix added, as in the case of “custom count” features.
+<code class="docutils literal notranslate"><span class="pre">feature_args</span></code> is the subdictionary for the feature in the schema (note, you do not need to check the “enabled” item here, that is done automatically).
+Lastly, <code class="docutils literal notranslate"><span class="pre">count_index</span></code> is used for “custom count” features, and says which number in the “count” the newly-constructed feature instance will have.
+For example, if your count was 3, then the first instance constructed will get a <code class="docutils literal notranslate"><span class="pre">count_index</span></code> of 0, the second will get 1, and the third will get 2.<br />
+A sample <code class="docutils literal notranslate"><span class="pre">_loadFeature</span></code> is shown below:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">_loadFeature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_type</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">feature_args</span><span class="p">:</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="n">Any</span><span class="p">],</span> <span class="n">count_index</span><span class="p">:</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span><span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Feature</span><span class="p">:</span>
+        <span class="n">ret_val</span> <span class="p">:</span> <span class="n">Feature</span>
+        <span class="k">if</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;AverageArrowMoves&quot;</span><span class="p">:</span>
+            <span class="n">ret_val</span> <span class="o">=</span> <span class="n">AverageArrowMoves</span><span class="o">.</span><span class="n">AverageArrowMoves</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">feature_args</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;TotalArrowMoves&quot;</span><span class="p">:</span>
+            <span class="n">ret_val</span> <span class="o">=</span> <span class="n">TotalArrowMoves</span><span class="o">.</span><span class="n">TotalArrowMoves</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">feature_args</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">],</span> <span class="n">count_index</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">feature_type</span> <span class="o">==</span> <span class="s2">&quot;QuestionAnswered&quot;</span><span class="p">:</span>
+            <span class="n">ret_val</span> <span class="o">=</span> <span class="n">QuestionAnswered</span><span class="o">.</span><span class="n">QuestionAnswered</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">feature_args</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">],</span> <span class="n">count_index</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">feature_type</span><span class="si">}</span><span class="s2">&#39; is not a valid feature for Waves.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret_val</span>
+</pre></div>
+</div>
+</section>
+<section id="register-game-in-exportmanager">
+<h3>3. Register game in ExportManager<a class="headerlink" href="#register-game-in-exportmanager" title="Permalink to this heading"></a></h3>
+<p>Next, we need to ensure ExportManager knows what games are available.
+The ExportManager is the class responsible for, well, managing exports.
+This is where we will register the existence of our new game’s feature extractor.
+Go to the <code class="docutils literal notranslate"><span class="pre">_prepareExtractor()</span></code> function in ExportManager.py, and add a case to the <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> block, matching the game id to your new Extractor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">elif</span> <span class="n">request</span><span class="o">.</span><span class="n">game_id</span> <span class="o">==</span> <span class="s2">&quot;WAVES&quot;</span><span class="p">:</span>
+        <span class="n">game_extractor</span> <span class="o">=</span> <span class="n">WaveExtractor</span>
+</pre></div>
+</div>
+</section>
+<section id="implement-features">
+<h3>4. Implement Features<a class="headerlink" href="#implement-features" title="Permalink to this heading"></a></h3>
+<p>Lastly, you need to implement all of your game Feature classes.<br />
+Each of your Feature subclasses should go in the <strong>games/&lt;GAME_ID&gt;/extractors</strong> folder.
+For more details on how to write your features, see the “<strong>Adding a Feature</strong>” page.</p>
+</section>
+<section id="set-up-game-package">
+<h3>5. Set up Game Package<a class="headerlink" href="#set-up-game-package" title="Permalink to this heading"></a></h3>
+<p>In order to ensure all of your Features get imported in the correct places, we want to treat your game’s folder as a Python package/module.
+To do this, you should create an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file inside the <strong>games/&lt;GAME_ID&gt;/extractors</strong> folder.<br />
+Inside this file, you should create a list named <code class="docutils literal notranslate"><span class="pre">__all__</span></code>, and put the names of all your Feature subclasses as strings in the list.
+Then, write individual import statments for each Feature subclass.</p>
+<p>An example is shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;AverageLevelTime&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;LevelCompletionTime&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SessionDuration&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SessionID&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">AverageLevelTime</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">LevelCompletionTime</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">SessionDuration</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">SessionID</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Field Day Lab.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
