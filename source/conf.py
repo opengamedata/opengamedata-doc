@@ -39,6 +39,11 @@ extensions = [
     "myst_parser"
 ]
 
+myst_enable_extensions = [
+    "amsmath",
+    "dollarmath"
+]
+
 autodoc_mock_imports = ["config"]
 
 source_suffix = {
