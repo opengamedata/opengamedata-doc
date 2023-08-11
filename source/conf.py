@@ -23,6 +23,7 @@ print(f"Found ogd-core path as {OGD_CORE_PATH}, which resolves to {str(Path(OGD_
 project = 'OpenGameData'
 copyright = '2022, Field Day Lab'
 author = 'Luke Swanson'
+language = 'en'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'
@@ -35,8 +36,9 @@ release = '1.0'
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.todo",
-    "myst_parser"
+    "sphinx.ext.graphviz",
+    "sphinx.ext.myst_parser",
+    "sphinx.ext.todo"
 ]
 
 myst_enable_extensions = [
@@ -50,6 +52,7 @@ source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
     '.md'  : 'markdown',
+    '.dot' : 'graphviz'
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -60,7 +63,6 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
 ]
-
 
 # -- Options for HTML output -------------------------------------------------
 
