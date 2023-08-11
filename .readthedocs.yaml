@@ -13,14 +13,14 @@ build:
     # nodejs: "20"
     # rust: "1.70"
     # golang: "1.20"
+  apt_packages:
+    - graphviz
 
   jobs:
     post_checkout:
   #     - git fetch --unshallow || true
       - git submodule init
       - git submodule update
-    post_install:
-      - pip install -r ./opengamedata-core/requirements.txt
 
 # submodules:
 #   recursive: false
@@ -44,3 +44,4 @@ sphinx:
 python:
    install:
    - requirements: ./requirements.txt
+   - requirements: ./opengamedata-core/requirements.txt
