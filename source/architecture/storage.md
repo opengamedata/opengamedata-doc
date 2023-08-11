@@ -1,6 +1,4 @@
-# OpenGameData Architecture
-
-## Data Storage
+# Data Storage
 
 Data is currently spread across multiple systems:  
 
@@ -21,11 +19,3 @@ Games using this system: **Legend of the Lost Emerald** (Shipwrecks)
 This system uses a pair of MySQL database servers. Events are initially logged to `fieldday-logger`, and are copied via MySQL's replication feature for long-term storage to `fieldday-store`.
 Both database servers have a MySQL database named `logger`, which in turn have a single table for all games, named `log`.  
 Games using this system: **Jo Wilder**, **Lakeland**, all **Yard Games**
-
-## Data Processing
-
-## Automation
-
-## APIs
-
-## Dashboards & Web Tools

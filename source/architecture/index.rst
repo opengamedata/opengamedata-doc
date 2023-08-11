@@ -1,10 +1,10 @@
-For Core Developers
+OpenGameData Architecture
 ========================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Core Development
+   :maxdepth: 1
+   :caption: OGD Architecture
 
+   architecture.rst
    Code_Organization.md
-   Architecture.md
    Database_Schemas.md
