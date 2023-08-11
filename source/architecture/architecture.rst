@@ -1,13 +1,13 @@
 OpenGameData Architecture
 ========================================
 
-.. include:: storage.md
+.. mdinclude:: storage.md
 
-.. include:: processing.md
+.. mdinclude:: processing.md
 .. graphviz:: architecture.dot
 
-.. include:: automation.md
+.. mdinclude:: automation.md
 
-.. include:: apis.md
+.. mdinclude:: apis.md
 
-.. include:: dashboards.md
+.. mdinclude:: dashboards.md
