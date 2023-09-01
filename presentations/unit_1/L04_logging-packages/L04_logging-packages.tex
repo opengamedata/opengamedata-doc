@@ -1,0 +1,118 @@
+\documentclass{beamer}
+% Based on template by Till Tantau <tantau@users.sourceforge.net>.
+
+% \usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+% or whatever
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\mode<presentation>
+{
+  \usetheme{frankfurt}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+\pgfdeclareimage[height=0.5cm]{ogd-logo}{../../../assets/OpenGameData-logo.png}
+\logo{\pgfuseimage{ogd-logo}}
+
+\title[Logging Packages] % (optional, use only with long paper titles)
+{Lecture 4: OpenGameData Event Logging Packages}
+\subtitle
+{\texttt{opengamedata-unity} and \texttt{opengamedata-js-log}} % (optional)
+
+\author[Swanson] % (optional, use only with lots of authors)
+{Luke Swanson}
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[University of Wisconsin-Madison] % (optional, but mostly needed)
+{
+  Field Day Lab\\
+  University of Wisconsin-Madison
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[OGD Docs] % (optional)
+{OpenGameData Documentation \\ Unit 1: Event Logging}
+
+\subject{Talks}
+% This is only inserted into the PDF information catalog. Can be left out. 
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+% \beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+\section[Logging API]{Logging Packages API}
+
+\begin{frame}{Intro to Logging Packages}
+  \begin{itemize}
+  \item
+    // Summarize the two packages we have, where to get them, when to use them
+    \pause
+  \end{itemize}
+\end{frame}
+
+\section[ogd-unity]{Logging Packages: \texttt{opengamedata-unity}}
+
+\subsection[Walkthrough]{\texttt{opengamedata-unity} Walkthrough}
+
+\section[ogd-js-log]{Logging Packages: \texttt{opengamedata-js-log}}
+
+\subsection[Walkthrough]{\texttt{opengamedata-js-log} Walkthrough}
+
+\section*{Summary}
+
+\begin{frame}{Summary}
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    The \alert{first main message} of your talk in one or two lines.
+  \item
+    The \alert{second main message} of your talk in one or two lines.
+  \item
+    Perhaps a \alert{third message}, but not more than that.
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
