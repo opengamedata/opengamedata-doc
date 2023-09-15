@@ -1,13 +1,13 @@
-OpenGameData Architecture
+Architecture Chapter 1: Overview
 ========================================
 
-.. mdinclude:: storage.md
+.. mdinclude:: overview/storage.md
 
-.. mdinclude:: processing.md
-.. graphviz:: architecture.dot
+.. mdinclude:: overview/processing.md
+.. graphviz:: overview/architecture.dot
 
-.. mdinclude:: automation.md
+.. mdinclude:: overview/automation.md
 
-.. mdinclude:: apis.md
+.. mdinclude:: overview/apis.md
 
-.. mdinclude:: dashboards.md
+.. mdinclude:: overview/dashboards.md
