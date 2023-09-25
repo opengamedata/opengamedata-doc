@@ -37,7 +37,7 @@ release = '1.0'
 extensions = [
     "myst_parser",
     "sphinx.ext.autodoc",
-    "sphinx.ext.graphviz",
+    # "sphinx.ext.graphviz",
     "sphinx.ext.todo"
 ]
 
@@ -56,7 +56,7 @@ source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
     '.md'  : 'markdown',
-    '.dot' : 'graphviz'
+    # '.dot' : 'graphviz'
 }
 
 # Add any paths that contain templates here, relative to this directory.
