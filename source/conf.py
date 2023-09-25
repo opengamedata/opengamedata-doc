@@ -48,6 +48,10 @@ myst_enable_extensions = [
 
 autodoc_mock_imports = ["config"]
 
+# source_parsers = {
+#     'graphviz': 'sphinx.ext.graphviz'
+# }
+
 source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',

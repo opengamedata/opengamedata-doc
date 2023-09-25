@@ -65,7 +65,17 @@ In case of errors, we prefer to handle within the `_close` function rather than 
 
 ### Implementing the `DataOuterface` Functions
 
-The `DataOuterface` base class defines a significant number of abstract functions to be 
+The `DataOuterface` base class defines a significant number of abstract functions to be implemented.
+These cover five different kinds of output:
+1. "Raw" events
+2. "Processed" events
+3. "Session" features
+4. "Player" features
+5. "Population" features
+
+From an implementation perspective, there is little to no difference in how "raw" and "processed" events are output, nor is there typically any difference between outputting "session", "player", and "population" features.
+The primary difference is that, in several cases (such as outputting data to files), it is useful to separate these kinds of data into different output locations.
+Thus, while it is not necessarily the most efficient organization of functions, we implement one function for each kind of output, where the functions within the event and feature categories are largely identical to one another.
 
 ```python
     def _destination(self, mode:ExportMode) -> str:
@@ -82,13 +92,13 @@ The `DataOuterface` base class defines a significant number of abstract function
 
     def _writePopulationHeader(self, header:List[str]) -> None:
 
-    def _writeRawEventLines(self, events:List[ExportRow]) -> None:
+    def _writeRawEventLines(self, events:List[Event]) -> None:
 
-    def _writeProcessedEventLines(self, events:List[ExportRow]) -> None:
+    def _writeProcessedEventLines(self, events:List[Event]) -> None:
 
-    def _writeSessionLines(self, sessions:List[ExportRow]) -> None:
+    def _writeSessionLines(self, sessions:List[List[FeatureData]]) -> None:
 
-    def _writePlayerLines(self, players:List[ExportRow]) -> None:
+    def _writePlayerLines(self, players:List[List[FeatureData]]) -> None:
 
-    def _writePopulationLines(self, populations:List[ExportRow]) -> None:
+    def _writePopulationLines(self, populations:List[List[FeatureData]]) -> None:
 ```
