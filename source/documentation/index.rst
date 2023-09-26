@@ -1,8 +1,9 @@
-OpenGameData Conventions & Meta-Documentation
-=============================================
+Chapter 5: OpenGameData Conventions & Meta-Documentation
+========================================================
 
 .. toctree::
    :maxdepth: 1
+   :caption: OGD Conventions & Metadocs
 
    documentation.md
    coding_conventions.md

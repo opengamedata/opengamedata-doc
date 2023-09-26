@@ -1,4 +1,4 @@
-For Feature Engineers
+Chapter 2: Feature Engineering
 ========================================
 
 .. toctree::
