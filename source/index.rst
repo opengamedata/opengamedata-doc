@@ -15,9 +15,7 @@ OpenGameData documentation
    features/index.rst
    architecture/index.rst
    analysis/index.rst
-
    documentation/index.rst
-   Glossary.md
 
    reference.rst
 
