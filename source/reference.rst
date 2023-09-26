@@ -1,8 +1,8 @@
 opengamedata-core
 =================
 
-.. toctree::
-   :maxdepth: 4
+.. autosummary::
+   :toctree: reference
 
    opengamedata-core
    opengamedata-core.extractors
@@ -11,3 +11,4 @@ opengamedata-core
    opengamedata-core.ogd_requests
    opengamedata-core.processors
    opengamedata-core.schemas
+   opengamedata-core.utils
