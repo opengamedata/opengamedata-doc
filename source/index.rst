@@ -10,19 +10,16 @@ OpenGameData documentation
    :maxdepth: 2
    :caption: Contents:
 
-   Getting_Started.md
-   Installation.md
-   Coding_Conventions.md
-   Glossary.md
-
+   intro/index.rst
    logging/index.rst
    features/index.rst
    architecture/index.rst
    analysis/index.rst
-   studios/index.rst
-   documentation/index.rst
 
-   reference/modules.rst
+   documentation/index.rst
+   Glossary.md
+
+   reference.rst
 
 Indices and tables
 ==================
