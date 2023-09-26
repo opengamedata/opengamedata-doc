@@ -13,6 +13,7 @@
 import os
 import sys
 from pathlib import Path
+
 OGD_CORE_PATH = os.environ.get('OGD_CORE_PATH', '../../opengamedata-core')
 sys.path.insert(0, str(Path(OGD_CORE_PATH).resolve()))
 print(f"Found ogd-core path as {OGD_CORE_PATH}, which resolves to {str(Path(OGD_CORE_PATH).resolve())}")
@@ -21,7 +22,7 @@ print(f"Found ogd-core path as {OGD_CORE_PATH}, which resolves to {str(Path(OGD_
 # -- Project information -----------------------------------------------------
 
 project = 'OpenGameData'
-copyright = '2022, Field Day Lab'
+copyright = '2023, Field Day Lab'
 author = 'Luke Swanson'
 language = 'en'
 
@@ -38,6 +39,7 @@ extensions = [
     "myst_parser",
     "sphinx.ext.autodoc",
     "sphinx.ext.graphviz",
+    "sphinx.ext.linkcode",
     "sphinx.ext.todo"
 ]
 
@@ -48,9 +50,9 @@ myst_enable_extensions = [
 
 autodoc_mock_imports = ["config"]
 
-# source_parsers = {
-#     'graphviz': 'sphinx.ext.graphviz'
-# }
+source_parsers = {
+    'graphviz': 'sphinx.ext.graphviz'
+}
 
 source_suffix = {
     '.rst' : 'restructuredtext',
@@ -81,5 +83,13 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # -- Options for Extensions --------------------------------------------------
+
+def linkcode_resolve(domain, info):
+    if domain != 'py':
+        return None
+    if not info['module']:
+        return None
+    filename = info['module'].replace('.', '/')
+    return f"https://github.com/opengamedata/opengamedata-core/tree/master/{filename}.py"
 
 todo_include_todos = True
