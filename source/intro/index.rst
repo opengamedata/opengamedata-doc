@@ -1,11 +1,8 @@
-OpenGameData Conventions & Meta-Documentation
-=============================================
+Chapter 0: Introduction to OpenGameData
+=======================================
 
 .. toctree::
    :maxdepth: 1
 
-   documentation.md
-   coding_conventions.md
-   python_tips.md
-   software_platform.md
-   glossary.md
+   getting_started.md
+   installation.md
