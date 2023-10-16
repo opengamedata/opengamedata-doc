@@ -1,8 +1,9 @@
-opengamedata-core Reference
-===========================
+Reference: opengamedata-core Package API
+========================================
 
-.. autosummary::
-   :toctree: reference
+.. toctree::
+   :maxdepth: 2
+   :caption: opengamedata-core Reference
 
    opengamedata-core
    opengamedata-core.extractors
