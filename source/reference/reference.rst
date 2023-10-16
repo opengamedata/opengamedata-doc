@@ -1,5 +1,5 @@
-opengamedata-core
-=================
+opengamedata-core Reference
+===========================
 
 .. autosummary::
    :toctree: reference
