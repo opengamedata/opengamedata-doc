@@ -8,4 +8,3 @@ Chapter 1: Game Event Logging
    intro.md
    event_schema.md
    event_design.md
-   Adding_a_Game.md
