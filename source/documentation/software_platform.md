@@ -13,7 +13,6 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - build 0.10.*
   - gitdb 4.0.*
   - GitPython 3.1.*
-  - google-auth 1.34.0
   - google-cloud-bigquery 3.3.6/3.2.0/3.4.0
   - ipywidgets 8.0.*
   - matplotlib 3.7.*
@@ -21,7 +20,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
   - numpy 1.23.*
   - flask 2.2.*
   - flask-cors 3.0.10
-  - flask-restful 0.3.*
+  - flask-restful 0.3.10
   - pandas 1.5.*
   - pyOpenSSL 23.0.0
   - scikit-learn 1.2.*
