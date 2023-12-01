@@ -7,34 +7,28 @@
 \usepackage[T1]{fontenc}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
+\usepackage{graphicx}
 
 \mode<presentation>
 {
   \usetheme{frankfurt}
+  \usepackage{../../theme/beamercolorthemeogd}
   % or ...
 
   \setbeamercovered{transparent}
   % or whatever (possibly just delete it)
 }
 
-\pgfdeclareimage[height=0.5cm]{ogd-logo}{../../../assets/OpenGameData-logo.png}
-\logo{\pgfuseimage{ogd-logo}}
-
 \title[Intro to Events] % (optional, use only with long paper titles)
 {Lecture 2: Introduction to Event Logging in OpenGameData}
 
 \author[Swanson] % (optional, use only with lots of authors)
 {Luke Swanson}
-% - Use the \inst{?} command only if the authors have different
-%   affiliation.
-
 \institute[University of Wisconsin-Madison] % (optional, but mostly needed)
 {
   Field Day Lab\\
   University of Wisconsin-Madison
 }
-% - Use the \inst command only if there are several affiliations.
-% - Keep it simple, no one is interested in your street address.
 
 \date[OGD Docs] % (optional)
 {OpenGameData Documentation \\ Unit 1: Event Logging}
@@ -82,13 +76,44 @@
 
 \begin{frame}{What is the OGD Event Schema?}
   \begin{itemize}
-  \item
-    // Describe why we want to unify schema across games.
-    \pause
+  \item Events vary greatly across games
+  \item One standard allows consistent interface across games
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{OGD Event Schema Categories}
+  \begin{itemize}
+  \item IDs
+  \item Versioning
+  \item Timing
+  \item Data (the good stuff!)
+  \end{itemize}
+\end{frame}
+
+\subsection[IDs]{Common Elements}
+
+\begin{frame}{What Identifiers Do We Use?}
+  \begin{itemize}
+  \item Player
+  \item Session
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What Versioning Do We Use?}
+  \begin{itemize}
+  \item Player
+  \item Session
   \end{itemize}
 \end{frame}
 
 \section[Examples]{Example Games}
+
+\begin{frame}{Simple Example Game}
+  \begin{itemize}
+  \item Something about an example of a really simple game
+  \item So we can imagine doing a thing with it
+  \end{itemize}
+\end{frame}
 
 \section*{Summary}
 
