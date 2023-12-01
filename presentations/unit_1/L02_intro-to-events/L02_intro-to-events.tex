@@ -47,7 +47,7 @@
 
 % If you wish to uncover everything in a step-wise fashion, uncomment
 % the following command: 
-\beamerdefaultoverlayspecification{<+->}
+% \beamerdefaultoverlayspecification{<+->}
 
 
 \begin{document}
@@ -76,17 +76,22 @@
 
 \begin{frame}{What is the OGD Event Schema?}
   \begin{itemize}
-  \item Events vary greatly across games
-  \item One standard allows consistent interface across games
+    \item \alert{OGD Event Schema :} A standardized set of elements for game telemetry events.
+    \item The schema is comprised of elements in the following categories
+    \begin{itemize}
+      \item IDs
+      \item Versioning
+      \item Timing
+      \item Data (the good stuff!)
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{OGD Event Schema Categories}
+\begin{frame}{Why the OGD Event Schema?}
   \begin{itemize}
-  \item IDs
-  \item Versioning
-  \item Timing
-  \item Data (the good stuff!)
+  \item Events vary greatly across games
+  \item Using a standard allows consistent event interface across games
+  \item The \bold{OGD Event Schema} 
   \end{itemize}
 \end{frame}
 
