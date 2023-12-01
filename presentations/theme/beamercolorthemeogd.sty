@@ -1,0 +1,57 @@
+\mode<presentation>
+
+% Web Colors
+\definecolor{ogdprimary}{RGB}{162, 255, 235}
+\definecolor{ogdsecondary}{RGB}{62, 52, 152}
+\definecolor{ogddark}{RGB}{15, 23, 90}
+% Logo Colors
+\definecolor{ogdyellow}{rgb}{1.000, 0.698, 0.098}
+\definecolor{ogdpink}{rgb}{1.000, 0.400, 0.800}
+\definecolor{ogdblue}{rgb}{0.042, 0.024, 0.522}
+% Text Colors
+\definecolor{ogdbluetext}{rgb}{0.017, 0.030, 0.332}
+\definecolor{ogddarktext}{rgb}{0.005, 0.009, 0.102}
+\definecolor{ogdlighttext}{rgb}{0.983, 0.970, 0.668}
+\definecolor{ogdgray}{rgb}{0.400, 0.400, 0.500}
+% Web Text Colors
+\definecolor{gray100}{RGB}{243, 239, 239}
+\definecolor{gray300}{RGB}{215, 215, 215}
+\definecolor{gray500}{RGB}{169, 168, 168}
+\definecolor{gray600}{RGB}{109, 109, 109}
+\definecolor{gray700}{RGB}{68, 68, 68}
+\definecolor{gray900}{RGB}{36, 36, 37}
+% Web Link Colors
+\definecolor{ogdlink}{RGB}{119, 201, 193}
+\definecolor{ogdlinkhover}{RGB}{75, 181, 170}
+% Web Shadow Colors
+\definecolor{ogdshadow}{RGB}{34, 44, 133}
+
+% Palette
+\setbeamercolor*{palette primary}{bg=ogdsecondary, fg=ogdprimary}
+\setbeamercolor*{palette secondary}{bg=ogdsecondary, fg=ogdlighttext}
+\setbeamercolor*{palette tertiary}{bg=ogdblue, fg=ogdpink}
+\setbeamercolor*{palette quaternary}{bg=ogdblue, fg=ogdyellow}
+% Text
+\setbeamercolor*{normal text}{fg=ogdprimary!30}
+\setbeamercolor*{alerted text}{fg=ogdpink!90}
+% General Slide Props
+\setbeamercolor{background canvas}{bg=ogddark}
+\setbeamercolor{structure}{bg=ogdblue, fg=ogdsecondary}
+% Specific Items
+% \setbeamercolor{title}{fg=ogdyellow}
+% \setbeamercolor{block title}{bg=ogdblue, fg=ogdyellow}
+% \setbeamercolor{section in head/foot}{bg=gray900, fg=ogdyellow}
+% \setbeamercolor{subsection in head/foot}{bg=ogdpink, fg=ogdpink}
+\setbeamercolor{section in toc}{bg=ogdblue, fg=ogdyellow}
+
+\pgfdeclareimage[height=0.5cm]{ogd-logo}{../../../assets/images/logos/OpenGameData-logo.png}
+\pgfdeclareimage[height=\paperheight, width=\paperwidth]{bg-grid-top}{../../../assets/images/grid-top.jpg}
+\pgfdeclareimage[height=\paperheight, width=\paperwidth]{bg-grid-bottom}{../../../assets/images/grid-bottom.jpg}
+
+\usebackgroundtemplate{
+   \pgfuseimage{bg-grid-bottom}
+%   \includegraphics[width=\paperwidth, height=\paperheight, trim={50 0 50 0}]{../../../assets/images/grid-bottom.jpg}
+}
+\logo{\pgfuseimage{ogd-logo}}
+\mode
+<all>
