@@ -12,3 +12,5 @@ Architecture Chapter 1: Overview
 .. mdinclude:: overview/apis.md
 
 .. mdinclude:: overview/dashboards.md
+
+.. mdinclude:: ./game_schemas.md
