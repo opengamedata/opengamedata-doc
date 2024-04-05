@@ -12,7 +12,7 @@ This should be a python file, placed in the `<ogd-core-root>/games/<GAME_NAME>/f
 At minimum, you must write an `__init__(...)` function, and implement the functions listed below.
 Do not change the parameters of the other functions, as they are implementing abstract functions of the base class.  
 
-- `__init__(self, params:ExtractorParameters, ...)`  
+- `__init__(self, params:GeneratorParameters, ...)`  
   At minimum, `__init__` should pass the `params` argument along to the superclass constructor.  
   You are free to add whatever other `__init__` parameters you like, if you need your Feature to have additional data at start time.
   Just note that these parameters must either be available to (and thus come from) the game's Loader class, or be specified as additional params in the **Add feature configuration to the game's schema** section below.  
@@ -100,7 +100,7 @@ This will be done in the `<ogd-core-root>/games/<GAME_NAME>/<GameName>Loader.py`
 Open up the `<GameName>Loader.py` file, and look for the `_loadFeature` function, whose body should look something like this:
 
 ```python
-def _loadFeature(self, feature_type:str, extractor_params:ExtractorParameters, schema_args:Dict[str,Any]) -> Feature:
+def _loadFeature(self, feature_type:str, extractor_params:GeneratorParameters, schema_args:Dict[str,Any]) -> Feature:
     ret_val : Feature
     if feature_type == "AverageLevelTime":
         ret_val = AverageLevelTime.AverageLevelTime(params=extractor_params)
