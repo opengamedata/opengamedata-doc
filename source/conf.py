@@ -36,12 +36,12 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx_mdinclude",
     "myst_parser",
     "sphinx.ext.autodoc",
     "sphinx.ext.graphviz",
     "sphinx.ext.linkcode",
-    "sphinx.ext.todo",
-    "sphinx_mdinclude"
+    "sphinx.ext.todo"
 ]
 
 myst_enable_extensions = [
@@ -58,7 +58,7 @@ source_parsers = {
 source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
-    # '.md'  : 'markdown',
+    '.md'  : 'markdown'
     # '.dot' : 'graphviz'
 }
 
