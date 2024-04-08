@@ -58,7 +58,7 @@ source_parsers = {
 source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
-    '.md'  : 'markdown',
+    # '.md'  : 'markdown',
     # '.dot' : 'graphviz'
 }
 
