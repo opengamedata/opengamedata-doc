@@ -9,4 +9,3 @@ Chapter 1: Game Event Logging
    event_schema.md
    event_design.md
    event_monitor.md
-   packages/unity.rst
