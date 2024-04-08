@@ -67,7 +67,6 @@ For example:
 ### `GameState`
 
 This element is for data about the state of the game at the instant an event occurred, which contextualizes the event.
-By "at the instant an event occurs," we mean the `GameState` should 
 Like `UserData`, the set of keys in `GameState` should be constant across all event types, within a given game.
 Sub-elements within `GameState` might include the current level, the current score, or the set of items a player has collected.
 
@@ -81,6 +80,11 @@ For example:
 }
 ```
 
+By "at the instant an event occurs," we mean the `GameState` should describe the context in which the event occurred, _not_ the result of the event.
+For example, consider an event that changes the player score from `5` to `6`.
+`GameState` would record `5` as the score, as this _was_ the score when the event occurred.
+The new score, which is the _result_ of the event, would be left for the `EventData` column.
+
 In general, most `GameState` data could simply be inferred from past events.
 For example, for any given event, the current level could be determined by looking for the most recent `new_level` event (or whatever name is chosen).
 Thus, there is a tension between what data is useful to include in the `GameState`, and what context should simply be calculated as needed from past event data.
@@ -88,12 +92,59 @@ As a general heuristic, we include data that we believe to be useful for context
 
 ### `EventData`
 
+This element is for all data that is wholly specific to an individual type of event.
+Like the other "contextual" elements, `EventData` is a dictionary mapping string keys to values.
+Unlike the other two, however, the set of keys is only constant across a single event type.
+The sub-elements of `EventData` are so specific to an individual game's events that it is difficult to give general examples.
+Instead, we'll illustrate a few possible events for a single hypothetical puzzle game, where players select and move blocks to solve a puzzle.
+
+```json
+{
+   "EventName" : "select_puzzle_piece"
+   ... (other columns)
+   "EventData" : {
+      "piece_id" : 3,
+      "piece_type" : "SQUARE",
+      "position" : [4, 0]
+   },
+   ...
+} 
+
+{
+   "EventName" : "place_puzzle_piece"
+   ... 
+   "EventData" : {
+      "piece_id" : 7,
+      "piece_type" : "CIRCLE",
+      "position" : [2, 5],
+      "total_moves" : 27
+   },
+   ...
+} 
+
+{
+   "EventName" : "complete_puzzle"
+   ... 
+   "EventData" : {
+      "puzzle_id" : 5,
+      "total_moves" : 32
+   },
+   ...
+} 
+```
+
+Note that each type of event represented above has its own distinct set of keys, though there are many keys shared in common.
+This is a common pattern.
+Many different events will involve operations on the same set of in-game objects or variables, so the `EventData` keys for different event types will often be similar, sometimes even identical.
+
 ## Event Implementation
 
 ## Iteration
 
 In general, event design is an iterative process.
-
+After identifying, specifying, and implementing a set of events in a game, preliminary data should be collected and analyzed.
+If there are any shortcomings in the data, such as missing events or events lacking sufficient context, a new iteration should be performed.
+This consists of _identifying_ shortcomings of the current event set (or schema), _specifying_ changes to the schema to address the shortcomings, and _implementing_ the changes into the game's logging code.
 
 ## Best Practices & Naming Conventions
 
@@ -104,14 +155,14 @@ These are, in general, arbitrary but reasonable, and are recommended to create c
 
 * Formatting:  
   We use a `snake_case` format for event names.
-  (This is arbitrary and kinda dumb as a `PascalCase` or `CONSTANT_CASE` format would be far more consistent with our other coding conventions, where classes/types use `PascalCase`, and enums use `CONSTANT_CASE`, but historically we used `snake_case` for almost all names in SQL. C'est la vie.)
+  (This is arbitrary and kinda dumb as a `PascalCase` or `CONSTANT_CASE` format would be far more consistent with our other coding conventions, but historically we used `snake_case` for almost all names in SQL. C'est la vie.)
 * Name form:  
   All event types should be named with an object and a verb, with the order of the two used to help distinguish the event category.
-  **Player Actions** should have an "active" `verb_object` form, with a present-tense verb, such as `click_button`.
-  **System Feedback** events should have a "passive" `object_verb` form, with a past-tense verb, such as `dialog_displayed`.
+    * **Player Actions** should have an "active" `verb_object` form, with a present-tense verb, such as `click_button`.
+    * **System Feedback** events should have a "passive" `object_verb` form, with a past-tense verb, such as `dialog_displayed`.
 
 ### Context Data Elements
 
-* Formatting:
+* Formatting:  
   We use a `snake_case` format for all keys in the context elements (`EventData`, `GameState`, and `UserData`).
   This is consistent with our general coding conventions, where variables use `snake_case` formatting.
