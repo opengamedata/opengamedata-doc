@@ -159,6 +159,7 @@ OpenGameData provides logging packages for Unity and JavaScript, as well as a PH
 For information on using these in a logging implementation, see the appropriate link(s) below.
 
 * For Unity game projects : [opengamedata-unity documentation](https://github.com/opengamedata/opengamedata-unity/blob/main/README.md)
+    * Internal link : [opengamedata-unity documentation](./packages/unity.rst)
 * For JavaScript-based game projects : [opengamedata-js-log documentation](https://github.com/opengamedata/opengamedata-js-log/blob/main/README.md)
 * For event logging server : [opengamedata-logger documentation](https://github.com/opengamedata/opengamedata-logger/blob/master/README.md)
 
