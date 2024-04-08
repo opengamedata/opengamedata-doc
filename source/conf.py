@@ -40,7 +40,8 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.graphviz",
     "sphinx.ext.linkcode",
-    "sphinx.ext.todo"
+    "sphinx.ext.todo",
+    "sphinx_mdinclude"
 ]
 
 myst_enable_extensions = [

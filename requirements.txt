@@ -2,4 +2,5 @@ graphviz==0.20.*
 myst-parser==2.0.*
 sphinx==6.2.1
 sphinx_rtd_theme>=1.2
+sphinx_mdinclude==0.5.*
 readthedocs-sphinx-search==0.3.*
