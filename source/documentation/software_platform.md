@@ -17,15 +17,15 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
     - ipywidgets 8.0.*
     - matplotlib 3.7.*
     - mysql-connector-python 8.0.25
-    - numpy 1.23.*
+    - numpy 1.26.*
     - flask 2.2.*
     - flask-cors 3.0.10
     - flask-restful 0.3.10
-    - pandas 1.5.*
+    - pandas 2.2.*
     - pyOpenSSL 23.0.0
-    - scikit-learn 1.2.*
+    - scikit-learn 1.4.*
     - scipy 1.10.*
-    - seaborn 0.12.*
+    - seaborn 0.13.*
     - sshtunnel 0.4.0
     - statsmodels 0.13.*
     - tensorflow 2.11.*
