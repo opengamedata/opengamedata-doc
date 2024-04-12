@@ -10,26 +10,26 @@ We’ll use this list for GitHub Actions, requirements.txt, and .devcontainer fi
 Note: for some libraries, we use .* to indicate any patch version may be used (we only specify patch version for mission-critical dependencies, such as database libraries).
 
 - Python: 3.10 3.9.2
-  - build 0.10.*
-  - gitdb 4.0.*
-  - GitPython 3.1.*
-  - google-cloud-bigquery 3.3.6/3.2.0/3.4.0
-  - ipywidgets 8.0.*
-  - matplotlib 3.7.*
-  - mysql-connector-python 8.0.25
-  - numpy 1.23.*
-  - flask 2.2.*
-  - flask-cors 3.0.10
-  - flask-restful 0.3.10
-  - pandas 1.5.*
-  - pyOpenSSL 23.0.0
-  - scikit-learn 1.2.*
-  - scipy 1.10.*
-  - seaborn 0.12.*
-  - sshtunnel 0.4.0
-  - statsmodels 0.13.*
-  - tensorflow 2.11.*
-  - twine 4.0.*
+    - build 0.10.*
+    - gitdb 4.0.*
+    - GitPython 3.1.*
+    - google-cloud-bigquery 3.3.6/3.2.0/3.4.0
+    - ipywidgets 8.0.*
+    - matplotlib 3.7.*
+    - mysql-connector-python 8.0.25
+    - numpy 1.23.*
+    - flask 2.2.*
+    - flask-cors 3.0.10
+    - flask-restful 0.3.10
+    - pandas 1.5.*
+    - pyOpenSSL 23.0.0
+    - scikit-learn 1.2.*
+    - scipy 1.10.*
+    - seaborn 0.12.*
+    - sshtunnel 0.4.0
+    - statsmodels 0.13.*
+    - tensorflow 2.11.*
+    - twine 4.0.*
 - PHP v.8.1.17
 - MySQL 15.1
-  - Uses MariaDB 10.5.18
+    - Uses MariaDB 10.5.18
