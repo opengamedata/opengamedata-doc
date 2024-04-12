@@ -13,7 +13,7 @@ Note: for some libraries, we use .* to indicate any patch version may be used (w
     - build 0.10.*
     - gitdb 4.0.*
     - GitPython 3.1.*
-    - google-cloud-bigquery 3.3.6/3.2.0/3.4.0
+    - google-cloud-bigquery 3.19.0/3.2.0/3.3.6
     - ipywidgets 8.0.*
     - matplotlib 3.7.*
     - mysql-connector-python 8.0.25
