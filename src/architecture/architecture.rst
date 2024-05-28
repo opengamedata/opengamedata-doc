@@ -4,12 +4,8 @@ Architecture Chapter 1: Overview
 .. mdinclude:: overview/storage.md
 
 .. mdinclude:: overview/processing.md
-   
-.. graphviz::
 
-   digraph foo {
-   "bar" -> "baz";
-   }
+Data processing is outlined by the graph below.
 
 .. graphviz:: overview/architecture.dot
 

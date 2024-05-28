@@ -1,3 +1,19 @@
-digraph buzz {
-      "bargh" -> "bazzer";
+strict digraph buzz {
+      subgraph cluster_managers {
+            "ExportManager" -> {"EventManager", "FeatureManager"};
+            label="Managers"
+            graph[style=dotted]
+      }
+      subgraph cluster_evt_processors {
+            "EventProcessor"; "DetectorProcessor";
+            label="Event Processing"
+            graph[style=dotted]
+      }
+      "EventManager" -> {"EventProcessor", "DetectorProcessor"}
+      subgraph cluster_feat_processors {
+            "PopulationProcessor"; "PlayerProcessor"; "SessionProcessor";
+            label="Feature Processing"
+            graph[style=dotted]
+      }
+      "FeatureManager" -> {"PopulationProcessor", "PlayerProcessor", "SessionProcessor"}
    }
