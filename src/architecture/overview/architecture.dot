@@ -1,19 +1,47 @@
 strict digraph buzz {
+      // Defining nodes
+      subgraph managers {
+            node [shape=octagon fontsize=16]
+            exp_mgr [label="ExportManager"]
+            evt_mgr [label="EventManager"]
+            feat_mgr [label="FeatureManager"]
+      }
+      subgraph processors {
+            node [shape=doubleoctagon]
+            evt_proc [label="EventProcessor"]
+            det_proc [label="DetectorProcessor"]
+            sess_proc [label="SessionProcessor"]
+            play_proc [label="PlayerProcessor"]
+            pop_proc [label="PopulationProcessor"]
+      }
+      subgraph registries {
+            node [shape=folder]
+            det_reg [label="DetectorRegistry"]
+            feat_reg [label="ExtractorRegistry"]
+      }
+      subgraph others{
+            node [shape=box fontsize=13]
+            config [label="ConfigSchema"]
+      }
+      // grouping nodes
       subgraph cluster_managers {
-            "ExportManager" -> {"EventManager", "FeatureManager"};
+            exp_mgr -> {evt_mgr, feat_mgr};
+            exp_mgr -> config [dir=none style=dashed]
             label="Managers"
             graph[style=dotted]
       }
+      evt_mgr -> {evt_proc, det_proc}
       subgraph cluster_evt_processors {
-            "EventProcessor"; "DetectorProcessor";
             label="Event Processing"
+            evt_proc;
+            det_proc -> det_reg;
             graph[style=dotted]
       }
-      "EventManager" -> {"EventProcessor", "DetectorProcessor"}
+      feat_mgr -> {pop_proc, play_proc, sess_proc}
       subgraph cluster_feat_processors {
-            "PopulationProcessor"; "PlayerProcessor"; "SessionProcessor";
             label="Feature Processing"
+            pop_proc; play_proc;
+            sess_proc -> feat_reg;
             graph[style=dotted]
       }
-      "FeatureManager" -> {"PopulationProcessor", "PlayerProcessor", "SessionProcessor"}
    }
