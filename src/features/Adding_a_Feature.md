@@ -14,7 +14,8 @@ Do not change the parameters of the other functions, as they are implementing ab
 
 - `__init__(self, params:GeneratorParameters, ...)`  
   At minimum, `__init__` should pass the `params` argument along to the superclass constructor.  
-  You are free to add whatever other `__init__` parameters you like, if you need your Feature to have additional data at start time.
+
+  You are free to add whatever other `__init__` parameters you like, if you need your Feature to have access to additional data at start time.
   Just note that these parameters must either be available to (and thus come from) the game's Loader class, or be specified as additional params in the **Add feature configuration to the game's schema** section below.  
 - `@classmethod`  
   `_eventFilter(self, mode:ExtractionMode) -> List[str]`  
@@ -108,23 +109,24 @@ Open up the `<GameName>Loader.py` file, and look for the `_loadFeature` function
 ```python
 def _loadFeature(self, feature_type:str, extractor_params:GeneratorParameters, schema_args:Dict[str,Any]) -> Feature:
     ret_val : Feature
-    if feature_type == "AverageLevelTime":
-        ret_val = AverageLevelTime.AverageLevelTime(params=extractor_params)
-    elif feature_type == "LevelCompletionTime":
-        ret_val = LevelCompletionTime.LevelCompletionTime(params=extractor_params)
-    elif feature_type == "LevelIdleTime":
-        ret_val = LevelIdleTime.LevelIdleTime(params=extractor_params, threshold=schema_args.get('IdleThreshold', 60))
-    elif feature_type == "SessionDuration":
-        ret_val = SessionDuration.SessionDuration(params=extractor_params)
-    elif feature_type == "SessionID":
-        ret_val = SessionID.SessionID(params=extractor_params, id=self._session_id)
-    else:
-        raise NotImplementedError(f"'{feature_type}' is not a valid feature for Aqualab.")
+    match feature_type:
+        case "AverageLevelTime":
+            ret_val = AverageLevelTime.AverageLevelTime(params=extractor_params)
+        case "LevelCompletionTime":
+            ret_val = LevelCompletionTime.LevelCompletionTime(params=extractor_params)
+        case "LevelIdleTime":
+            ret_val = LevelIdleTime.LevelIdleTime(params=extractor_params, threshold=schema_args.get('IdleThreshold', 60))
+        case "SessionDuration":
+            ret_val = SessionDuration.SessionDuration(params=extractor_params)
+        case "SessionID":
+            ret_val = SessionID.SessionID(params=extractor_params, id=self._session_id)
+        case _:
+            raise NotImplementedError(f"'{feature_type}' is not a valid feature for Aqualab.")
     return ret_val
 ```
 
 Add a case for your new Feature class, checking if `feature_type` matches the name of your Feature class (more specifically, you're checking if it matches the `type` you give your feature in the configuration file in step 4, but using the name of the Feature class itself is a *strongly* recommended convention).
-Within this case, set the `ret_val` to a new instance of your Feature, passing in whatever parameters you added to your `__init__` function.
+Within this case, set the `ret_val` to a new instance of your Feature, passing in any new parameters you added to your `__init__` function.
 Note that any parameters you add to `__init__` must:
 
 - Take arguments available to the Loader class, such as `id` in the `SessionID` case for the example above, or
@@ -161,17 +163,19 @@ This file will have the following layout:
         "aggregate":{
             "AverageLevelTime": {
                 "enabled": false,
+                "type": "AverageLevelTime",
                 "description":"Average time spent per level played",
                 "return_type" : "timedelta"
             },
             "SessionDuration": {
                 "enabled": true,
+                "type": "SessionDuration",
                 "description":"Time spent playing in a given session",
                 "return_type" : "timedelta"
             },
             "SessionID": {
                 "enabled": true,
-                "description":"The player's session ID number for this play session",
+                "description":"The player's session ID number for this play session..",
                 "return_type" : "str"
             }
         }
@@ -209,9 +213,18 @@ The sub-dictionary for your Feature needs four elements: `"enabled"`, `"type"`, 
 - `"enabled"` is a boolean telling the system whether to use this Feature for data exports.  
 TODO: fill in how to enable only for a specific type of export
 - `"type"` is the name of the `Feature` subclass.
-Typically, this will be the same as the name mapped to the sub
+  If "type" is not provided, the key of the given feature item will be used (see note below).
 - `"description"` is a human-readable description of what the Feature calculates.
 - `"return_type"` is a string indicating the type of data returned by the feature.
+
+Note: in the example below, then, a `"type"` of `SessionID` is assumed.
+```json
+  "SessionID": {
+      "enabled": true,
+      "description":"The player's session ID number for this play session..",
+      "return_type" : "str"
+  }
+```
 
 If desired, you can add extra elements to the sub-dictionary for use as parameters of your Feature.
 For the `IdleTime` example, you would add the following to your `aggregate` dictionary:
@@ -219,6 +232,7 @@ For the `IdleTime` example, you would add the following to your `aggregate` dict
 ```json
 "IdleTime30" : {
     "enabled" : true,
+    "type" : "IdleTime",
     "threshold" : 30,
     "description" : "Calculates either the player's average or median level time, depending on the parameter",
     "return_type" : "float"
@@ -268,10 +282,10 @@ To do this, you will need to carry out the following additional steps when writi
 
 1. In the "**Code a feature extractor**" step, you must implement another function:  
 
-  - `Subfeatures(self) -> List[str]`
-    should return a list of names for each subfeature (additional metric) the Feature class provides.  
-    Your output will contain one column with the "base" Feature value, and one additional column for each "subfeature" value.  
-    *For example*: In the `LevelComplete` example, the `Subfeatures` function may return `['Count']`.  
+    - `Subfeatures(self) -> List[str]`
+      should return a list of names for each subfeature (additional metric) the Feature class provides.  
+      Your output will contain one column with the "base" Feature value, and one additional column for each "subfeature" value.  
+      *For example*: In the `LevelComplete` example, the `Subfeatures` function may return `['Count']`.  
 
   Then in the output, there will be one column named "LevelComplete", and another named "LevelCompleteCount."  
 
@@ -280,13 +294,15 @@ To do this, you will need to carry out the following additional steps when writi
   The first item in the list will go in the output column with the "base" Feature name, the next in the list will go in the column with the first "subfeature" name, etc.  
   *For example*, continuing the `LevelComplete` example:
 
-  - the first object in the list may be the `bool` value indicating whether the given level was completed, and goes to the `LevelComplete` column.  
-  - the second object may be the "count" value indicating the number of times the level was completed, and goes to the `LevelCompleteCount` column.  
+    - the first object in the list may be the `bool` value indicating whether the given level was completed, and goes to the `LevelComplete` column.  
+    - the second object may be the "count" value indicating the number of times the level was completed, and goes to the `LevelCompleteCount` column.  
 
 3. In the "**Add feature configuration to the game's schema**", you will add an extra field to the Feature dictionary:
 
-  - "subfeatures" maps to a sub-dictionary.  
-  Each element of the sub-dictionary has a key string, which we **strongly** recommend you match with the name(s) given in the corresponding Feature's  `Subfeatures()` function.  
+    - "subfeatures" maps to a sub-dictionary.  
+    Each element of the sub-dictionary has a key string, which we **strongly** recommend you match with the name(s) given in the corresponding Feature's  `Subfeatures()` function.  
+
+    TODO : Add example
 
 ### **Second-Order Features***
 
