@@ -5,7 +5,7 @@ In order to add a new feature for a game, you must complete the following steps:
 ## **1. Code a feature extractor**
 
 The first step is to write the individual feature extractor.  
-This should be a python file, placed in the `<ogd-core-root>/games/<GAME_NAME>/features` folder, which inherits from the Feature class.
+This should be a python file, placed in the `<ogd-core-root>/src/ogd/games/<GAME_NAME>/features` folder, which inherits from the Extractor class (`<ogd-core-root>/src/ogd/core/extractors/Extractor.py`).
 
 ### Required functions
 
@@ -17,25 +17,30 @@ Do not change the parameters of the other functions, as they are implementing ab
   You are free to add whatever other `__init__` parameters you like, if you need your Feature to have additional data at start time.
   Just note that these parameters must either be available to (and thus come from) the game's Loader class, or be specified as additional params in the **Add feature configuration to the game's schema** section below.  
 - `@classmethod`  
-  `_getEventDependencies(self) -> List[str]`  
+  `_eventFilter(self, mode:ExtractionMode) -> List[str]`  
   This should simply return a list of the names of the events your Feature would like to analyze.  
+
   *For example*, a feature to calculate the time spent on a level should request the game's "start level" and "end level" events.  
 - `@classmethod`  
-  `_getFeatureDependencies(self) -> List[str]`  
+  `_featureFilter(self, mode:ExtractionMode) -> List[str]`  
   For second-order features, this function should return a list of the names of the *first-order features* your Feature would like to analyze.
   First-order features should return an empty list.  
-  *For example*, a second-order feature to calculate the time spent on a level across a whole population chould request the "level time" first-order feature from the `_getEventDependencies` example above.  
-- `_extractFromEvent(self, event:Event)`  
-  This will run once on each occurrence of an event whose type is requested in `_getEventDependencies`.
+
+  *For example*, a second-order feature to calculate the time spent on a level across a whole population should request the "level time" first-order feature from the `_eventFilter` example above.  
+- `_updateFromEvent(self, event:Event)`  
+  This will run once on each occurrence of an event whose type is requested in `_eventFilter`.
   This function is where you will tabulate whatever data you need from individual events.  
+
   *For example*, a feature to calculate the number of times a player clicked a button would create a "count" variable in its `__init__` function, and increment that variable here.  
-- `_extractFromFeatureData(self, feature:FeatureData)`  
-  For second-order features, his will run once on each instance of a feature whose type is requested in `_getFeatureDependencies`, for all instances directly "related" to this feature's instance in the population hierarchy.
+- `_updateFromFeatureData(self, feature:FeatureData)`  
+  For second-order features, his will run once on each instance of a feature whose type is requested in `_featureFilter`, for all instances directly "related" to this feature's instance in the population hierarchy.
   The rules for how instances are "related" are outlined in the **Second-Order Features** section under "**Optional features for your Features**."  
   For a first-order feature, this function should simply `return` without doing anything (in practice, it will never be called).
-  *For example*, a feature to calculate the number of times all player clicked a button across the population would create a "count" variable in its `__init__` function, and request the `PlayerClickCount` feature in `_getFeatureDependencies`. It would then increment the count variable by the value from each FeatureData whose `ExtractionMode` is `PLAYER`.  
+
+  *For example*, a feature to calculate the number of times all player clicked a button across the population would create a "count" variable in its `__init__` function, and request the `PlayerClickCount` feature in `_featureFilter`. It would then increment the count variable by the value from each FeatureData whose `ExtractionMode` is `PLAYER`.  
 - `_getFeatureValues(self) -> List[Any]`  
   This should return a list containing whatever the "metric" or *value* of the Feature is, given whatever events have been seen so far.  
+
   *For example*, a feature to calculate the average number of moves a player made per level would:  
 
   1. add up all moves (as recorded with `_extractFromEvent`)  
@@ -65,6 +70,7 @@ When writing your `Feature` subclass, there are a few built-in properties that m
   indicates the `Feature` subclass instance's numbering among all other instances.  
   For an "aggregate" feature, this is just 0.  
   For a "per-count" feature, each instance is given a number in ascending order.  
+
   *For example*, in an export of player data, for a game with 3 levels, a per-count feature whose count is the number of levels will be instantiated 3 times for each player.
   Then the first instance will have a `CountIndex` value of 0, and will calculate its value for data in level 0. The second will have a `CountIndex` of 1, calculating data for level 1, and the third will have value of 2, calculating data for level 2.  
   Note that, by default, `Feature` subclasses have no way to differentiate what data to consider based on `CountIndex`.
