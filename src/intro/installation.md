@@ -1,13 +1,11 @@
-# Installation
+## Installation
 
 Before you can use OpenGameData, you'll need to install a couple tools.
 First, OpenGameData is implemented in Python, which means you'll need a Python interpreter to run the code, which in turn means you need to have Python installed on your system.
-Second, the OpenGameData source code is hosted on the GitHub website.
-Strictly speaking, you can just download a copy of the source there and use it right away.
-However, GitHub is built for use with Git, a popular version control system.
-We *strongly* recommend installing and using Git so that you can keep your OpenGameData code up-to-date, and participate in the OpenGameData community by contributing your innovations back the public.
 
-## Install Python
+Second, you must determine whether you will run OpenGameData from an installed Python package, or from a local source copy.
+
+### Install Python
 
 As a first step, you should ensure Python is installed on your system.
 The quickest way to check is to open up a command prompt (often called a terminal) on your system, and typing:  
@@ -37,10 +35,21 @@ You just need to be aware that you will need to use `python3` instead of `python
 If there is no Python 3 installation, or no Python install at all (i.e. if the command(s) above resulted in an error message), you'll need to perform a brand new installation of Python.
 Official Python downloads are available at the Python downloads page: <https://www.python.org/downloads/>
 
-## Install Git
+### Install OpenGameData
+
+#### Installation as Package
+
+#### Installation as Local Source Copy
+
+Second, the OpenGameData source code is hosted on the GitHub website.
+Strictly speaking, you can just download a copy of the source there and use it right away.
+However, GitHub is built for use with Git, a popular version control system.
+We *strongly* recommend installing and using Git so that you can keep your OpenGameData code up-to-date, and participate in the OpenGameData community by contributing your innovations back the public.
+
+##### Install Git
 
 This step is necessary if you would like to submit changes back to the OpenGameData community for inclusion in the public repository.
 
-## Clone OpenGameData
+##### Clone OpenGameData
 
-### Install Python Libraries with `pip` and `requirements.txt`.
+##### Install Python Libraries with `pip` and `requirements.txt`.

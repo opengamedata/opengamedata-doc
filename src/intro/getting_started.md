@@ -1,45 +1,41 @@
-# Getting Started
+## Getting Started
 
-This document will help you to set up the **`OpenGameData`** data exporting tools, and to run your first data export.
-There are two options for getting and running **`OpenGameData`**:
+This document will help you to get up and running with the **`OpenGameData`**  tools.
+There are a few use-cases that this documentation will address - please review the following section to determine which case you need, and advance to the corresponding sections.
 
-1. Virtualized with `Docker`
-2. Running **`OpenGameData`** locally
+### OpenGameData Use-Cases
 
-We will describe each of these approaches in this document:
+I need to...
 
----
+* [Retrieve a Dataset from my OpenGameData Data Source](#retrieve-a-dataset-from-my-opengamedata-data-source)
+* [Integrate a new Game with OpenGameData](#integrate-a-new-game-with-opengamedata)
+* [Integrate a new Data Source with OpenGameData](#integrate-a-new-data-source-with-opengamedata)
+* [Perform Feature Engineering on my Raw Event Data](#perform-feature-engineering-on-my-raw-event-data)
+* [Perform OpenGameData Processing in my 3rd-Party Tool](#perform-opengamedata-processing-in-my-3rd-party-tool)
 
-## Running **`OpenGameData`** Virtually with `Docker`
+#### Retrieve a Dataset from my OpenGameData Data Source
 
+You should read the following portions of the documentation in order to retrieve a dataset:
 
-<font style="color:tomato">TODO: fill in</font>
+1. Start by [installing OpenGameData](./installation.md).  
+    * When choosing between a "Package" and "Local Source" install, you should choose the ["Package" option](./installation.md/#installation-as-package)
+2. If the game whose data you want to retrieve has not previously been added to OpenGameData, you should instead begin with Step 2 of [integrating a new game](#integrate-a-new-game-with-opengamedata).
+    * Follow the remaining steps as needed, and return to this spot.
+3. Check your [OpenGameData configuration](./configurations.md)
+4. Perform your [dataset export](./basic_exports.md)
 
----
+#### Integrate a new Game with OpenGameData
 
-## Running **`OpenGameData`** Locally in `Python`
+You should read the following portions of the documentation in order to integrate a new game with OpenGameData.:
 
-## Installation
+1. Start by [adding event logging](../logging/index.rst) to your game.  
+    * This chapter will walk you through the process of using the logging client and server to capture event data, optionally setting up a new OpenGameData data source.
+2. Next, [install OpenGameData](./installation.md).  
+    * When choosing between a "Package" and "Local Source" install, you should choose the ["Local Source" option](./installation.md/#installation-as-local-source-copy)
+3. 
 
-The first step is to obtain the **`OpenGameData`** code that you can execute on your local machine.
-There are a few prerequisite pieces of software you must have:
+#### Integrate a new Data Source with OpenGameData
 
-1. `Git`
-2. `Python`
+#### Perform Feature Engineering on my Raw Event Data
 
-We use `Git` for source control and distribution.
-While it is possible to download and use the **`OpenGameData`** source without `Git`, we strongly recommend using `Git` to obtain the source.
-This will allow you to track any changes you make, and to optionally contribute your changes back to the **`OpenGameData`** community.  
-`Python` is the language in which **`OpenGameData`** is written, and must be installed in order for you to run **`OpenGameData`** locally.
-
-### Installing `Git`
-
-We do not specify a minimum (or maximum) recommended version of `Git` to use.
-You can obtain a `Git` installer from <https://git-scm.com/downloads>.  
-If you are not comfortable working from a command line, consider downloading an installer for a GUI client (included in the linked page above).  
-
-<font style='color:tomato'>TODO: add some recommendations for any customization options in installer.</font>  
-
-## Using main.py for Command Line Exports
-
-## Integrating OGD Features into Custom Tools
+#### Perform OpenGameData Processing in my 3rd-Party Tool

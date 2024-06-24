@@ -1,8 +1,10 @@
-# OpenGameData Code Organization
+## OpenGameData Code Organization
+
+<!-- TODO : Move to core/code_organization.md -->
 
 **This document gives a general overview of the various pieces of code in the opengamedata project.**  
 
-## Basic Categories
+### Basic Categories
 
 The project code has three primary parts:
 
@@ -10,12 +12,12 @@ The project code has three primary parts:
 2. **Export** code to perform feature extraction at scale, and export the data to files for distribution/archival.
 3. **Evaluation** code to run features of a game session through models (generated from past game data), and output model-based predictions.
 
-## Location(s) of code by category
+### Location(s) of code by category
 
 The extraction code is primarily located in feature_extractors folder, and makes use of data in the schemas folder. Export code mostly lives in the managers folder, and is invoked from main.py. Evaluation code is, at the time of writing, wrapped up in RTServer.py, which was part of a dashboard prototype. In future development, these should be separated somewhat.
 Evaluation and Export code make heavy use of the Extraction code.
 
-## Code hierarchy and structure
+### Code hierarchy and structure
 
 The general structure and data flow for the **exporter** code is as follows:  
 

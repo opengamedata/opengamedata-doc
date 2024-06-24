@@ -1,4 +1,6 @@
-# Adding a Database
+## Adding a Database
+
+<!-- TODO : Move to core/add_database -->
 
 - The sub-dictionaries are similar to the db_columns dictionary. They map each property name for a given event type to the type of that property.
 
