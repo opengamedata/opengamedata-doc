@@ -1,4 +1,4 @@
-# Python Tips & Tricks
+# Chapter 3: Python Tips & Tricks
 
 A list of various little niceties in Python that you can use when writing your Python code:
 

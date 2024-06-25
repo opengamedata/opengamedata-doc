@@ -1,4 +1,4 @@
-# Coding Conventions
+# Chapter 2: Coding Conventions
 
 A summary of a few conventions used throughout the various OGD codebases:
 
@@ -10,7 +10,6 @@ A few notes:
 ## Software Platform
 
 We use the software packages and versions listed in our Open Game Data Reference Platform [document](./software_platform.md)
-
 
 ## Casing
 
@@ -33,23 +32,29 @@ The three primary cases for type hints are:
 
 1. **Variables**:
 When a variable is first used/bound/whatever, we attach a type hint between the variable name and the assignment operator.
-For example:  
-`some_int_var : int = 5`  
-We leave a space before and after the colon.
-For instance variables that are not initialized with a simple assignment (e.g. `self.var : str = "foo"`), simply "declare" the variable, optionally giving it a temporary variable (such as an empty list, for a `List` variable) and initialize later.
-This allows us to keep `__init__` functions relatively well-organized, with a section of one-line declarations/initializations followed by a section of complicated initializations.  
-For example:  
-`self._simple_var      : int                  = 0`  
-`self._complicated_var : Dict[str, List[int]] = {}`  
-`self._another_var     : str                  = "Some string"`  
-` `  
-`for i in range(20):`  
-`    self._complicated_var[f'Item{i}'] = [x*i for x in range(3)]`
+    For example:  
+    `some_int_var : int = 5`  
+    We leave a space before and after the colon.
+    For instance variables that are not initialized with a simple assignment (e.g. `self.var : str = "foo"`), simply "declare" the variable, optionally giving it a temporary variable (such as an empty list, for a `List` variable) and initialize later.
+    This allows us to keep `__init__` functions relatively well-organized, with a section of one-line declarations/initializations followed by a section of complicated initializations.  
+    For example:  
+
+    ```python
+    self._simple_var      : int                  = 0
+    self._complicated_var : Dict[str, List[int]] = {}
+    self._another_var     : str                  = "Some string"
+    
+    for i in range(20):
+        self._complicated_var[f'Item{i}'] = [x*i for x in range(3)]
+    ```
+
 2. **Function parameters**:
 Function parameters are type-hinted with a similar syntax to variables.
 For function params
 
-## Organization of Functions in a Class:
+    <font style="color:tomato">STUB: This section is on the to-do list.</font>
+
+## Organization of Functions in a Class
 
 Generally, the functions of a class are organized into sections, with each section marked by a comment.
 
