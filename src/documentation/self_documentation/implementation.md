@@ -22,9 +22,9 @@ Any cases requiring advanced functionality should just be written in **ReST**.
 The main exception to this rule is the use of $\LaTeX$-style math parsing, which is covered in the "Special Cases" section below.
 That said, it may be helpful to be aware of non-standard things done by the parser we use.
 For nitty-gritty details, see the latest version of the
-  [CommonMark specification](https://spec.commonmark.org/current/),
+[CommonMark specification](https://spec.commonmark.org/current/),
 as well as **MyST**'s
-  [further extensions](https://myst-parser.readthedocs.io/en/latest/syntax/typography.html)
+[further extensions](https://myst-parser.readthedocs.io/en/latest/syntax/typography.html)
 of **CommonMark**.
 
 ##### Markdown Primer
