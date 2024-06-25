@@ -1,4 +1,4 @@
-Chapter 3: OpenGameData Architecture
+Unit 3: OpenGameData Architecture
 ========================================
 
 .. toctree::

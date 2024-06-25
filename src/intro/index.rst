@@ -1,4 +1,4 @@
-Documentation Unit 0: Introduction to OpenGameData
+Unit 0: Introduction to OpenGameData
 =======================================
 
 .. toctree::

@@ -1,4 +1,4 @@
-Chapter 2: Feature Engineering
+Unit 2: Feature Engineering
 ========================================
 
 .. toctree::

@@ -1,4 +1,4 @@
-Chapter 4: Data Analysis & Visualization
+Unit 4: Data Analysis & Visualization
 ========================================
 
 .. toctree::

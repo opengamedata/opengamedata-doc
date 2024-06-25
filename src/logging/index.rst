@@ -1,4 +1,4 @@
-Chapter 1: Game Event Logging
+Unit 1: Game Event Logging
 ========================================
 
 .. toctree::
