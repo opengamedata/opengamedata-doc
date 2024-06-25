@@ -11,12 +11,12 @@ The tech stack for the `opengamedata-doc` project can be roughly broken down as 
 * Build : **Sphinx**
 * Deployment : **readthedocs** (**rtd**)
 
-.. mdinclude:: self_documentation/self_documentation.md
+.. mdinclude:: ./self_documentation.md
 
-.. mdinclude:: self_documentation/storage.md
+.. mdinclude:: ./storage.md
 
-.. mdinclude:: self_documentation/implementation.md
+.. mdinclude:: ./implementation.md
 
-.. mdinclude:: self_documentation/build.md
+.. mdinclude:: ./build.md
 
-.. mdinclude:: self_documentation/deployment.md
+.. mdinclude:: ./deployment.md

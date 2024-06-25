@@ -30,7 +30,9 @@ of **CommonMark**.
 ##### Markdown Primer
 
 The [Markdown Guide](https://www.markdownguide.org/) website is a good reference on the (relatively simple) syntax of **Markdown**, including documentation of several popular extensions to the core **Markdown** language.
-In addition, the Markdown Guide has a nice [quick reference](https://www.markdownguide.org/cheat-sheet/) on the most common syntax across **Markdown** and **Markdown**-like dialects.
+In addition, the Markdown Guide has a nice
+[quick reference](https://www.markdownguide.org/cheat-sheet/)
+on the most common syntax across **Markdown** and **Markdown**-like dialects.
 
 Below, we include our own quick reference, adapted from the quick reference linked above, for the elements we most commonly use. The "Our Use" column indicates our conventions for when/how to use the various bits of syntax to create a visual language within the documentation. Most uses are obvious, but some are scoped to specific uses:
 
