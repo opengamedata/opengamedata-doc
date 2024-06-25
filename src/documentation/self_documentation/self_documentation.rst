@@ -1,9 +1,12 @@
-Architecture Chapter 2: Interfaces & Outerfaces
-===============================================
+Meta-Documentation Chapter 1: Self-Documentation
+================================================
 
-Broadly speaking, ``interfaces`` are used by OpenGameData to load input data and write output data.
-To clarify between the two, we use the word ``outerface`` for any **interface** that does **out**put.
+.. mdinclude:: self_documentation/self_documentation.md
 
-.. mdinclude:: interfaces/writing_an_interface.md
+.. mdinclude:: self_documentation/storage.md
 
-.. mdinclude:: interfaces/writing_an_outerface.md
+.. mdinclude:: self_documentation/implementation.md
+
+.. mdinclude:: self_documentation/build.md
+
+.. mdinclude:: self_documentation/deployment.md

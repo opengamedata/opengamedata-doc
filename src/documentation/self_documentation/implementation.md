@@ -1,7 +1,5 @@
 ## Implementation
 
-### Documentation Organization
-
 ### Languages
 
 To write the **OGD** documentation, we use a combination of **reStructuredText** (**ReST**), **Markdown**, and a small handful of other special-use formats.
@@ -52,14 +50,14 @@ Below, we include our own quick reference, adapted from the quick reference link
 |                  | \- Item 2                          |                                |
 |                  | \- ...                             |                                |
 | Table            | \| Column 1 \| Column 2 \| ... \|  | Tables of information          |
-|                  | \| -------- \| -------- \| -   \|  |                                |
+|                  | \| ---      \| ---      \| ... \|  |                                |
 |                  | \| Value 1  \| Value 2  \| ... \|  |                                |
 
 #### reStructuredText
 
 ##### ReST Primer
 
-### Special Cases
+#### Special Cases
 
 As mentioned, we have a few special cases that use special formats outside of **ReST** and **Markdown**:
 
@@ -73,3 +71,50 @@ As mentioned, we have a few special cases that use special formats outside of **
 - **Graphs and Visualizations**: We use **Graphviz**, a graph definition language enabled by the `graphviz` extension
   ([sphinx-doc page](https://www.sphinx-doc.org/en/master/usage/extensions/graphviz.html)).
   Note that documents using **Graphviz** heavily must be implemented in **ReST**, as **Markdown** does not have a means for rendering in-line **Graphviz** graphics.
+
+### Documentation Organization
+
+Now that we've covered the languages used to write the documentation, we can discuss the organization of the documentation implementation.
+From a high-level point of view, the documentation is made up of several *Units* (listed in the [overview](../../intro/overview.md)).
+Each unit is, in turn, made up of several *Chapters*.
+
+#### Units
+
+The documentation source contains one folder for each section, containing the section chapters, as well as a unit index.
+The unit index is always named `index.rst` and lists each chapter, acting as a table of contents for the unit.
+There is a [unit index template](../templates/unit_index.rst) available.
+
+#### Chapters
+
+Chapters may be implemented as a standalone **Markdown** file, or as a **reStructuredText** document merging multiple **Markdown** shards.
+
+- Standalone Chapter File:
+    There will be a single **Markdown** file, named something like `chapter.md`, that will start with a level-1 header and include all chapter content, as in the [**Markdown** chapter template](../templates/chapter_page.rst).
+- Sharded Chapter:
+    The pieces making up the chapter will be placed in a subfolder, named something like `chapter/`.
+    The "assembly" **reStructuredText** file is then named `chapter.rst`, and uses the `.. mdinclude` directive to assemble the individual **Markdown** shards, shown in the [**reStructuredText** chapter template](../templates/chapter.rst).
+    The **Markdown** shards, in turn, will each begin with level-2 headers, and include only their section of the content.
+    This is demonstrated in the [**Markdown** shard template](../templates/chapter_shard.rst)
+
+#### Folder Structure
+
+Taking all the information given above, the structure of the documentation source has a structure similar to that demonstrated below:
+
+- unit_a/
+  - chapter_1/
+    - chapter_1.rst
+    - ch1_shard_1.md
+    - ch1_shard_2.md
+  - chapter_2.md
+  - chapter_3.md
+  - ...
+- unit_b/
+  - chapter_2/
+    - chapter_2.rst
+    - ch2_shard_1.md
+    - ch2_shard_2.md
+    - ch2_shard_3.md
+  - chapter_1.md
+  - ...
+- ...
+
