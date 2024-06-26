@@ -51,7 +51,9 @@ When a variable is first used/bound/whatever, we attach a type hint between the 
 2. **Function parameters**:
 Function parameters are type-hinted with a similar syntax to variables.
 For function params
+    <font style="color:tomato">STUB: This section is on the to-do list.</font>
 
+3. **Function return values**:
     <font style="color:tomato">STUB: This section is on the to-do list.</font>
 
 ## Organization of Functions in a Class
