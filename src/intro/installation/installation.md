@@ -17,12 +17,12 @@ The quickest way to check is to open up a command prompt (often called a termina
 This will output something like the following:
 
 ```bash
-  Python 3.9.6
+  Python 3.12.4
 ```
 
 Currently, OpenGameData is meant to run on Python 3.8 and higher.
 If you have an older version of Python, but it is at least Python 3, you should think about updating to a newer Python version to avoid incompatibilities.  
-If your Python is still on version 2, you should try running 
+If your Python is still on version 2, you should try running:
 
 ```bash
   > python3 --version
@@ -41,15 +41,26 @@ Official Python downloads are available at the Python downloads page: <https://w
 
 #### Installation as Local Source Copy
 
-Second, the OpenGameData source code is hosted on the GitHub website.
-Strictly speaking, you can just download a copy of the source there and use it right away.
-However, GitHub is built for use with Git, a popular version control system.
-We *strongly* recommend installing and using Git so that you can keep your OpenGameData code up-to-date, and participate in the OpenGameData community by contributing your innovations back the public.
+Second, the OpenGameData source code is hosted on the [GitHub website](www.github.com/opengamedata/).
+GitHub is built for use with `Git`, a popular version control system we use for source control and distribution.
+While it is possible to download and use the **`OpenGameData`** source without `Git`, we strongly recommend using `Git` to obtain the source.
+This will allow you to track any changes you make, and to optionally contribute your changes back to the **`OpenGameData`** community.  
+We *strongly* recommend [installing and using Git](#install-git) so that you can keep your OpenGameData code up-to-date, and participate in the OpenGameData community by contributing your innovations back the public.
 
-##### Install Git
+##### Download or Clone OpenGameData
+
+<font style="color:tomato">STUB: The rest of this page is on the to-do list; only section headers have been added so far.</font>
+
+##### Install Python Libraries
+
+### Other Tools
+
+#### Install Git
 
 This step is necessary if you would like to submit changes back to the OpenGameData community for inclusion in the public repository.
 
-##### Clone OpenGameData
+We do not specify a minimum (or maximum) recommended version of `Git` to use.
+You can obtain a `Git` installer from <https://git-scm.com/downloads>.  
+If you are not comfortable working from a command line, consider downloading an installer for a GUI client (included in the linked page above).  
 
-##### Install Python Libraries with `pip` and `requirements.txt`.
+<font style='color:tomato'>TODO: add some recommendations for any customization options in installer.</font>  
