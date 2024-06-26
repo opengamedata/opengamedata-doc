@@ -6,4 +6,9 @@ Unit 0: Introduction to OpenGameData
    :caption: Intro to OpenGameData
 
    getting_started.md
+
    installation.md
+   
+   configurations.md
+
+   exports.md
