@@ -1,22 +1,37 @@
-# OpenGameData Documentation Overview
+# OpenGameData Documentation Welcome
 
-NOTE : Not included in other documentation, just for reference while developing
+Welcome to the OpenGameData Documentation Project.
+This website will, at some point, describe all aspects of the OpenGameData tools for collecting, processing, analyzing, and distributing event-based data from educational games and game-like interactive digital media.
 
-The OpenGameData documentation is broken down into 7 *Units*.
-Each unit is made up of chapters.
+We recommend you check the [getting started](./getting_started.md) page to determine which of the many use-cases supported by the OpenGameData tools apply to you, and by extension, which parts of this website you should read.
+The rest of this page will introduce you to the structure of our documentation, as well as the variety of tools available from OpenGameData.
+
+## Documentation Organization
+
+The OpenGameData documentation is broken down into 8 *Units*, plus the "Unit 0" containing this introductory material.
+Each unit is made up of several chapters.
 Together, the units describe all parts of the OpenGameData infrastructure.
 
 The units are as follows:
 
-0. Introduction & Organization
-1. OpenGameData Core Basics
-2. Event Data
-3. Detectors & Feature Engineering
-4. Core Architecture
-5. Data Analysis & Visualization Tools
-6. APIs
-7. Meta-Documentation
-8. Core API Reference
+0. [Introduction & Organization](./index.rst):  
+    An overview of the OpenGameData project and documentation.
+1. [OpenGameData Core Basics](../core_basics/index.rst):  
+    The basics of using OpenGameData Core, including configuration and basic data exports.
+2. Event Data:  
+    A discussion of the OpenGameData Event Schema, and the several software packages used to collect event data.
+3. Detectors & Feature Engineering:  
+    How to write data Generators in OpenGameData Core to create refined analytics from raw event data.
+4. Core Architecture:  
+    A comprehensive review of the data processing architecture in OpenGameData Core, including how to integrate Core components into your own 3rd-party tool(s).
+5. APIs:  
+    Documentation of the OpenGameData APIs for data storage and access.
+6. Data Analysis & Visualization Tools:  
+    An introduction to OpenGameData-based tools for data analysis, including Jupyter Notebook templates and data dashboards.
+7. Meta-Documentation:  
+    Documentation for developers and documentation contributors, covering topics such as coding conventions and our software reference platform.
+8. Core API Reference:  
+    API reference for the OpenGameData Core Python package.
 
 Per-unit, the chapters are:
 

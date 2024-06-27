@@ -39,3 +39,5 @@ You should read the following portions of the documentation in order to integrat
 #### Perform Feature Engineering on my Raw Event Data
 
 #### Perform OpenGameData Processing in my 3rd-Party Tool
+
+### Special Case: I am a Data Team Intern at Field Day Lab
