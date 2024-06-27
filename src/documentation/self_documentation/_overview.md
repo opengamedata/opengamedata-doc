@@ -9,9 +9,27 @@ Together, the units describe all parts of the OpenGameData infrastructure.
 The units are as follows:
 
 0. Introduction & Organization
-1. Event Data
-2. Feature Engineering
-3. Core Architecture
-4. Data Analysis & Visualization
-5. Meta-Documentation
-6. Core API Reference
+1. OpenGameData Core Basics
+2. Event Data
+3. Feature Engineering
+4. Core Architecture
+5. Data Analysis & Visualization
+6. APIs
+7. Meta-Documentation
+8. Core API Reference
+
+Per-unit, the chapters are:
+
+0. Introduction & Organization
+    1. Getting Started:  
+        Which part of documentation users should read
+    2. Installation:  
+        Overview of how to install different parts of OGD infrastructure
+1. OpenGameData Core Basics
+2. Event Data
+3. Feature Engineering
+4. Core Architecture
+5. Data Analysis & Visualization
+6. APIs
+7. Meta-Documentation
+8. Core API Reference
