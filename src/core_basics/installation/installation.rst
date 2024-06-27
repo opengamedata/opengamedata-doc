@@ -1,6 +1,11 @@
 Chapter 2: Installation
 ===============================================
 
-.. mdinclude:: install_core.md
+Before you can use OpenGameData, you'll need to install a couple tools.
+First, OpenGameData is implemented in Python, which means you'll need a Python interpreter to run the code, which in turn means you need to have Python installed on your system.
+
+Second, you must determine whether you will run OpenGameData from an installed Python package, or from a local source copy.
 
 .. mdinclude:: ../../util/installation/install_python.md
+
+.. mdinclude:: install_core.md
