@@ -1,4 +1,4 @@
-Unit 6: opengamedata-core Package API Reference
+Unit 7: opengamedata-core Package API Reference
 ========================================
 
 .. toctree::

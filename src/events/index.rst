@@ -1,4 +1,4 @@
-Unit 1: Game Event Logging
+Unit 2: Game Event Logging
 ========================================
 
 .. toctree::
