@@ -11,11 +11,13 @@ OpenGameData documentation
    :caption: Contents:
 
    intro/index.rst
-   logging/index.rst
+   core_basics/index.rst
+   events/index.rst
    features/index.rst
    architecture/index.rst
+   apis/index.rst
    analysis/index.rst
-   documentation/index.rst
+   meta_documentation/index.rst
 
    reference/reference.rst
 
