@@ -18,33 +18,25 @@ The units are as follows:
     An overview of the OpenGameData project and documentation.
 1. [OpenGameData Core Basics](../core_basics/index.rst):  
     The basics of using OpenGameData Core, including configuration and basic data exports.
-2. Event Data:  
+2. [Event Data](../events/index.rst):  
     A discussion of the OpenGameData Event Schema, and the several software packages used to collect event data.
-3. Detectors & Feature Engineering:  
+3. [Detectors & Feature Engineering](../features/index.rst):  
     How to write data Generators in OpenGameData Core to create refined analytics from raw event data.
-4. Core Architecture:  
+4. [Core Architecture](../architecture/index.rst):  
     A comprehensive review of the data processing architecture in OpenGameData Core, including how to integrate Core components into your own 3rd-party tool(s).
-5. APIs:  
+5. [OpenGameData APIs](../apis/index.rst):  
     Documentation of the OpenGameData APIs for data storage and access.
-6. Data Analysis & Visualization Tools:  
+6. [Data Analysis & Visualization Tools](../analysis/index.rst):  
     An introduction to OpenGameData-based tools for data analysis, including Jupyter Notebook templates and data dashboards.
-7. Meta-Documentation:  
+7. [Meta-Documentation](../meta_documentation/index.rst):  
     Documentation for developers and documentation contributors, covering topics such as coding conventions and our software reference platform.
-8. Core API Reference:  
+8. [Core API Reference](../reference/reference.rst):  
     API reference for the OpenGameData Core Python package.
 
-Per-unit, the chapters are:
+## OpenGameData Pipeline
 
-0. Introduction & Organization
-    1. Getting Started:  
-        Which part of documentation users should read
-1. OpenGameData Core Basics
-    1. Installation:  
-        Overview of how to install different parts of OGD infrastructure
-2. Event Data
-3. Detectors & Feature Engineering
-4. Core Architecture
-5. Data Analysis & Visualization Tools
-6. APIs
-7. Meta-Documentation
-8. Core API Reference
+<font style="color:tomato">STUB: This section is on the to-do list.</font>
+
+## OpenGameData Tools & Packages
+
+<font style="color:tomato">STUB: This section is on the to-do list.</font>
