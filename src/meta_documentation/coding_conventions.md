@@ -70,6 +70,35 @@ For function params
 3. **Function return values**:
     <font style="color:tomato">STUB: This section is on the to-do list.</font>
 
+## Import Organization
+
+Generally, the imports in a file are organized into sections, with each section marked by a comment.
+
+The sections go in the following order:
+
+1. **Standard Libraries**: Imports of built-in, standard library functions.
+    For example, in Python, this might include `datetime`, `pathlib`, and `typing`.
+
+2. **3rd-Party Libraries**: These are imports from libraries outside the language/framework standard libraries.
+    For example, in Python, this might include `pandas`, `numpy`, or `pyplot`.
+
+3. **OGD Imports**: Imports from OpenGameData libraries or the local project.
+    This includes both installed libraries that are separate from the current project, and true local file imports.
+
+For easy copy-paste of section comments:
+
+```python
+# import standard libraries
+```
+
+```python
+# import 3rd-party libraries
+```
+
+```python
+# import OGD files
+```
+
 ## Organization of Functions in a Class
 
 Generally, the functions of a class are organized into sections, with each section marked by a comment.
