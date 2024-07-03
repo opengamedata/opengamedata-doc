@@ -16,8 +16,22 @@ We use the software packages and versions listed in our Open Game Data Reference
 We generally use different casing conventions for different parts of the code:
 
 - `PascalCase` : Use for classes, properties, and public functions
-- `camelCase` : Use for local and "private" functions. Prefix private functions with an underscore: `_privateFunction`
+- `camelCase` : Use for "protected" and "private" functions. Prefix private functions with an underscore: `_privateFunction`
 - `snake_case` : Use for variables, including instance variables (e.g. `self._var`). Prefix private and temp variables with an underscore: `self._private_var` or `_temp_var`
+  - Note: A "temp" variable here refers to one that is used only to hold a value for use in other calculations, and is not operated upon or updated/modified directly.
+      For example, consider the following code:
+
+      ```python
+      lst = []
+      for i in range(10):
+         _x = round(i + 3 * 3 / (i - 6))
+         _y = complicated.function(foo=2*i).chain(bar=i+1, baz=_x)
+         lst.append(_y)
+      ```
+
+      Here, `lst` is a variable that is repeatedly operated on, so it is a "normal" local var.
+      `_x` and `_y` exist only to hold values temporarily to simplify the code using those values.
+      Thus, `_x` and `_y` are considered "temp" variables and have the `_` prefix.
 
 ## Alignment
 
@@ -64,7 +78,7 @@ The sections go in the following order:
 
 1. **Define Abstract Functions**: This only applies to abstract base classes. Typicallly abstracts will be private functions, called from a public method that handles cross-cutting concerns (e.g. logging)
 
-2. **Implement Built-ins**: At minimum, a constructor; typically includes a `to_string`-style function (e.g. `__str__` and/or `__repr__` in Python) and any operator overloads.
+2. **Built-ins & Properties**: At minimum, a constructor; typically includes a `to_string`-style function (e.g. `__str__` and/or `__repr__` in Python) and any operator overloads. Properties are getter and setter functions for languages that support them. For OGD, that's basically just Python.
 
 3. **Implement Abstract Functions**: Public abstracts should come first (if any, see note for **Define Abstract Functions**), followed by private abstracts.
 
@@ -72,8 +86,36 @@ The sections go in the following order:
 
 5. **Public Methods**: No notes
 
-6. **Properties**: Getter and setter functions for languages that support them. For OGD, that's basically just Python.
+6. **Private Statics**: No notes
 
-7. **Private Statics**: No notes
+7. **Private Methods**: Generally reserved for helper functions for public methods.
 
-8. **Private Methods**: Generally reserved for helper functions for public methods.
+For easy copy-paste of section comment headers:
+
+```python
+# *** ABSTRACTS ***
+```
+
+```python
+# *** BUILT-INS & PROPERTIES ***
+```
+
+```python
+# *** IMPLEMENT ABSTRACT FUNCTIONS ***
+```
+
+```python
+# *** PUBLIC STATICS ***
+```
+
+```python
+# *** PUBLIC METHODS ***
+```
+
+```python
+# *** PRIVATE STATICS ***
+```
+
+```python
+# *** PRIVATE METHODS ***
+```
