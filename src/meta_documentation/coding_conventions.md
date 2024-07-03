@@ -119,6 +119,9 @@ The sections go in the following order:
 
 7. **Private Methods**: Generally reserved for helper functions for public methods.
 
+Sections 1 and 3 are optional, in the sense that no comment is needed to mark these sections if the given class is not an abstract base class and/or does not inherit from one, and thus does not define and/or implement any abstract functions.
+All other sections are required, even if the given class does not implement any functions for a given section.
+
 For easy copy-paste of section comment headers:
 
 ```python
