@@ -37,6 +37,9 @@ We generally use different casing conventions for different parts of the code:
 
 ## Quote Characters
 
+- When defining a string variable, use double-quotes: `"..."`.  
+- When using a string index into a dictionary, use single-quotes: `'...'`
+
 ## Type Hinting
 
 Python does not have formal type-checking, but provides type "hints" to help a linter pre-check for potential type errors.
@@ -69,6 +72,34 @@ For function params
 
 3. **Function return values**:
     <font style="color:tomato">STUB: This section is on the to-do list.</font>
+
+## Comment Blocks
+
+Each module, class, and function should have a comment block.
+The blocks should use the Sphinx style; this style can be configured in the **autoDocstring** extension for **VS Code**.
+If the block description is longer than one line, the first line should be a simple summary, with a full description in a paragraph, separated from the summary line by a single blank line.
+
+Parameters and return values should be specified after the body, in the case of function comment blocks.
+The parameter list should be separated from the body by a single blank line.
+
+To-do items should be specified after the parameters, using the Sphinx directive `.. todo::`.
+The to-do items should be separated from the parameters by a single blank line.
+
+An example is given below:
+
+```python
+"""Single-line summary of the module/class/function
+
+Detailed paragraph, if needed, using Markdown formatting.
+
+:param p1: description of `p1`, the first parameter.
+:type p1: <type of p1>
+:return: A brief description of the return value
+:rtype: <type of return value>
+
+.. todo:: A description of a to-do item for the module/class/function
+"""
+```
 
 ## Import Organization
 
