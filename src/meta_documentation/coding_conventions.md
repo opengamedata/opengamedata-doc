@@ -77,12 +77,13 @@ For function params
 
 Each module, class, and function should have a comment block.
 The blocks should use the Sphinx style; this style can be configured in the **autoDocstring** extension for **VS Code**.
-If the block description is longer than one line, the first line should be a simple summary, with a full description in a paragraph, separated from the summary line by a single blank line.
+If the block description is longer than one line, the first line should be a simple summary, with a detailed description given in a paragraph, separated from the summary line by a single blank line.
+The detailed paragraph should use **Markdown** formatting, following all conventions for writing **Markdown**
 
 Parameters and return values should be specified after the body, in the case of function comment blocks.
 The parameter list should be separated from the body by a single blank line.
 
-To-do items should be specified after the parameters, using the Sphinx directive `.. todo::`.
+To-do items should be specified after the parameters, using the **Sphinx** directive `.. todo::`.
 The to-do items should be separated from the parameters by a single blank line.
 
 An example is given below:
