@@ -19,7 +19,7 @@ OpenGameData documentation
    analysis/index.rst
    meta_documentation/index.rst
 
-   reference/reference.rst
+   reference/index.rst
 
 Indices and tables
 ==================
