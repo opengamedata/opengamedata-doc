@@ -22,7 +22,7 @@ The units are as follows:
     A discussion of the OpenGameData Event Schema, and the several software packages used to collect event data.
 3. [Detectors & Feature Engineering](../features/index.rst):  
     How to write data Generators in OpenGameData Core to create refined analytics from raw event data.
-4. [Core Architecture](../architecture/index.rst):  
+4. [Core Architecture](../core_architecture/index.rst):  
     A comprehensive review of the data processing architecture in OpenGameData Core, including how to integrate Core components into your own 3rd-party tool(s).
 5. [OpenGameData APIs](../apis/index.rst):  
     Documentation of the OpenGameData APIs for data storage and access.

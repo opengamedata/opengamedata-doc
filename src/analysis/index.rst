@@ -1,4 +1,4 @@
-Unit 5: Data Analysis & Visualization
+Unit 6: Data Analysis & Visualization
 ========================================
 
 .. toctree::

@@ -1,4 +1,4 @@
-Unit 6: OpenGameData Conventions & Meta-Documentation
+Unit 7: OpenGameData Conventions & Meta-Documentation
 ========================================================
 
 .. toctree::

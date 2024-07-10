@@ -14,7 +14,7 @@ OpenGameData documentation
    core_basics/index.rst
    events/index.rst
    features/index.rst
-   architecture/index.rst
+   core_architecture/index.rst
    apis/index.rst
    analysis/index.rst
    meta_documentation/index.rst
