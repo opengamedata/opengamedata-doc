@@ -1,10 +1,10 @@
-opengamedata\-core.games package
+games.THERMOVR.detectors package
 ================================
 
 Module contents
 ---------------
 
-.. automodule:: games
+.. automodule:: games.THERMOVR.detectors
    :members:
    :undoc-members:
    :show-inheritance:
