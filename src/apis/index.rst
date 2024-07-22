@@ -5,4 +5,5 @@ Unit 5: OpenGameData APIs
    :maxdepth: 1
    :caption: OpenGameData APIs
 
-   .. exports.md
+   ./installation/installation.rst
+   ./resources.md
