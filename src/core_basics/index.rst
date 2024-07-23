@@ -6,5 +6,5 @@ Unit 1: OpenGameData Core Basics
    :caption: OpenGameData Core Basics
 
    configurations.md
-
    exports.md
+   resources.md
