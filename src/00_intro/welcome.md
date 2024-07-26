@@ -29,7 +29,7 @@ The units are as follows:
 6. [Data Analysis & Visualization Tools](../analysis/index.rst):  
     An introduction to OpenGameData-based tools for data analysis, including Jupyter Notebook templates and data dashboards.
 7. [Meta-Documentation](../meta_documentation/index.rst):  
-    Documentation for developers and documentation contributors, covering topics such as coding conventions and our software reference platform.
+    Documentation for contributors working on core OGD infrastructure and documentation, covering topics such as coding conventions and our software reference platform.
 8. [Core API Reference](../reference/reference.rst):  
     API reference for the OpenGameData Core Python package.
 
