@@ -10,14 +10,14 @@ OpenGameData documentation
    :maxdepth: 2
    :caption: Contents:
 
-   intro/index.rst
-   core_basics/index.rst
-   events/index.rst
-   features/index.rst
-   core_architecture/index.rst
-   apis/index.rst
-   analysis/index.rst
-   meta_documentation/index.rst
+   00_intro/index.rst
+   01_core-basics/index.rst
+   02_events/index.rst
+   03_detectors-and-features/index.rst
+   04_core-architecture/index.rst
+   05_apis/index.rst
+   06_analysis-and-visualization/index.rst
+   07_meta-documentation/index.rst
 
    reference/index.rst
 
