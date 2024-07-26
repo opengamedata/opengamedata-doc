@@ -36,8 +36,16 @@ You should read the following portions of the documentation in order to integrat
 
 #### Integrate a new Data Source with OpenGameData
 
+<font style="color:tomato">STUB: This section is on the to-do list.</font>
+
 #### Perform Feature Engineering on my Raw Event Data
+
+<font style="color:tomato">STUB: This section is on the to-do list.</font>
 
 #### Perform OpenGameData Processing in my 3rd-Party Tool
 
+<font style="color:tomato">STUB: This section is on the to-do list.</font>
+
 ### Special Case: I am a Data Team Intern at Field Day Lab
+
+<font style="color:tomato">STUB: This section is on the to-do list.</font>
