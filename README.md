@@ -2,11 +2,11 @@
 
 Repository for documentation on OpenGameData code
 
-See these documents live at [read the docs](https://opengamedata-doc.readthedocs.io/en/latest/Getting_Started.html)
+See the manual live at [read the docs](https://opengamedata-doc.readthedocs.io/en/latest/Getting_Started.html)
 
 ## Organization
 
-The OpenGameData documentation is broken down into 8 *Units*, plus the "Unit 0" containing introductory material.
+The OpenGameData documentation manual is broken down into 8 *Units*, plus the "Unit 0" containing introductory material.
 Each unit is made up of several chapters.
 Together, the units describe all parts of the OpenGameData infrastructure.
 
