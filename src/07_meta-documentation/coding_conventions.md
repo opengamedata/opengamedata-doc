@@ -102,7 +102,22 @@ Detailed paragraph, if needed, using Markdown formatting.
 """
 ```
 
-## Import Organization
+### Class Comments
+
+For all abstract classes, the comment block should include a line listing all abstract functions to be implemented.
+For example:
+
+```python
+"""Base class for all interfaces and outerfaces.
+Ensures each inter/outerface can be opened and closed, like most system resources.
+
+All subclasses must implement the `_open` and `_close` functions.
+"""
+```
+
+### Function Comments
+
+## Organization of Imports in a Module
 
 Generally, the imports in a file are organized into sections, with each section marked by a comment.
 
