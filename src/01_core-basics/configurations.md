@@ -1,6 +1,6 @@
 # Configuring OpenGameData
 
-An example configuration file (from the config template):
+An example configuration file (based on the config template):
 
 ```python
 settings = {
