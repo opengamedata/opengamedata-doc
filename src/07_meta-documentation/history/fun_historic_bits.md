@@ -17,3 +17,34 @@ Found this comment left-over from the "Model" class used in the original teacher
 
 Found it really interesting that at the time, it had the option of taking in rows of feature data.
 Not sure if we ever really used this or not, but it's cool that we had some version of "second-order features" before we'd ever formalized that idea as something to be done as a main part of our "miniextractors" architecture.
+
+## "Interface" PyProject
+
+During a cleanup of one of the old server directories that once ran a copy of `opengamedata-core`, I rediscovered that at some point there was an attempt to set up a package for the OGD interface classes as its own separate package for inclusion in other projects, with a `setup.cfg` as shown below.
+This would have pre-dated the "real," successful creation of the `OGDUtils` and `opengamedata-core` packages by a couple years - the `pyproject`-related files were dated 09/23/2021.
+
+```toml
+[metadata]
+name = opengamedata-interfaces
+version = 0.0.1
+author = Luke Swanson
+author_email = swansonl@cs.wisc.edu
+description = Data Interfaces package for OpenGameData.
+long_description = Data Interfaces package for OpenGameData.
+url = https://github.com/opengamedata/opengamedata-core/tree/master/interfaces/
+project_urls =
+    Bug Tracker = https://github.com/opengamedata/opengamedata-core/issues
+classifiers =
+    Programming Langauage :: Python :: 3
+    License :: MIT License
+    Operating System :: OS Independent
+
+[options]
+package_dir =
+    = src
+packages = find
+python_requires = >= 3.6
+
+[options.packages.find]
+where = src
+```
