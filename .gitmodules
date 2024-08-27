@@ -4,3 +4,6 @@
 [submodule "platform"]
 	path = platform
 	url = git@github.com:opengamedata/opengamedata-platform.git
+[submodule "assets/extern"]
+	path = assets/extern
+	url = git@github.com:opengamedata/opengamedata-media-package.git
