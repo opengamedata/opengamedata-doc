@@ -1,3 +1,6 @@
 [submodule "opengamedata-core"]
 	path = opengamedata-core
 	url = https://github.com/opengamedata/opengamedata-core.git
+[submodule "platform"]
+	path = platform
+	url = git@github.com:opengamedata/opengamedata-platform.git
