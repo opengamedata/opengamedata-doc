@@ -22,7 +22,7 @@ print(f"Found ogd-core path as {OGD_CORE_PATH}, which resolves to {str(Path(OGD_
 # -- Project information -----------------------------------------------------
 
 project = 'OpenGameData'
-copyright = '2023, Field Day Lab'
+copyright = '2024, Field Day Lab'
 author = 'Luke Swanson'
 language = 'en'
 
