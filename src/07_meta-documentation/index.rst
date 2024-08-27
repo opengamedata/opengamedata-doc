@@ -8,5 +8,5 @@ Unit 7: OpenGameData Conventions & Meta-Documentation
    self_documentation/self_documentation.rst
    coding_conventions.md
    python_tips.md
-   software_platform.md
+   software_platform/software_platform.rst
    glossary.md
