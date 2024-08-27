@@ -3,7 +3,7 @@
 	url = https://github.com/opengamedata/opengamedata-core.git
 [submodule "platform"]
 	path = platform
-	url = https://github.com:opengamedata/opengamedata-platform.git
+	url = https://github.com/opengamedata/opengamedata-platform.git
 [submodule "assets/extern"]
 	path = assets/extern
-	url = https://github.com:opengamedata/opengamedata-media-package.git
+	url = https://github.com/opengamedata/opengamedata-media-package.git
