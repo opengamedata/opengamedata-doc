@@ -1,12 +1,21 @@
 Unit 7: OpenGameData Conventions & Meta-Documentation
 ========================================================
 
+..
+   Chapters: 
+   1. OGD docs self-documentation
+   2. OGD Software Platform
+   3. Coding Conventions & Python Tips
+   4. Project structures
+   5. API project structures
+   6. OGD Glossary
+
 .. toctree::
    :maxdepth: 1
    :caption: OGD Conventions & Metadocs
 
    self_documentation/self_documentation.rst
-   coding_conventions.md
-   python_tips.md
    software_platform/software_platform.rst
+   python_conventions/coding_conventions.md
+   python_tips.md
    glossary.md
