@@ -7,3 +7,6 @@
 [submodule "assets/extern"]
 	path = assets/extern
 	url = https://github.com/opengamedata/opengamedata-media-package.git
+[submodule "opengamedata-meta"]
+	path = opengamedata-meta
+	url = https://github.com/opengamedata/.github.git
