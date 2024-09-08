@@ -129,8 +129,9 @@ The sections go in the following order:
 2. **3rd-Party Libraries**: These are imports from libraries outside the language/framework standard libraries.
     For example, in Python, this might include `pandas`, `numpy`, or `pyplot`.
 
-3. **OGD Imports**: Imports from OpenGameData libraries or the local project.
-    This includes both installed libraries that are separate from the current project, and true local file imports.
+3. **OGD Imports**: Imports from OpenGameData libraries outside the local project.
+
+4. **Local Imports**: Imports from the local project.
 
 For easy copy-paste of section comments:
 
@@ -143,7 +144,11 @@ For easy copy-paste of section comments:
 ```
 
 ```python
-# import OGD files
+# import OGD libraries
+```
+
+```python
+# import local files
 ```
 
 ## Organization of Functions in a Class
