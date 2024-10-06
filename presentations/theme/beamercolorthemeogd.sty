@@ -1,4 +1,13 @@
-\mode<presentation>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ogdtheme}[2024/10/05 OpenGameData Beamer Theme]
+
+\DeclareOptionBeamer{imagedir}[../images]{\def\beamer@ogd@imagedir{#1}}
+\DeclareOptionBeamer{bgstyle}[pink]{\def\beamer@ogd@bgstyle{#2}}
+% \ExecuteOptionsBeamer{shadow=false}
+\ProcessOptionsBeamer
+
+\pgfdeclareimage[height=0.5cm]{ogd-logo}{\beamer@ogd@imagedir/wordmarks/ogd/grey-128.png}
+\pgfdeclareimage[height=\paperheight, width=\paperwidth]{slide-backdrop}{\beamer@ogd@imagedir/backgrounds/presentation/4x3/\beamer@ogd@bgstyle.png}
 
 % Web Colors
 \definecolor{ogdprimary}{RGB}{162, 255, 235}
@@ -26,6 +35,8 @@
 % Web Shadow Colors
 \definecolor{ogdshadow}{RGB}{34, 44, 133}
 
+\mode<presentation>
+
 % Palette
 \setbeamercolor*{palette primary}{bg=ogdsecondary, fg=ogdprimary}
 \setbeamercolor*{palette secondary}{bg=ogdsecondary, fg=ogdlighttext}
@@ -43,10 +54,6 @@
 % \setbeamercolor{section in head/foot}{bg=gray900, fg=ogdyellow}
 % \setbeamercolor{subsection in head/foot}{bg=ogdpink, fg=ogdpink}
 \setbeamercolor{section in toc}{bg=ogdblue, fg=ogdyellow}
-
-\pgfdeclareimage[height=0.5cm]{ogd-logo}{../../../assets/extern/images/wordmarks/ogd/grey-128.png}
-\pgfdeclareimage[height=\paperheight, width=\paperwidth]{bg-grid}{../../../assets/extern/images/backgrounds/Presentation-4x3.png}
-\pgfdeclareimage[height=\paperheight, width=\paperwidth]{hero-get-involved}{../../../assets/images/hero-get-involved.png}
 
 \usebackgroundtemplate{
    \pgfuseimage{bg-grid}
