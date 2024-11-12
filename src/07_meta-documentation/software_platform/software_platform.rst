@@ -1,6 +1,8 @@
 Chapter 4: Open Game Data Software Platform
 ================================================
 
-.. mdinclude:: ../../../platform/platform.md
+.. include:: ../../../platform/platform.md
+   :parser: myst_parser.sphinx_
 
-.. mdinclude:: ../../../opengamedata-meta/profile/README.md
+.. include:: ../../../opengamedata-meta/profile/README.md
+   :parser: myst_parser.sphinx_

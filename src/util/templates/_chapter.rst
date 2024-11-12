@@ -1,8 +1,11 @@
 Unit Name Chapter N: Chapter name
 ===============================================
 
-.. .. mdinclude:: chapter_folder/first_shard.md
+.. .. include:: chapter_folder/first_shard.md
+   :parser: myst_parser.sphinx_
 
-.. .. mdinclude:: chapter_folder/second_shard.md
+.. .. include:: chapter_folder/second_shard.md
+   :parser: myst_parser.sphinx_
 
-.. .. mdinclude:: chapter_folder/etc.etc
+.. .. include:: chapter_folder/etc.etc
+   :parser: myst_parser.sphinx_

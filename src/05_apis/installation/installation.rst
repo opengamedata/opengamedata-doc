@@ -1,6 +1,8 @@
 Chapter 2: Installation
 ===============================================
 
-.. mdinclude:: install_api.md
+.. include:: install_api.md
+   :parser: myst_parser.sphinx_
 
-.. mdinclude:: ../../util/installation/install_python.md
+.. include:: ../../util/installation/install_python.md
+   :parser: myst_parser.sphinx_

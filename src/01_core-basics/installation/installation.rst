@@ -7,6 +7,8 @@ Firstly, OpenGameData is implemented in Python, which means you'll need a Python
 
 Second, you must determine whether you will run OpenGameData from an installed Python package, or from a local source copy.
 
-.. mdinclude:: ../../util/installation/install_python.md
+.. include:: ../../util/installation/install_python.md
+   :parser: myst_parser.sphinx_
 
-.. mdinclude:: install_core.md
+.. include:: install_core.md
+   :parser: myst_parser.sphinx_

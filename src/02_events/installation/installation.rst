@@ -1,6 +1,8 @@
 Chapter 2: Installation
 ===============================================
 
-.. mdinclude:: install_logging.md
+.. include:: install_logging.md
+   :parser: myst_parser.sphinx_
 
-.. mdinclude:: ../../util/installation/install_python.md
+.. include:: ../../util/installation/install_python.md
+   :parser: myst_parser.sphinx_
