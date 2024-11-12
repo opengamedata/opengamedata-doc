@@ -1,3 +1,4 @@
+%!LW recipe=beamer - local build dir
 \documentclass{beamer}
 % Based on template by Till Tantau <tantau@users.sourceforge.net>.
 
@@ -11,9 +12,10 @@
 
 \mode<presentation>
 {
+  \def\ogd@assetdir{../../../assets/extern}
   \usetheme{frankfurt}
-  \usepackage{../../theme/beamercolorthemeogd}
-  % or ...
+  % \usepackage[imagedir=\ogd@assetdir/images]{\ogd@assetdir/style/latex/beamercolorthemeogd}
+  \usepackage[imagedir=\ogd@assetdir/images]{../../theme/beamercolorthemeogd}
 
   \setbeamercovered{transparent}
   % or whatever (possibly just delete it)
@@ -33,7 +35,7 @@
 \date[OGD Docs] % (optional)
 {OpenGameData Documentation \\ Unit 1: Event Logging}
 
-\subject{Talks}
+\subject{OGD Events}
 % This is only inserted into the PDF information catalog. Can be left out. 
 
 % Delete this, if you do not want the table of contents to pop up at
@@ -47,7 +49,7 @@
 
 % If you wish to uncover everything in a step-wise fashion, uncomment
 % the following command: 
-% \beamerdefaultoverlayspecification{<+->}
+\beamerdefaultoverlayspecification{<+->}
 
 
 \begin{document}
@@ -60,17 +62,6 @@
   \tableofcontents
   % You might wish to add the option [pausesections]
 \end{frame}
-
-
-% Since this a solution template for a generic talk, very little can
-% be said about how it should be structured. However, the talk length
-% of between 15min and 45min and the theme suggest that you stick to
-% the following rules:  
-
-% - Exactly two or three sections (other than the summary).
-% - At *most* three subsections per section.
-% - Talk about 30s to 2min per frame. So there should be between about
-%   15 and 30 frames, all told.
 
 \section[Event Schema]{The OpenGameData Event Schema}
 
@@ -89,25 +80,104 @@
 
 \begin{frame}{Why the OGD Event Schema?}
   \begin{itemize}
-  \item Events vary greatly across games
-  \item Using a standard allows consistent event interface across games
-  \item The \bold{OGD Event Schema} 
+    \item Events vary greatly across games
+    \item Using a standard allows consistent event interface across games
   \end{itemize}
 \end{frame}
 
-\subsection[IDs]{Common Elements}
+\subsection[IDs]{Identifiers}
 
 \begin{frame}{What Identifiers Do We Use?}
   \begin{itemize}
-  \item Player
-  \item Session
+    \item \alert{App ID :} An identifier for the specific game an event came from, typically a single word from the game title
+    \begin{itemize}
+      \item e.g. AQUALAB, BLOOM, WEATHER\_STATION
+    \end{itemize}
+    \item \alert{User ID :} A unique identifier (within given game) for an individual user, who may have one or more sessions of play
+    \item \alert{Session ID :} A unique identifier for an individual gameplay session, from the time the game is opened to the time it is closed
   \end{itemize}
 \end{frame}
 
+\subsection[versions]{Versioning}
+
 \begin{frame}{What Versioning Do We Use?}
   \begin{itemize}
-  \item Player
-  \item Session
+    \item \alert{Log Version :} The version of the logging code (not the game experience).
+    \begin{itemize}
+      \item Increment whenever the given game's logging schema changes
+    \end{itemize}
+    \item \alert{App Version :} The version of the game experience
+    \begin{itemize}
+      \item Use the game's internal versioning
+    \end{itemize}
+    \item \alert{App Branch :} An optional field to track parallel game versions, e.g. in A/B tests
+    \begin{itemize}
+      \item Matches well to branch usage in a version control system
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection[timing]{Timing}
+
+\begin{frame}{How is time tracked?}
+  \begin{itemize}
+    \item \alert{Timestamp}
+  \end{itemize}
+\end{frame}
+
+\subsection[data]{General Event Data}
+
+\begin{frame}{What per-Game or per-Event data Do We Use?}
+  \begin{itemize}
+    \item \alert{Event Name} : The name of the specific event type
+    \begin{itemize}
+      \item e.g. game\_start, level\_complete, click\_place\_object
+    \end{itemize}
+    \item \alert{Event Source :} Simple indicator for whether event came from the \textbf{GAME}, or was \textbf{GENERATED} by an external \textbf{event detector}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What per-Game or per-Event data Do We Use?}
+  JSON-formatted Data
+  \begin{itemize}
+    \item All use a JSON-formatted string to allow for differences between systems, games, and events
+    \item \alert{User Data}
+    \item \alert{Game State}
+    \item \alert{Event Data}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{User Data}
+  Use a common set of keys for all games with a common set of users
+  \begin{itemize}
+    \item Examples:
+    \begin{itemize}
+      \item Username
+      \item List of achievements
+      \item All-time score in current game
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Game State}
+  \begin{itemize}
+    \item Use a common set of keys for all events within a given game
+    \item Should be the state at the instant before the event occurred
+    \begin{itemize}
+      \item For example: a "place object" event would include the score prior to object placement in the Game State, and the score after placement in the Event Data
+    \end{itemize}
+    \item Example Keys:
+    \begin{itemize}
+      \item Current level number
+      \item Overall score
+      \item Score in current level
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Event Data}
+  \begin{itemize}
+    \item Custom set of keys for each event type
   \end{itemize}
 \end{frame}
 
