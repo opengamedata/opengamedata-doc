@@ -5,5 +5,7 @@ Unit 0: Introduction to OpenGameData
    :maxdepth: 1
    :caption: Intro to OpenGameData
 
-   welcome.md
    getting_started.md
+
+.. include:: welcome.md
+   :parser: myst_parser.sphinx_
