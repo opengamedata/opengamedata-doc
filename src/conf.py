@@ -41,8 +41,8 @@ extensions = [
     "sphinx.ext.linkcode",
     "sphinx.ext.todo",
     "sphinx_rtd_theme",
-    "sphinx_mdinclude",
-    "myst_parser"
+    "myst_parser",
+    "sphinx_mdinclude"
 ]
 
 myst_enable_extensions = [
