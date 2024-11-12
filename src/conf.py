@@ -36,12 +36,13 @@ release = '1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "sphinx_mdinclude",
-    # "myst_parser",
     "sphinx.ext.autodoc",
     "sphinx.ext.graphviz",
     "sphinx.ext.linkcode",
-    "sphinx.ext.todo"
+    "sphinx.ext.todo",
+    "sphinx_rtd_theme",
+    "sphinx_mdinclude",
+    "myst_parser"
 ]
 
 myst_enable_extensions = [
