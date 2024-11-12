@@ -16,19 +16,19 @@ The units are as follows:
 
 0. [Introduction & Organization](./index.rst):  
     An overview of the OpenGameData project and documentation.
-1. [OpenGameData Core Basics](../core_basics/index.rst):  
+1. [OpenGameData Core Basics](../01_core_basics/index.rst):  
     The basics of using OpenGameData Core, including configuration and basic data exports.
-2. [Event Data](../events/index.rst):  
+2. [Event Data](../02_events/index.rst):  
     A discussion of the OpenGameData Event Schema, and the several software packages used to collect event data.
-3. [Detectors & Feature Engineering](../features/index.rst):  
+3. [Detectors & Feature Engineering](../03_detectors-and-features/index.rst):  
     How to write data Generators in OpenGameData Core to create refined analytics from raw event data.
-4. [Core Architecture](../core_architecture/index.rst):  
+4. [Core Architecture](../04_core-architecture/index.rst):  
     A comprehensive review of the data processing architecture in OpenGameData Core, including how to integrate Core components into your own 3rd-party tool(s).
-5. [OpenGameData APIs](../apis/index.rst):  
+5. [OpenGameData APIs](../05_apis/index.rst):  
     Documentation of the OpenGameData APIs for data storage and access.
-6. [Data Analysis & Visualization Tools](../analysis/index.rst):  
+6. [Data Analysis & Visualization Tools](../06_analysis-and-visualization/index.rst):  
     An introduction to OpenGameData-based tools for data analysis, including Jupyter Notebook templates and data dashboards.
-7. [Meta-Documentation](../meta_documentation/index.rst):  
+7. [Meta-Documentation](../07_meta-documentation/index.rst):  
     Documentation for contributors working on core OGD infrastructure and documentation, covering topics such as coding conventions and our software reference platform.
 8. [Core API Reference](../reference/reference.rst):  
     API reference for the OpenGameData Core Python package.

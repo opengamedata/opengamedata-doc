@@ -17,22 +17,22 @@ I need to...
 
 You should read the following portions of the documentation in order to retrieve a dataset:
 
-1. Start by [installing OpenGameData](../core_basics/installation/installation.rst).  
-    * When choosing between a "Package" and "Local Source" install, you should choose the ["Package" option](../core_basics/installation/installation.rst#installation-as-package)
+1. Start by [installing OpenGameData](../01_core_basics/installation/installation.rst).  
+    * When choosing between a "Package" and "Local Source" install, you should choose the ["Package" option](../01_core_basics/installation/installation.rst#installation-as-package)
 2. If the game whose data you want to retrieve has not previously been added to OpenGameData, you should instead begin with Step 2 of [integrating a new game](#integrate-a-new-game-with-opengamedata).
     * Follow the remaining steps as needed, and return to this spot.
-3. Check your [OpenGameData configuration](../core_basics/configurations.md)
-4. Perform your [dataset export](../core_basics/exports.md)
+3. Check your [OpenGameData configuration](../01_core_basics/configurations.md)
+4. Perform your [dataset export](../01_core_basics/exports.md)
 
 #### Integrate a new Game with OpenGameData
 
 You should read the following portions of the documentation in order to integrate a new game with OpenGameData.:
 
-1. Start by [adding event logging](../events/index.rst) to your game.  
+1. Start by [adding event logging](../02_events/index.rst) to your game.  
     * This chapter will walk you through the process of using the logging client and server to capture event data, optionally setting up a new OpenGameData data source.
-2. Next, [install OpenGameData](../core_basics/installation/installation.rst).  
-    * When choosing between a "Package" and "Local Source" install, you should choose the ["Local Source" option](../core_basics/installation/installation.rst#installation-as-local-source-copy)
-3. Finally, [add a configuration](../core_basics/configurations.md)
+2. Next, [install OpenGameData](../01_core_basics/installation/installation.rst).  
+    * When choosing between a "Package" and "Local Source" install, you should choose the ["Local Source" option](../01_core_basics/installation/installation.rst#installation-as-local-source-copy)
+3. Finally, [add a configuration](../01_core_basics/configurations.md)
 
 #### Integrate a new Data Source with OpenGameData
 
