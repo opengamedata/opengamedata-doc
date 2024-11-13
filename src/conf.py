@@ -14,7 +14,7 @@ import os
 import sys
 from pathlib import Path
 
-OGD_CORE_PATH = os.environ.get('OGD_CORE_PATH', '../opengamedata-core/src/ogd')
+OGD_CORE_PATH = os.environ.get('OGD_CORE_PATH', '../opengamedata-core/src/')
 sys.path.insert(0, str(Path(OGD_CORE_PATH).resolve()))
 print(f"Found ogd-core path as {OGD_CORE_PATH}, which resolves to {str(Path(OGD_CORE_PATH).resolve())}")
 

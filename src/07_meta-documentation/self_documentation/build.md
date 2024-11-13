@@ -16,7 +16,7 @@ We use the `sphinx-apidoc` command to prepare/update the reference section of th
 We do the following, for example, to document the `ogd.core` module:
 
 ```bash
-  > sphinx-apidoc -o src/reference/core --tocfile index-core --remove-old --implicit-namespaces opengamedata-core/src/ogd/core/
+  > sphinx-apidoc -o src/reference/core --tocfile index-core --remove-old --implicit-namespaces opengamedata-core/src/ogd/
 ```
 
 ### **readthedocs**
