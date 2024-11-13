@@ -6,3 +6,4 @@ Unit 8: Core API Reference
    :caption: OpenGameData Core API Reference Docs
 
    core/ogd.core.rst
+   core/ogd.games.rst
