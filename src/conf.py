@@ -54,7 +54,8 @@ myst_heading_anchors=4
 autodoc_mock_imports = ["config"]
 
 source_parsers = {
-    'graphviz': 'sphinx.ext.graphviz'
+    'graphviz': 'sphinx.ext.graphviz',
+    'markdown': 'myst_parser.sphinx_'
 }
 
 source_suffix = {
