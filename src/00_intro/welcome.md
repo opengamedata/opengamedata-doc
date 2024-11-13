@@ -16,7 +16,7 @@ The units are as follows:
 
 0. [Introduction & Organization](./index.rst):  
     An overview of the OpenGameData project and documentation.
-1. [OpenGameData Core Basics](../01_core_basics/index.rst):  
+1. [OpenGameData Core Basics](../01_core-basics/index.rst):  
     The basics of using OpenGameData Core, including configuration and basic data exports.
 2. [Event Data](../02_events/index.rst):  
     A discussion of the OpenGameData Event Schema, and the several software packages used to collect event data.
@@ -30,7 +30,7 @@ The units are as follows:
     An introduction to OpenGameData-based tools for data analysis, including Jupyter Notebook templates and data dashboards.
 7. [Meta-Documentation](../07_meta-documentation/index.rst):  
     Documentation for contributors working on core OGD infrastructure and documentation, covering topics such as coding conventions and our software reference platform.
-8. [Core API Reference](../reference/reference.rst):  
+8. [Core API Reference](../reference/index.rst):  
     API reference for the OpenGameData Core Python package.
 
 ## OpenGameData Pipeline
