@@ -41,7 +41,7 @@ source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
     '.md'  : 'markdown'
-    # '.dot' : 'graphviz'
+    '.dot' : 'graphviz'
 }
 
 exclude_patterns = [
