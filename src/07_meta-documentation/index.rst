@@ -17,7 +17,7 @@ Unit 7: OpenGameData Conventions & Meta-Documentation
 
    self_documentation/self_documentation.rst
    software_platform/software_platform.rst
-   python_conventions/coding_conventions.rst
+   python_conventions/python_conventions.rst
    project_conventions/project_conventions.rst
    api_conventions/api_conventions.rst
    history/fun_historic_bits.md
