@@ -41,7 +41,7 @@ For example, to install version 0.0.12:
 
 This is the approach to take if you need to run data exports, or intend to develop new data generation modules, such as [event detectors or feature extractors](../../03_detectors-and-features/index.rst).
 
-In this case, you will get a local copy of the full `opengamedata-core` source code from the [**GitHub** repository](www.github.com/opengamedata/opengamedata-core).
+In this case, you will get a local copy of the full `opengamedata-core` source code from the [**GitHub** repository](https://www.github.com/opengamedata/ogd-core).
 You will also install the necessary libraries to run `opengamedata-core` exports.
 
 **GitHub** is built for use with `Git`, a popular version control system we use for source control and distribution.
@@ -51,7 +51,7 @@ We *strongly* recommend [installing and using Git](#install-git) so that you can
 
 #### Download or Clone OpenGameData
 
-To actually get your copy of the source code, visit the home tab of the [`opengamedata-core` repository](www.github.com/opengamedata/opengamedata-core) on **GitHub**.
+To actually get your copy of the source code, visit the home tab of the [`opengamedata-core` repository](http://www.github.com/opengamedata/ogd-core) on **GitHub**.
 The page you see should look similar to the image below.
 
 ![GitHub interface for `opengamedata-core` repository](../../../assets/images/figures/ogd-core-github-main.png)

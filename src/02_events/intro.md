@@ -91,7 +91,7 @@ There are two pieces of documentation we recommend:
     This refers to a specific `json` file for use within `opengamedata-core`.
     Among the uses of this file are automatic generation of a dataset readme file whenever data is exported via `opengamedata-core`.
     This is a formal documentation of events, in the sense there is a very specific format to use, with a prescribed set of elements to be listed for each type of event.
-    Details are in the documentation of [game schemas](../architecture/game_schemas.md).
+    Details are in the documentation of [game schemas](../04_core-architecture/overview/game_schemas.md).
 
 Both of these documents are important points of reference.
 In general, the `readme` file is useful for reviewing the state of logging and onboarding any new developers who may need to interact with the logging code, while the `json` file is useful as a specification of what should be implemented (where the documents differ, the `json` should be treated as the target, and the `readme` updated to reflect any fixes to the implementation).
@@ -128,7 +128,7 @@ This major step can be accomplished by doing the following:
 
 1. Set up a "logging" server with PHP and MySQL:  
     This server will host the logging service.
-    Please see our [reference platform](../software_platform.md) documentation for recommended software versions.
+    Please see our [reference platform](../07_meta-documentation/software_platform/software_platform.rst) documentation for recommended software versions.
 2. Create a MySQL database to hold game events:  
     This database should contain a table for each game, with each table having columns and data types corresponding to the OGD schema
 3. Set up an instance of `opengamedata-logger` package:  

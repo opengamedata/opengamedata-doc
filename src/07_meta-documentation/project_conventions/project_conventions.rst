@@ -1,0 +1,2 @@
+OpenGameData Project Conventions
+================================

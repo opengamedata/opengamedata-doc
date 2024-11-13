@@ -140,7 +140,7 @@ Many different events will involve operations on the same set of in-game objects
 ### OpenGameData Schema Files
 
 The OpenGameData software uses a particular specification format to auto-generate documentation of a game's events.
-You can read more about it in the [game schemas](../architecture/game_schemas.md) page.
+You can read more about it in the [game schemas](../04_core-architecture/overview/game_schemas.md) page.
 
 ## Event Implementation
 
