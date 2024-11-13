@@ -17,8 +17,8 @@ I need to...
 
 You should read the following portions of the documentation in order to retrieve a dataset:
 
-1. Start by [installing OpenGameData](src/01_core-basics/installation/installation.rst).  
-    * When choosing between a "Package" and "Local Source" install, you should choose the ["Package" option](src/01_core-basics/installation/installation.rst#installation-as-package)
+1. Start by [installing OpenGameData](../01_core-basics/installation/installation.rst).  
+    * When choosing between a "Package" and "Local Source" install, you should choose the ["Package" option](../01_core-basics/installation/installation.rst#installation-as-package)
         * autolink for the link above: <project:../01_core-basics/installation/installation.rst#installation-as-package>
 2. If the game whose data you want to retrieve has not previously been added to OpenGameData, you should instead begin with Step 2 of [integrating a new game](#integrate-a-new-game-with-opengamedata).
     * Follow the remaining steps as needed, and return to this spot.
