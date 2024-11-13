@@ -50,3 +50,16 @@ You should read the following portions of the documentation in order to integrat
 ### Special Case: I am a Data Team Intern at Field Day Lab
 
 <font style="color:tomato">STUB: This section is on the to-do list.</font>
+
+```{code-block} python
+---
+lineno-start: 10
+emphasize-lines: 1, 3
+caption: |
+    This is my
+    multi-line caption. It is *pretty nifty* ;-)
+---
+a = 2
+print('my 1st line')
+print(f'my {a}nd line')
+```
