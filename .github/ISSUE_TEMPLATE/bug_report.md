@@ -2,7 +2,7 @@
 name: Bug report
 about: Report an issue with the documentation website, such as a broken link or missing
   image
-title: ''
+title: '[Fill in an Issue Title here]'
 labels: bug
 assignees: LswaN58
 
