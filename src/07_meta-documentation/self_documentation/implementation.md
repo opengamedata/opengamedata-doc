@@ -77,7 +77,7 @@ As mentioned, we have a few special cases that use special formats outside of **
 ### Documentation Organization
 
 Now that we've covered the languages used to write the documentation, we can discuss the organization of the documentation implementation.
-From a high-level point of view, the documentation is made up of several *Units* (listed in the [overview](../../intro/overview.md)).
+From a high-level point of view, the documentation is made up of several *Units* (listed in the [overview](../../00_intro/welcome.md)).
 Each unit is, in turn, made up of several *Chapters*.
 
 #### Units
