@@ -5,8 +5,8 @@ Unit 4: OpenGameData Core Architecture
    :maxdepth: 1
    :caption: OGD Architecture
 
-   architecture.rst
-   interfaces.rst
+   overview/overview.rst
+   interfaces/interfaces.rst
    Adding_a_Database.md
    Code_Organization.md
    Database_Schemas.md
