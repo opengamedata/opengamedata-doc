@@ -9,7 +9,7 @@ A few notes:
 
 ## Software Platform
 
-We use the software packages and versions listed in our Open Game Data Reference Platform [document](./software_platform.md)
+We use the software packages and versions listed in our Open Game Data Reference Platform [document](../software_platform/software_platform.rst)
 
 ## Casing
 
