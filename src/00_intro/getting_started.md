@@ -31,9 +31,9 @@ You should read the following portions of the documentation in order to integrat
 
 1. Start by [adding event logging](../02_events/index.rst) to your game.  
     * This chapter will walk you through the process of using the logging client and server to capture event data, optionally setting up a new OpenGameData data source.
-2. Next, [install OpenGameData](../01_core_basics/installation/installation.rst).  
-    * When choosing between a "Package" and "Local Source" install, you should choose the ["Local Source" option](../01_core_basics/installation/installation.rst#installation-as-local-source-copy)
-3. Finally, [add a configuration](../01_core_basics/configurations.md)
+2. Next, [install OpenGameData](../01_core-basics/installation/installation.rst).  
+    * When choosing between a "Package" and "Local Source" install, you should choose the ["Local Source" option](../01_core-basics/installation/installation.rst#installation-as-local-source-copy)
+3. Finally, [add a configuration](../01_core-basics/configurations.md)
 
 #### Integrate a new Data Source with OpenGameData
 
