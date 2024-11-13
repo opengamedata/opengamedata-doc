@@ -49,6 +49,7 @@ myst_enable_extensions = [
     "amsmath",
     "dollarmath"
 ]
+myst_heading_anchors=4
 
 autodoc_mock_imports = ["config"]
 
