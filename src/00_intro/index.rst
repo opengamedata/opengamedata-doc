@@ -8,4 +8,4 @@ Unit 0: Introduction to OpenGameData
    getting_started.md
 
 .. include:: welcome.md
-   :parser: myst_parser.sphinx_
+   
