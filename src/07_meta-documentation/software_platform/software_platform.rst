@@ -6,4 +6,5 @@ Chapter 4: Open Game Data Software Platform
    
 
 .. include:: ../../../opengamedata-meta/profile/README.md
+   :parser: myst_parser.sphinx_
    

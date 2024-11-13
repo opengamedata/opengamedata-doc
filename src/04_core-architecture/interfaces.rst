@@ -5,7 +5,7 @@ Broadly speaking, ``interfaces`` are used by OpenGameData to load input data and
 To clarify between the two, we use the word ``outerface`` for any **interface** that does **out**put.
 
 .. include:: interfaces/writing_an_interface.md
-   
+   :parser: myst_parser.sphinx_
 
 .. include:: interfaces/writing_an_outerface.md
-   
+   :parser: myst_parser.sphinx_

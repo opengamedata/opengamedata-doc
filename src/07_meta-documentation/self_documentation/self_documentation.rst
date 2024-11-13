@@ -12,16 +12,16 @@ The tech stack for the `opengamedata-doc` project can be roughly broken down as 
 * Deployment : **readthedocs** (**rtd**)
 
 .. include:: ./self_documentation.md
-   
+   :parser: myst_parser.sphinx_
 
 .. include:: ./storage.md
-   
+   :parser: myst_parser.sphinx_
 
 .. include:: ./implementation.md
-   
+   :parser: myst_parser.sphinx_
 
 .. include:: ./build.md
-   
+   :parser: myst_parser.sphinx_
 
 .. include:: ./deployment.md
-   
+   :parser: myst_parser.sphinx_
