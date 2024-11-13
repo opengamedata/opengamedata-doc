@@ -10,3 +10,5 @@ Unit 2: Game Event Logging
    event_design.md
    event_monitor.md
    logger_and_clients.md
+   installation/installation.rst
+   databases/databases.rst
