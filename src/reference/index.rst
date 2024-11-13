@@ -5,5 +5,5 @@ Unit 8: Core API Reference
    :maxdepth: 1
    :caption: OpenGameData Core API Reference Docs
 
-   core/core.rst
+   core/index-core.rst
    games/games.rst

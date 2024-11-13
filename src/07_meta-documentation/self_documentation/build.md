@@ -9,6 +9,16 @@ There's nothing particularly special about our configuration, but you can read a
 We use several **Sphinx** extensions to support building various implementation languages into our documentation.
 We will link to individual extensions' pages as they are discussed below; for general information on **Sphinx** extensions, see the sphinx-doc [extensions page](https://www.sphinx-doc.org/en/master/usage/extensions/)
 
+#### **sphinx-apidoc**
+
+We use the `sphinx-apidoc` command to prepare/update the reference section of the documentation from submodules containing the code from the various OpenGameData Python repositories.
+
+We do the following, for example, to document the `ogd.core` module:
+
+```bash
+  > sphinx-apidoc -o src/reference/core --tocfile index-core --remove-old --implicit-namespaces opengamedata-core/src/ogd/core/
+```
+
 ### **readthedocs**
 
 Our build and deploy process uses the **readthedocs** provider to build and host our documentation project.
