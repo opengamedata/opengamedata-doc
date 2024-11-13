@@ -84,19 +84,19 @@ Each unit is, in turn, made up of several *Chapters*.
 
 The documentation source contains one folder for each section, containing the section chapters, as well as a unit index.
 The unit index is always named `index.rst` and lists each chapter, acting as a table of contents for the unit.
-There is a [unit index template](../templates/unit_index.rst) available.
+There is a [unit index template](../util/templates/unit_index.rst) available.
 
 #### Chapters
 
 Chapters may be implemented as a standalone **Markdown** file, or as a **reStructuredText** document merging multiple **Markdown** shards.
 
 - Standalone Chapter File:
-    There will be a single **Markdown** file, named something like `chapter.md`, that will start with a level-1 header and include all chapter content, as in the [**Markdown** chapter template](../templates/chapter_page.rst).
+    There will be a single **Markdown** file, named something like `chapter.md`, that will start with a level-1 header and include all chapter content, as in the [**Markdown** chapter template](../util/templates/chapter_page.rst).
 - Sharded Chapter:
     The pieces making up the chapter will be placed in a subfolder, named something like `chapter/`.
-    The "assembly" **reStructuredText** file is then named `chapter.rst`, and uses the `.. mdinclude` directive to assemble the individual **Markdown** shards, shown in the [**reStructuredText** chapter template](../templates/chapter.rst).
+    The "assembly" **reStructuredText** file is then named `chapter.rst`, and uses the `.. mdinclude` directive to assemble the individual **Markdown** shards, shown in the [**reStructuredText** chapter template](../util/templates/chapter.rst).
     The **Markdown** shards, in turn, will each begin with level-2 headers, and include only their section of the content.
-    This is demonstrated in the [**Markdown** shard template](../templates/chapter_shard.rst)
+    This is demonstrated in the [**Markdown** shard template](../util/templates/chapter_shard.rst)
 
 #### Folder Structure
 
