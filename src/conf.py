@@ -32,27 +32,6 @@ release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 
-# Add any Sphinx extension module names here, as strings. They can be
-# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
-extensions = [
-    "sphinx.ext.autodoc",
-    "sphinx.ext.graphviz",
-    "sphinx.ext.linkcode",
-    "sphinx.ext.todo",
-    "sphinx_rtd_theme",
-    "myst_parser"
-    # "sphinx_mdinclude"
-]
-
-myst_enable_extensions = [
-    "amsmath",
-    "dollarmath"
-]
-myst_heading_anchors=4
-
-autodoc_mock_imports = ["config"]
-
 source_parsers = {
     'graphviz': 'sphinx.ext.graphviz',
     'markdown': 'myst_parser.sphinx_'
@@ -65,17 +44,36 @@ source_suffix = {
     # '.dot' : 'graphviz'
 }
 
-suppress_warnings = ["myst.header"]
-
-# Add any paths that contain templates here, relative to this directory.
-# templates_path = ['_templates']
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
     "util/templates/*",
 ]
+
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.graphviz",
+    "sphinx.ext.linkcode",
+    "sphinx.ext.todo",
+    "sphinx_rtd_theme",
+    "myst_parser"
+]
+
+suppress_warnings = ["myst.header"]
+
+myst_heading_anchors=4
+myst_enable_extensions = [
+    "amsmath",
+    "dollarmath"
+]
+
+autodoc_mock_imports = ["config"]
+
+todo_include_todos = True
+
+# Add any paths that contain templates here, relative to this directory.
+# templates_path = ['_templates']
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -99,5 +97,3 @@ def linkcode_resolve(domain, info):
         return None
     filename = info['module'].replace('.', '/')
     return f"https://github.com/opengamedata/opengamedata-core/tree/master/{filename}.py"
-
-todo_include_todos = True
