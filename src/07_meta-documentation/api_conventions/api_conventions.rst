@@ -1,0 +1,2 @@
+OpenGameData API Conventions
+================================
