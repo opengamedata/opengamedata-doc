@@ -17,7 +17,7 @@ I need to...
 
 You should read the following portions of the documentation in order to retrieve a dataset:
 
-1. Start by [installing OpenGameData](src/01_core_basics/installation/installation.rst).  
+1. Start by {doc}`installing OpenGameData <src/01_core_basics/installation/installation.rst>`.  
     * When choosing between a "Package" and "Local Source" install, you should choose the ["Package" option](src/01_core_basics/installation/installation.rst#installation-as-package)
         * autolink for the link above: <project:../01_core_basics/installation/installation.rst#installation-as-package>
 2. If the game whose data you want to retrieve has not previously been added to OpenGameData, you should instead begin with Step 2 of [integrating a new game](#integrate-a-new-game-with-opengamedata).
@@ -50,16 +50,3 @@ You should read the following portions of the documentation in order to integrat
 ### Special Case: I am a Data Team Intern at Field Day Lab
 
 <font style="color:tomato">STUB: This section is on the to-do list.</font>
-
-```{code-block} python
----
-lineno-start: 10
-emphasize-lines: 1, 3
-caption: |
-    This is my
-    multi-line caption. It is *pretty nifty* ;-)
----
-a = 2
-print('my 1st line')
-print(f'my {a}nd line')
-```
