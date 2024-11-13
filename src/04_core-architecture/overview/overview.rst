@@ -4,23 +4,23 @@ Architecture Chapter 1: Overview
 This chapter covers a high-level architectural view of the OpenGameData infrastructure, including the various tools provided by the OpenGameData comunity.
 Additionally, it covers the 
 
-.. include:: overview/storage.md
+.. include:: ./storage.md
    :parser: myst_parser.sphinx_
 
-.. include:: overview/processing.md
+.. include:: ./processing.md
    :parser: myst_parser.sphinx_
 
 Data processing is outlined by the graph below.
 
-.. graphviz:: overview/architecture.dot
+.. graphviz:: ./architecture.dot
 
-.. include:: overview/automation.md
+.. include:: ./automation.md
    :parser: myst_parser.sphinx_
 
-.. include:: overview/apis.md
+.. include:: ./apis.md
    :parser: myst_parser.sphinx_
 
-.. include:: overview/dashboards.md
+.. include:: ./dashboards.md
    :parser: myst_parser.sphinx_
 
 .. include:: ./game_schemas.md

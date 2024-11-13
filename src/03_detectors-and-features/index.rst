@@ -5,6 +5,6 @@ Unit 3: Feature Engineering
    :maxdepth: 1
    :caption: Feature Engineering
 
-   ./Adding_a_Game.md
+   ./add_new_game.md
    ./Adding_a_Feature.md
    ./Adding_a_Realtime_Model.md
