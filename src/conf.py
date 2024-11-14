@@ -35,8 +35,8 @@ release = '1.0'
 source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
-    '.md'  : 'markdown',
-    '.dot' : 'graphviz'
+    '.md'  : 'markdown'
+    # '.dot' : 'graphviz'
 }
 
 exclude_patterns = [
