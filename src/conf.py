@@ -43,6 +43,8 @@ exclude_patterns = [
     "util/templates/*",
 ]
 
+nitpicky = True
+
 html_css_files = [
     "../assets/style/css/ogd-rtd-theme.css"
 ]
