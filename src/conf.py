@@ -79,10 +79,6 @@ templates_path = ['_templates']
 #
 html_theme = 'sphinx_rtd_theme'
 html_logo = '../assets/extern/images/logos/ogd/OGD-64.png'
-html_css_files = [
-    "ogd-rtd-theme.css"
-]
-# html_style = "../assets/style/css/ogd-rtd-theme.css"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
