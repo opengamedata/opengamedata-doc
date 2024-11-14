@@ -46,7 +46,7 @@ exclude_patterns = [
 nitpicky = True
 
 html_css_files = [
-    "../assets/style/css/ogd-rtd-theme.css"
+    "ogd-rtd-theme.css"
 ]
 # html_style = "../assets/style/css/ogd-rtd-theme.css"
 
