@@ -83,7 +83,7 @@ todo_include_todos = True
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_logo = '../assets/extern/images/logos/ogd/OGD-128.png'
+html_logo = '../assets/extern/images/logos/ogd/OGD-64.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
