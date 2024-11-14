@@ -45,11 +45,6 @@ exclude_patterns = [
 
 nitpicky = True
 
-html_css_files = [
-    "ogd-rtd-theme.css"
-]
-# html_style = "../assets/style/css/ogd-rtd-theme.css"
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
@@ -84,11 +79,15 @@ todo_include_todos = True
 #
 html_theme = 'sphinx_rtd_theme'
 html_logo = '../assets/extern/images/logos/ogd/OGD-64.png'
+html_css_files = [
+    "ogd-rtd-theme.css"
+]
+# html_style = "../assets/style/css/ogd-rtd-theme.css"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ['_static']
 
 # -- Options for Extensions --------------------------------------------------
 
