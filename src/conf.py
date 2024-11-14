@@ -32,11 +32,6 @@ release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 
-source_parsers = {
-    'graphviz': 'sphinx.ext.graphviz',
-    'markdown': 'myst_parser.sphinx_'
-}
-
 source_suffix = {
     '.rst' : 'restructuredtext',
     '.txt' : 'restructuredtext',
